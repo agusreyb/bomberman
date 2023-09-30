@@ -12,11 +12,11 @@ Sabbatini Tatiana
 
 ## Capturas
 
-(agregar)
+Nothing yet
 
 ## Reglas de Juego / Instrucciones
 
-(Escribirlas)
+Nothing yet
 
 
 ## Otros

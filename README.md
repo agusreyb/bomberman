@@ -22,5 +22,5 @@ Nothing yet
 ## Otros
 
 - Algoritmos I - UNSAM
-- Versión de wollok
+- 3.0.0
 - Una vez terminado, queremos manternerlo privado

@@ -16,7 +16,7 @@ Nothing yet
 
 ## Reglas de Juego / Instrucciones
 
-Nothing yetss
+Nothing yet
 
 
 ## Otros

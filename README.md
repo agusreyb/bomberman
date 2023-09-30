@@ -1,11 +1,14 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/a9iMdRt8)
-# Nombre del juego (<- borrar y completar)
+BomberMan
 
 ## Equipo de desarrollo
 
-- Alguien
-- Persona
-- etc.
+Decuzzi Emiliano Ariel 
+Ferretti Emiliano 
+Fucceneco Valentin 
+Prieto Sebastian Isidro 
+Rey Brienza Agustina 
+Sabbatini Tatiana 
 
 ## Capturas
 
@@ -18,6 +21,6 @@
 
 ## Otros
 
-- Curso/Facultad
+- Algoritmos I - UNSAM
 - Versión de wollok
-- Una vez terminado, no tenemos problemas en que el repositorio sea público / queremos manternerlo privado
+- Una vez terminado, queremos manternerlo privado

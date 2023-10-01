@@ -1,8 +1,33 @@
 import wollok.game.*
-import pepita.*
+import bomberman.*
+import enemigos.*
 
-program juego {
-	game.title("Juego Base")
-	game.addVisual(pepita)
+program bomberman {
+	//  CONFIG	
+	game.title("bomberman")
+	game.height(10)
+	game.width(10)
+	game.ground("ground.png")
+
+	//  VISUALES
+ 	game.addVisualCharacter(bomberman)
+ 	game.onCollideDo(bomberman, {algo=>algo.teComioBomber()})//si choca con algo pierde
+	enemigo.generarEnemigos()
+	Poder.generarPoderes()
+
+ 	
+ 	//CONFIG
+ //	keyboard.m().onPressDo({ bomberman.sembrarMaiz() })
+
+	
+	//dialogos 	
+	game.say(bomberman, bomberman.howAreYou())
+	
+	//sounds
+	const intro = game.sound("stageintro.wav")
+	intro.shouldLoop(true)
+	game.schedule(500, { intro.play()} )
+ 	
+ 	//  COMIENZA
 	game.start()
 }

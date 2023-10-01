@@ -1,20 +1,21 @@
 import wollok.game.*
 import bomberman.*
 import enemigos.*
+import main.*
+import niveles.*
 
 program bomberman {
 	//  CONFIG	
-	game.title("bomberman")
-	game.height(10)
-	game.width(10)
-	game.ground("ground.png")
+	//game.title("bomberman")
+	//game.height(10)
+	//game.width(10)
+	//game.ground("ground.png")
 
 	//  VISUALES
  	game.addVisualCharacter(bomberman)
  	game.onCollideDo(bomberman, {algo=>algo.teComioBomber()})//si choca con algo pierde
-	enemigo.generarEnemigos()
-	Poder.generarPoderes()
-
+//	enemigo.generarEnemigos()
+//	Poder.generarPoderes()
  	
  	//CONFIG
  //	keyboard.m().onPressDo({ bomberman.sembrarMaiz() })
@@ -28,6 +29,8 @@ program bomberman {
 	intro.shouldLoop(true)
 	game.schedule(500, { intro.play()} )
  	
+ 	
+	main.iniciarPantallaCarga() 	
  	//  COMIENZA
 	game.start()
 }

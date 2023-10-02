@@ -2,7 +2,7 @@ import wollok.game.*
 
 object bomberman {
 	var property position = new Position(x = 3, y = 3)
-	const property image = "player.png"
+	const property image = "bomber_frente.png"
 	var property puntos = 0
 	var property vida = 3
 	

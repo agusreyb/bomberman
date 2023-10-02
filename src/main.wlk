@@ -3,6 +3,9 @@ import niveles.*
 
 object main {
 	
+	var property nivelActual = 0
+	var property niveles = []
+	
 method iniciarPantallaCarga() {
 		self.configuracionInicial()
 		//game.addVisual(fondo)
@@ -24,8 +27,8 @@ method jugarOSalir() {
 	
 	method configuracionInicial() {
 		game.title("BomberMan 2023")
-		game.height(12)
-		game.width(22)
+		game.height(15)
+		game.width(20)
 		game.cellSize(50)
 		game.boardGround("fondo.jpg")
 	}		

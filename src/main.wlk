@@ -1,6 +1,7 @@
 import wollok.game.*
 import niveles.*
 import objects.*
+import bomberman.*
 
 object main {
 	
@@ -41,6 +42,13 @@ method jugarOSalir() {
 		game.width(20)
 		game.cellSize(50)
 		game.boardGround("fondo.jpg")
+		
+		//CONFIGURACION KEYS//
+		keyboard.left().onPressDo({bomberman.imageLeft()})
+        keyboard.right().onPressDo({bomberman.imageRight()})
+        keyboard.up().onPressDo({bomberman.imageUp()})
+        keyboard.down().onPressDo({bomberman.imageDown()})
+        keyboard.space().onPressDo({bomberman.ponerBomba()})
 	}		
 
 	method iniciar() {

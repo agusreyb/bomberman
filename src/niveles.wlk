@@ -3,6 +3,7 @@ import main.*
 import objects.*
 import bomberman.*
 
+
 class Nivel {
 	
 	var property cantidadEnemigos = 0

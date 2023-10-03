@@ -15,12 +15,9 @@ program bomberman {
  	game.addVisualCharacter(bomberman)
  	
  	//CONFIG
-    //keyboard.space().onPressDo({bomberman.ponerBomba()})
+   
  
-    keyboard.left().onPressDo({bomberman.imageLeft()})
-    keyboard.right().onPressDo({bomberman.imageRight()})
-    keyboard.up().onPressDo({bomberman.imageUp()})
-    keyboard.down().onPressDo({bomberman.imageDown()})
+  
 
 	
 	//dialogos 	

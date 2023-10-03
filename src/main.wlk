@@ -2,6 +2,7 @@ import wollok.game.*
 import niveles.*
 import objects.*
 import bomberman.*
+import objects.*
 
 object main {
 	
@@ -48,7 +49,7 @@ method jugarOSalir() {
         keyboard.right().onPressDo({bomberman.imageRight()})
         keyboard.up().onPressDo({bomberman.imageUp()})
         keyboard.down().onPressDo({bomberman.imageDown()})
-        keyboard.space().onPressDo({bomberman.ponerBomba()})
+        keyboard.space().onPressDo({bomba.ponerBomba()})
 	}		
 
 	method iniciar() {

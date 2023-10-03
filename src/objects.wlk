@@ -1,5 +1,6 @@
 import wollok.game.*
 import niveles.*
+import bomberman.*
 
 class Plataforma {
 	var property position
@@ -66,6 +67,29 @@ object fondo {
 	const property position = game.at(0,0)
 	const property image = "fondo2.jpg" 
 }
+
+object bomba {
+
+	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
+	var property image = "bomber_frente.png" //CAMBIAR IMAGEN
+
+	method position()= game.at(self.posicionBomber(),self.posicionBomber())
+
+	method posicionBomber() = bomberman.position().x()
+
+	method ponerBomba(){
+		game.addVisualIn(self, self.position())
+		game.schedule(duration, {game.removeVisual(self)}) 
+
+	}
+
+}
+
+
+
+
+
+
 
 object consola {
 	const property position = game.at(15,-1)

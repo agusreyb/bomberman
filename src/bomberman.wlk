@@ -13,16 +13,16 @@ object bomberman {
 		}
 	
 	method imageLeft() { 
-		image = "pepita-izq.png" } //bomber_left.png
+		image = "bomberLeft.png" } //bomber_left.png
 	
 	method imageRight() {
-		image = "player.png" }	 //bomber_right.png
+		image = "bomberRight.png" }	 //bomber_right.png
 		
 	method imageUp() {
-		image = "silvestre.png" }  //bomber_up.png
+		image = "bomberUp.png" }  //bomber_up.png
 		
 	method imageDown() {
-		image = "bomber_frente.png" } //bomber_down.png
+		image = "bomberDown.png" } //bomber_down.png
 	
 	
 	} //FIN BOMBER
@@ -55,20 +55,3 @@ class Poder{
 	method position()=position
 	
 }	
-
-object bomba {
-	
-	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
-	var property image = "bomber_frente.png" //CAMBIAR IMAGEN
-	
-	method position()= game.at(self.posicionBomber(),self.posicionBomber())
-	
-	method posicionBomber() = bomberman.position().x()
-	
-	method ponerBomba(){
-		game.addVisualIn(self, self.position())
-		game.onTick(duration,"tiempoBomba",{game.removeVisual(self)})
-		
-	}
-	
-}

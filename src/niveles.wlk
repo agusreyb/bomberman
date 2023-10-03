@@ -1,6 +1,7 @@
 import wollok.game.*
 import main.*
 import objects.*
+import bomberman.*
 
 class Nivel {
 	
@@ -8,22 +9,28 @@ class Nivel {
 	
 	method iniciarNivel() {
 		self.cargarMapa()
+		self.iniciarPersonaje()
 	}
+	
+	method iniciarPersonaje() {
+		game.addVisualCharacter(bomberman)
+	} 
+	
 	
 	method cargarMapa(){
 		self.plataformas().forEach({par => self.iniciarPlataforma(par)})
 	
 		self.pinches().forEach({par => self.iniciarPinches(par)})
 		
-		self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
+		//self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
 		
-		self.enemigosQueCaminan().forEach({par => self.iniciarCaminante(par)})
+		//self.enemigosQueCaminan().forEach({par => self.iniciarCaminante(par)})
 	}
 	
 	method plataformas()
 	method pinches()
-	method enemigosQueCorren()
-	method enemigosQueCaminan()	
+	//method enemigosQueCorren()
+	//method enemigosQueCaminan()	
 	
 	method iniciarPuerta(x, y) {
 		const puerta = new Puerta(image= "puertaCerrada.png",position = game.at(x, y))
@@ -31,26 +38,26 @@ class Nivel {
 	}
 	
 	method iniciarPlataforma(par) {
-		game.addVisual(new Platforma(position = game.at(par.get(0), par.get(1))))
+		game.addVisual(new Plataforma(position = game.at(par.get(0), par.get(1))))
 	}
 	
 	method iniciarPinches(par) {
 		game.addVisual(new Pinches(position = game.at(par.get(0), par.get(1))))
 	}
 	
-	method iniciarEnemigo(list){
-		const enemigo = new enemigosQueCorren(position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
-		cantidadEnemigos++
-		game.addVisual(enemigo)
-		enemigo.iniciar()
-		}
+//	method iniciarEnemigo(list){
+	//	const enemigo = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
+	//	cantidadEnemigos++
+	//	game.addVisual(enemigo)
+	//	enemigo.iniciar()
+	//	}
 	
-	method iniciarCaminante(list){
-		const enemigoQueCamina = new EnemigoQueCamina(image=list.get(3) ,position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
-		cantidadEnemigos++
-		game.addVisual(enemigoQueCamina)
-		enemigoQueCamina.iniciar()
-	}
+//	method iniciarCaminante(list){
+//		const enemigoQueCamina = new EnemigosQueCaminan(image=list.get(3) ,position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
+//		cantidadEnemigos++
+//		game.addVisual(enemigoQueCamina)
+//		enemigoQueCamina.iniciar()
+//	}
 		
 }
 
@@ -64,13 +71,13 @@ class NivelUno inherits Nivel{
 		return [[5,2],[6,2],[7,2]]
 	}
 	
-	override method enemigosQueCorren() {
-		return [[21,4,left],[3,9,right]]
-	}
+	//override method enemigosQueCorren() {
+		//return [[21,4,left],[3,9,right]]
+	//}
 	
-	override method enemigosQueCaminan() {
-		return [[20,2,left,"enemigoCaminaLeft.png"]]
-	}
+	//override method enemigosQueCaminan() {
+	//	return [[20,2,left,"enemigoCaminaLeft.png"]]
+	//}
 
 	override method iniciarNivel(){		
 		self.iniciarPuerta(0, 9)

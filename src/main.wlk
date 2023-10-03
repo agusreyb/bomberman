@@ -9,7 +9,6 @@ object main {
 	
 method iniciarPantallaCarga() {
 		self.configuracionInicial()
-		//game.addVisual(fondo)
 		self.jugarOSalir()
 	}	
 method jugarOSalir() {
@@ -28,11 +27,11 @@ method jugarOSalir() {
 	
 	method cargarNiveles() {	
 		const nivelUno = new NivelUno()
-		const nivelDos = new NivelDos()
-		const nivelTres = new NivelTres()
-		const nivelCuatro = new NivelCuatro()
+		//const nivelDos = new NivelDos()
+		//const nivelTres = new NivelTres()
+		//const nivelCuatro = new NivelCuatro()
 		
-		return [nivelUno, nivelDos, nivelTres, nivelCuatro]
+		return [nivelUno]
 	}		
 	
 	method configuracionInicial() {
@@ -67,6 +66,13 @@ method jugarOSalir() {
 		game.clear()
 		self.configuracionInicial()
 		self.jugarOSalir()
+	}
+	
+		method pasoDeNivel() {
+		//sonido.stopMusica()
+		game.clear()
+		nivelActual++
+		self.iniciar()
 	}
 		
 }	

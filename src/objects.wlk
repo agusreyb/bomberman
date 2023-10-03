@@ -13,6 +13,18 @@ class Plataforma {
 	
 }
 
+class Puerta {
+	var property position
+	var property image = "puerta.png"
+	
+	method esPeligroso() = false
+	
+	method atravesable() = true
+	
+
+	
+}
+
 class Pinches {
 	var property position
 	var property image = "pinche.png"
@@ -49,3 +61,4 @@ class EnemigosQueCaminan inherits Enemigo {
 	
 	
 }
+

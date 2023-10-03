@@ -19,7 +19,7 @@ method jugarOSalir() {
 			//niveles = manager.cargarNiveles()
 			//self.iniciar()
 		}  )
-		keyboard.space().onPressDo( {
+		keyboard.p().onPressDo( {
 			game.clear()
 			game.stop()
 		}  )
@@ -46,4 +46,4 @@ method jugarOSalir() {
 	}
 		
 	
-}
+

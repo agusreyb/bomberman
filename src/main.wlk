@@ -9,6 +9,7 @@ object main {
 	
 method iniciarPantallaCarga() {
 		self.configuracionInicial()
+		game.addVisual(fondo)
 		self.jugarOSalir()
 	}	
 method jugarOSalir() {
@@ -43,9 +44,9 @@ method jugarOSalir() {
 	}		
 
 	method iniciar() {
-		//sonido.reproducirMusica("musicaJuego.mp3", 0.03)
+		sonido.reproducirMusica("musicaJuego.mp3", 0.03)// NO ANDA CON WAV nose porq
 		self.configuracionInicial()
-		//game.addVisual(consola)
+		game.addVisual(consola)
 		if(!self.validarNivel()) {
 			self.nivel().iniciarNivel()
 		} else {

@@ -13,9 +13,6 @@ program bomberman {
 
 	//  VISUALES
  	game.addVisualCharacter(bomberman)
- 	game.onCollideDo(bomberman, {algo=>algo.teComioBomber()})//si choca con algo pierde
-//	enemigo.generarEnemigos()
-//	Poder.generarPoderes()
  	
  	//CONFIG
     //keyboard.space().onPressDo({bomberman.ponerBomba()})
@@ -29,10 +26,6 @@ program bomberman {
 	//dialogos 	
 	game.say(bomberman, bomberman.howAreYou())
 	
-	//sounds
-	const intro = game.sound("stageintro.wav")
-	intro.shouldLoop(true)
-	game.schedule(500, { intro.play()} )
  	
  	
 	main.iniciarPantallaCarga() 	

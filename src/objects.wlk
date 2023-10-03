@@ -62,3 +62,32 @@ class EnemigosQueCaminan inherits Enemigo {
 	
 }
 
+object fondo {
+	const property position = game.at(0,0)
+	const property image = "fondo2.jpg" 
+}
+
+object consola {
+	const property position = game.at(15,-1)
+}
+
+object sonido{
+	var audio
+    var musica
+    
+    method reproducirSonido(sonido, volumen) {
+        audio = game.sound(sonido)
+		self.reproducir(volumen, audio)
+    }	
+    method reproducir(volumen, type){
+    	type.volume(volumen)
+        type.play()
+    }   
+     
+    method reproducirMusica(sonido, volumen) {
+        musica = game.sound(sonido)
+		self.reproducir(volumen, musica)
+    }
+        
+}
+

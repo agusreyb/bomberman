@@ -1,5 +1,6 @@
 import wollok.game.*
 import niveles.*
+import objects.*
 
 object main {
 	
@@ -12,18 +13,27 @@ method iniciarPantallaCarga() {
 		self.jugarOSalir()
 	}	
 method jugarOSalir() {
-		keyboard.enter().onPressDo( {
+			keyboard.enter().onPressDo( {
 			game.clear()
 			self.configuracionInicial()
-			//nivelActual = 0
-			//niveles = manager.cargarNiveles()
-			//self.iniciar()
+			nivelActual = 0
+			niveles = self.cargarNiveles()
+			self.iniciar()
 		}  )
 		keyboard.p().onPressDo( {
 			game.clear()
 			game.stop()
 		}  )
-	}	
+	}
+	
+	method cargarNiveles() {	
+		const nivelUno = new NivelUno()
+		const nivelDos = new NivelDos()
+		const nivelTres = new NivelTres()
+		const nivelCuatro = new NivelCuatro()
+		
+		return [nivelUno, nivelDos, nivelTres, nivelCuatro]
+	}		
 	
 	method configuracionInicial() {
 		game.title("BomberMan 2023")
@@ -35,15 +45,29 @@ method jugarOSalir() {
 
 	method iniciar() {
 		//sonido.reproducirMusica("musicaJuego.mp3", 0.03)
-		//manager.configuracionInicial()
-		//manager.teclas();
+		self.configuracionInicial()
 		//game.addVisual(consola)
-		//if(!self.validarNivel()) {
-		//	self.nivel().iniciarNivel()
-		//} else {
-		//	self.terminarJuego(finDelJuegoGanador)
+		if(!self.validarNivel()) {
+			self.nivel().iniciarNivel()
+		} else {
+			self.terminarJuego()
 		}
 	}
-		
 	
+	method nivel(){
+		return niveles.get(nivelActual)
+	}
+	
+	method validarNivel() {
+		return nivelActual == niveles.size()
+	}	
+	
+	method terminarJuego(){
+		//sonido.stopMusica()
+		game.clear()
+		self.configuracionInicial()
+		self.jugarOSalir()
+	}
+		
+}	
 

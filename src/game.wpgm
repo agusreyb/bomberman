@@ -19,6 +19,11 @@ program bomberman {
  	
  	//CONFIG
  //	keyboard.m().onPressDo({ bomberman.ponerbomba() })
+ 
+    keyboard.left().onPressDo({bomberman.imageLeft()})
+    keyboard.right().onPressDo({bomberman.imageRight()})
+    keyboard.up().onPressDo({bomberman.imageUp()})
+    keyboard.down().onPressDo({bomberman.imageDown()})
 
 	
 	//dialogos 	

@@ -2,17 +2,30 @@ import wollok.game.*
 
 object bomberman {
 	var property position = new Position(x = 3, y = 3)
-	const property image = "bomber_frente.png"
+	var property image = "bomber_frente.png"
 	var property puntos = 0
 	var property vida = 3
 	
 	method howAreYou() = "Lets start!"
 	
 	method teComioBomber(){
-		//perder
-	}
+		//perder 
+		}
 	
-	}
+	method imageLeft() { 
+		image = "pepita-izq.png" } //bomber_left.png
+	
+	method imageRight() {
+		image = "player.png" }	 //bomber_right.png
+		
+	method imageUp() {
+		image = "silvestre.png" }  //bomber_up.png
+		
+	method imageDown() {
+		image = "bomber_frente.png" } //bomber_down.png
+	
+	
+	} //FIN BOMBER
 	
 class Poder{
 	var image

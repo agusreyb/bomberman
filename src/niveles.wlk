@@ -34,7 +34,7 @@ class Nivel {
 	//method enemigosQueCaminan()	
 	
 	method iniciarPuerta(x, y) {
-		const puerta = new Puerta(image= "puertaCerrada.png",position = game.at(x, y))
+		const puerta = new Puerta(image= "doorOpen.png",position = game.at(x, y))
 		game.addVisual(puerta)
 	}
 	

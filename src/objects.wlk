@@ -71,11 +71,11 @@ object fondo {
 object bomba {
 
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
-	var property image = "bomber_frente.png" //CAMBIAR IMAGEN
+	var property image = "fire.png" //CAMBIAR IMAGEN
 
-	method position()= game.at(self.posicionBomber(),self.posicionBomber())
+	method position()= game.at(bomberman.position().x(),bomberman.position().y())
 
-	method posicionBomber() = bomberman.position().x()
+//	method posicionBomber() = bomberman.position().x().y()
 
 	method ponerBomba(){
 		game.addVisualIn(self, self.position())

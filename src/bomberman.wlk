@@ -30,7 +30,7 @@ object bomberman {
 	method ponerBomba(){
 		const bomba = new Bomba(position = position)
 		game.addVisual(bomba)
-		game.schedule(durationBomba, {game.removeVisual(image)}) // NO FUNCIONA //
+		game.schedule(durationBomba, {=> game.removeVisual(bomba)}) // FUNCIONA !! :O //
 	}
 	
 	} //FIN BOMBER

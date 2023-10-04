@@ -1,10 +1,13 @@
 import wollok.game.*
+import objects.*
 
 object bomberman {
 	var property position = new Position(x = 3, y = 3)
 	var property image = "bomberDown.png"
 	var property puntos = 0
 	var property vida = 3
+	var property duration = 2000
+
 	
 	method howAreYou() = "Lets start!"
 	
@@ -24,6 +27,11 @@ object bomberman {
 	method imageDown() {
 		image = "bomberDown.png" } //bomber_down.png
 	
+	method ponerBomba(){
+		const bomba = new Bomba(position = position)
+		game.addVisual(bomba)
+		game.schedule(duration, {=> game.removeVisual(bomba.image())}) // NO FUNCIONA //
+	}
 	
 	} //FIN BOMBER
 	

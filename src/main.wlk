@@ -49,7 +49,7 @@ method jugarOSalir() {
         keyboard.right().onPressDo({bomberman.imageRight()})
         keyboard.up().onPressDo({bomberman.imageUp()})
         keyboard.down().onPressDo({bomberman.imageDown()})
-        keyboard.space().onPressDo({bomba.ponerBomba()})
+        keyboard.space().onPressDo({bomberman.ponerBomba()})
 	}		
 
 	method iniciar() {

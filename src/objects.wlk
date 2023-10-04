@@ -73,9 +73,6 @@ class Bomba {
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
 	var property image = "bomb.png" //CAMBIAR IMAGEN
 
-	method image(){
-		return "bomb.png"
-	}
 //method position()= game.at(bomberman.position().x(),bomberman.position().y())
 
 //	method posicionBomber() = bomberman.position().x().y()

@@ -42,7 +42,7 @@ method jugarOSalir() {
 		game.height(15)
 		game.width(20)
 		game.cellSize(50)
-		game.boardGround("fondo.jpg")
+		game.boardGround("fondo3.jpg")
 		
 		//CONFIGURACION KEYS//
 		keyboard.left().onPressDo({bomberman.imageLeft()})

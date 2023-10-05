@@ -5,26 +5,11 @@ import main.*
 import niveles.*
 
 program bomberman {
-	//  CONFIG	
-	//game.title("bomberman")
-	//game.height(10)
-	//game.width(10)
-	//game.ground("ground.png")
 
 	//  VISUALES
  	game.addVisualCharacter(bomberman)
- 	
- 	//CONFIG
-   
- 
-  
-
-	
 	//dialogos 	
 	game.say(bomberman, bomberman.howAreYou())
-	
- 	
- 	
 	main.iniciarPantallaCarga() 	
  	//  COMIENZA
 	game.start()

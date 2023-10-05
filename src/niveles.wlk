@@ -2,10 +2,12 @@ import wollok.game.*
 import main.*
 import objects.*
 import bomberman.*
-
+import pared.*
+import puerta.*
+import bomba.*
+import enemigos.*
 
 class Nivel {
-	
 	var property cantidadEnemigos = 0
 	
 	method iniciarNivel() {
@@ -19,8 +21,7 @@ class Nivel {
 	
 	
 	method cargarMapa(){
-		self.plataformas().forEach({par => self.iniciarPlataforma(par)})
-	
+		self.paredes().forEach({par => self.iniciarPared(par)})
 		self.pinches().forEach({par => self.iniciarPinches(par)})
 		
 		//self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
@@ -28,20 +29,17 @@ class Nivel {
 		//self.enemigosQueCaminan().forEach({par => self.iniciarCaminante(par)})
 	}
 	
-	method plataformas()
+	method paredes()
 	method pinches()
 	//method enemigosQueCorren()
 	//method enemigosQueCaminan()	
-	
 	method iniciarPuerta(x, y) {
 		const puerta = new Puerta(image= "doorOpen.png",position = game.at(x, y))
 		game.addVisual(puerta)
 	}
-	
-	method iniciarPlataforma(par) {
-		game.addVisual(new Plataforma(position = game.at(par.get(0), par.get(1))))
+	method iniciarPared(par) {
+		game.addVisual(new Pared(position = game.at(par.get(0), par.get(1))))
 	}
-	
 	method iniciarPinches(par) {
 		game.addVisual(new Pinches(position = game.at(par.get(0), par.get(1))))
 	}
@@ -64,11 +62,11 @@ class Nivel {
 
 class NivelUno inherits Nivel{
 	
-	override method plataformas(){
+	override method paredes(){//estas son paredes
 		return  [[3,2],[4,3],[4,2],[12,3],[6,3],[8,3],[10,3],[12,2],[14,3]]
 	}
 	
-	override method pinches(){
+	override method pinches(){//habria q ver si usamos pinches u algo asi
 		return [[5,2],[6,2],[7,2]]
 	}
 	

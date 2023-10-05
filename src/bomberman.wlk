@@ -1,5 +1,6 @@
 import wollok.game.*
 import objects.*
+import bomba.*
 
 object bomberman {
 	var property position = new Position(x = 3, y = 3)
@@ -8,25 +9,15 @@ object bomberman {
 	var property vida = 3
 	var property durationBomba = 2000
 
-	
 	method howAreYou() = "Lets start!"
-	
-	method teComioBomber(){
-		//perder 
-		}
-	
 	method imageLeft() { 
 		image = "bomberLeft.png" } //bomber_left.png
-	
 	method imageRight() {
 		image = "bomberRight.png" }	 //bomber_right.png
-		
 	method imageUp() {
 		image = "bomberUp.png" }  //bomber_up.png
-		
 	method imageDown() {
 		image = "bomberDown.png" } //bomber_down.png
-	
 	method ponerBomba(){
 		const bomba = new Bomba(position = position)
 		game.addVisual(bomba)
@@ -45,12 +36,6 @@ class Poder{
 		0.randomUpTo(game.width()), 
 		0.randomUpTo(game.height()),
 	)
-	
-	method generarPoderes(){
-		game.schedule(30000, "Poweeer", {new poder().generarPoder()})
-	}
-	
-
 	
 	method generarPoder(){
 		const pos=self.posicionAleatoria()

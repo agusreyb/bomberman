@@ -28,17 +28,19 @@ object main {
 	
 		method configuracionInicial() {
 			game.title("BomberMan 2023")
-			game.height(15)
-			game.width(20)
+			game.height(12)
+			game.width(22)
 			game.cellSize(50)
-			game.boardGround("fondo3.jpg")
+			game.boardGround("fondoinicial.jpg")//aca un fondo inicial deberia ir 
+			}	
+		method configurarTeclas(){
 			//CONFIGURACION KEYS//
 			keyboard.left().onPressDo({bomberman.imageLeft()})
 	        keyboard.right().onPressDo({bomberman.imageRight()})
-	        keyboard.up().onPressDo({bomberman.imageUp()})
+	        keyboard.up().onPressDo({bomberman.imageUp()})           // esto no se si va aca; hice un metodo teclas para que no quede tirado
 	        keyboard.down().onPressDo({bomberman.imageDown()})
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	}
+			}
 	
 	method cargarNiveles() {	
 			const nivelUno = new NivelUno()
@@ -63,6 +65,7 @@ object main {
 	method iniciar() {
 		sonido.reproducirMusica("musicaJuego.mp3", 0.03)// NO ANDA CON WAV nose porq
 		self.configuracionInicial()
+		self.configurarTeclas();
 		game.addVisual(consola)
 		if(!self.validarNivel()) {
 			self.nivel().iniciarNivel()

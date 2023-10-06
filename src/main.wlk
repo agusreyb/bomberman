@@ -31,7 +31,7 @@ object main {
 			game.height(12)
 			game.width(22)
 			game.cellSize(50)
-			game.boardGround("fondoinicial.jpg")//aca un fondo inicial deberia ir 
+			game.boardGround("ground.png")//aca un fondo inicial deberia ir 
 			}	
 		method configurarTeclas(){
 			//CONFIGURACION KEYS//

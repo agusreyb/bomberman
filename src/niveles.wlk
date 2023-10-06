@@ -22,7 +22,8 @@ class Nivel {
 	
 	method cargarMapa(){
 		self.paredes().forEach({par => self.iniciarPared(par)})
-		self.pinches().forEach({par => self.iniciarPinches(par)})
+		self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
+		//self.pinches().forEach({par => self.iniciarPinches(par)})
 		
 		//self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
 		
@@ -30,19 +31,23 @@ class Nivel {
 	}
 	
 	method paredes()
-	method pinches()
+	method ladrillos()
+	//method pinches()
 	//method enemigosQueCorren()
 	//method enemigosQueCaminan()	
 	method iniciarPuerta(x, y) {
-		const puerta = new Puerta(image= "doorOpen.png",position = game.at(x, y))
+		const puerta = new Puerta(image= "puerta.PNG",position = game.at(x, y))
 		game.addVisual(puerta)
 	}
 	method iniciarPared(par) {
 		game.addVisual(new Pared(position = game.at(par.get(0), par.get(1))))
 	}
-	method iniciarPinches(par) {
-		game.addVisual(new Pinches(position = game.at(par.get(0), par.get(1))))
+	method iniciarLadrillo(lad) {
+		game.addVisual(new Ladrillo(position = game.at(lad.get(0), lad.get(1))))
 	}
+	//method iniciarPinches(par) {
+	//	game.addVisual(new Pinches(position = game.at(par.get(0), par.get(1))))
+	//}
 	
 //	method iniciarEnemigo(list){
 	//	const enemigo = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
@@ -63,12 +68,15 @@ class Nivel {
 class NivelUno inherits Nivel{
 	
 	override method paredes(){//estas son paredes
-		return  [[3,2],[4,3],[4,2],[12,3],[6,3],[8,3],[10,3],[12,2],[14,3]]
+		return  [[0,0],[0,1],[1,0],[0,2],[2,0],[0,6],[6,0],[0,8],[8,0]]
+	}
+	override method ladrillos(){//estos son ladrillos
+		return  [[2,3]]
 	}
 	
-	override method pinches(){//habria q ver si usamos pinches u algo asi
-		return [[5,2],[6,2],[7,2]]
-	}
+	//override method pinches(){//habria q ver si usamos pinches u algo asi
+	//	return [[5,2],[6,2],[7,2]]
+	//}
 	
 	//override method enemigosQueCorren() {
 		//return [[21,4,left],[3,9,right]]
@@ -79,7 +87,7 @@ class NivelUno inherits Nivel{
 	//}
 
 	override method iniciarNivel(){		
-		self.iniciarPuerta(0, 9)
+		self.iniciarPuerta(0, 10)
 		super() 
 	}
 	

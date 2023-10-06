@@ -29,7 +29,7 @@ object bomberman {
 class Poder{
 	var image
 	const position
-	const pos = self.posicionAleatoria()
+	var property pos = self.posicionAleatoria()
 	
 	
 	method posicionAleatoria() = game.at(
@@ -38,7 +38,7 @@ class Poder{
 	)
 	
 	method generarPoder(){
-		const pos=self.posicionAleatoria()
+		pos = self.posicionAleatoria()
 		const poder = new Poder(position=pos, image = value)
 		game.addVisual(poder)
 

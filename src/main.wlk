@@ -35,7 +35,8 @@ object main {
 			}	
 		method configurarTeclas(){
 			//CONFIGURACION KEYS//
-			keyboard.left().onPressDo({bomberman.imageLeft()})
+		   keyboard.left().onPressDo({bomberman.imageLeft()})
+	       // keyboard.left().onPressDo({bomberman.moverse(bomberman.position().left(0.1) )})      
 	        keyboard.right().onPressDo({bomberman.imageRight()})
 	        keyboard.up().onPressDo({bomberman.imageUp()})           // esto no se si va aca; hice un metodo teclas para que no quede tirado
 	        keyboard.down().onPressDo({bomberman.imageDown()})

@@ -21,8 +21,12 @@ object bomberman {
 	method ponerBomba(){
 		const bomba = new Bomba(position = position)
 		game.addVisual(bomba)
-		game.schedule(durationBomba, {=> game.removeVisual(bomba)}) // FUNCIONA !! :O //
+		game.schedule(durationBomba, {=> game.removeVisual(bomba)}) } // FUNCIONA !! :O //
+	
+	method moverse(distancia){
+		position = distancia
 	}
+	
 	
 	} //FIN BOMBER
 	
@@ -45,6 +49,6 @@ class Poder{
 	}
 	
 	method image () = image
-	method position()=position
+	method position()= position
 	
 }	

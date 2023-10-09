@@ -8,6 +8,7 @@ object bomberman {
 	var property puntos = 0
 	var property vida = 3
 	var property durationBomba = 2000
+	var property durationFuego = 400
 
 	method howAreYou() = "Lets start!"
 	method imageLeft() { 
@@ -20,8 +21,15 @@ object bomberman {
 		image = "bomberDown.png" } //bomber_down.png
 	method ponerBomba(){
 		const bomba = new Bomba(position = position)
+		const fuego = new Fuego(position = position)
 		game.addVisual(bomba)
-		game.schedule(durationBomba, {=> game.removeVisual(bomba)}) } // FUNCIONA !! :O //
+		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuego)}) } // FUNCIONA !! :O //
+	method cicloBomba(bomba,fuego){
+		game.removeVisual(bomba)
+		game.addVisual(fuego)
+		game.schedule(durationFuego, {=> game.removeVisual(fuego)}) }
+		
+	}
 	
 	method moverse(distancia){
 		position = distancia

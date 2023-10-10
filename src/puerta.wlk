@@ -13,7 +13,7 @@ class Puerta {
 		self.image("puerta.png")
 		keyboard.enter().onPressDo({ main.pasoDeNivel()})
 	}	
-	
-
-	
 }
+
+const pepe = new Puerta (position = [1,2])//no preguntes
+

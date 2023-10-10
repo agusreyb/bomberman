@@ -42,7 +42,7 @@ object main {
 	        keyboard.up().onPressDo({bomberman.imageUp()})
 	        keyboard.down().onPressDo({bomberman.imageDown()})
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	       // keyboard.q().onPressDo({ puerta.abrirPuerta()})
+	       	keyboard.q().onPressDo({ pepe.abrirPuerta()})
 			}
 	
 	method cargarNiveles() {	

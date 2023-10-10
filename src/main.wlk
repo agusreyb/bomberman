@@ -2,6 +2,7 @@ import wollok.game.*
 import niveles.*
 import objects.*
 import bomberman.*
+import puerta.*
 
 object main {
 	var property nivelActual = 0
@@ -41,6 +42,7 @@ object main {
 	        keyboard.up().onPressDo({bomberman.imageUp()})
 	        keyboard.down().onPressDo({bomberman.imageDown()})
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
+	       // keyboard.q().onPressDo({ puerta.abrirPuerta()})
 			}
 	
 	method cargarNiveles() {	

@@ -2,6 +2,7 @@ import wollok.game.*
 import niveles.*
 import objects.*
 import bomberman.*
+import puerta.*
 
 object main {
 	var property nivelActual = 0
@@ -38,17 +39,18 @@ object main {
 		   keyboard.left().onPressDo({bomberman.imageLeft()})
 	       // keyboard.left().onPressDo({bomberman.moverse(bomberman.position().left(0.1) )})      
 	        keyboard.right().onPressDo({bomberman.imageRight()})
-	        keyboard.up().onPressDo({bomberman.imageUp()})           // esto no se si va aca; hice un metodo teclas para que no quede tirado
+	        keyboard.up().onPressDo({bomberman.imageUp()})
 	        keyboard.down().onPressDo({bomberman.imageDown()})
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
+	       	keyboard.q().onPressDo({ pepe.abrirPuerta()})
 			}
 	
 	method cargarNiveles() {	
 			const nivelUno = new NivelUno()
-			//const nivelDos = new NivelDos()
-			//const nivelTres = new NivelTres()
-			//const nivelCuatro = new NivelCuatro()
-			return [nivelUno]//aca habria q agregar los niveles una vez q esten completos
+			const nivelDos = new NivelDos()
+			const nivelTres = new NivelTres()
+			const nivelCuatro = new NivelCuatro()
+			return [nivelUno, nivelDos, nivelTres, nivelCuatro]
 	}		
 			
 	method nivel(){

@@ -15,7 +15,7 @@ class Pinches {
 
 object fondo {
 	const property position = game.at(0,0)
-	const property image = "fondocarga.jpg" 
+	const property image = "fondocarga.png" 
 }
 
 object consola {

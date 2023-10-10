@@ -19,6 +19,7 @@ class Bomba {
 class Fuego {
 	const property position
 	var property duration = 400 //EN MILISEGUNDOS, SERIAN 0.4s
-	var property image = "Fuego_centro_3.png" //CAMBIAR IMAGEN
+	var property image = "fire.png"
+	
 	
 }

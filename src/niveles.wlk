@@ -24,6 +24,8 @@ class Nivel {
 	method cargarMapa(){
 		self.paredes().forEach({par => self.iniciarPared(par)})
 		self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
+		self.enemigo().forEach({ene => self.iniciarEnemigo(ene)})
+		
 		//self.pinches().forEach({par => self.iniciarPinches(par)})
 		
 		//self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
@@ -33,6 +35,7 @@ class Nivel {
 	
 	method paredes()
 	method ladrillos()
+	method enemigo()
 	//method pinches()
 	//method enemigosQueCorren()
 	//method enemigosQueCaminan()	
@@ -46,6 +49,10 @@ class Nivel {
 	}
 	method iniciarLadrillo(lad) {
 		game.addVisual(new Ladrillo(position = game.at(lad.get(0), lad.get(1))))
+	}
+	
+	method iniciarEnemigo(ene) {
+		game.addVisual(new Enemigo(position = game.at(ene.get(0), ene.get(1))))
 	}
 	//method iniciarPinches(par) {
 	//	game.addVisual(new Pinches(position = game.at(par.get(0), par.get(1))))
@@ -83,6 +90,10 @@ class NivelUno inherits Nivel{
 	
 	override method ladrillos(){
 		return  [[5,5]]
+	}
+	
+	override method enemigo(){
+		return [[7,7]]
 	}
 	
 	//override method pinches(){

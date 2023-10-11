@@ -27,18 +27,22 @@ object bomberman {
 		const fuegoDown = new Fuego(position = position.down(1))
 		const fuegoLeft = new Fuego(position = position.left(1))
 		const fuegoRight = new Fuego(position = position.right(1))
+		var property fuegos=[fuegoCentro, fuegoUp, fuegoDown, fuegoLeft, fuegoRight]
+		sonido.reproducirMusica("mecha.wav", 0.25)
 		game.addVisual(bomba)
-		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuegoCentro, fuegoUp, fuegoDown, fuegoLeft, fuegoRight)}) 
+		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuegos)}) 
 	} // FUNCIONA !! :O //
 	
-	method cicloBomba(bomba,fuegoCentro, fuegoUp, fuegoDown, fuegoLeft, fuegoRight){
+	method cicloBomba(bomba,fuegos){
 		game.removeVisual(bomba)
-		game.addVisual(fuegoCentro)
-		game.addVisual(fuegoUp)
-		game.addVisual(fuegoDown)
-		game.addVisual(fuegoLeft)
-		game.addVisual(fuegoRight)
-		game.schedule(durationFuego, {=> self.removerFuego(fuegoCentro, fuegoUp, fuegoDown, fuegoLeft, fuegoRight)}) 
+		fuegos.forEach{ fueguito => game.addVisual(fueguito) }
+		//game.addVisual(fuegoCentro)
+		//game.addVisual(fuegoUp)
+		//game.addVisual(fuegoDown)
+		//game.addVisual(fuegoLeft)
+		//game.addVisual(fuegoRight)
+		sonido.reproducirMusica("explosion.wav", 0.15)
+		game.schedule(durationFuego, {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
 	}
 	
 	method removerFuego(fuegoCentro, fuegoUp, fuegoDown, fuegoLeft, fuegoRight){

@@ -29,8 +29,8 @@ object main {
 	
 		method configuracionInicial() {
 			game.title("BomberMan 2023")
-			game.height(14)
-			game.width(22)
+			game.height(15)
+			game.width(23)
 			game.cellSize(50)
 			game.boardGround("ground.png")//aca un fondo inicial deberia ir 
 			}	

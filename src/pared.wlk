@@ -1,6 +1,6 @@
 class Pared {
 	var property position
-	var property image = "bloque.png"
+	var property image = "pared.png"
 	
 	method esPeligroso() = false
 	

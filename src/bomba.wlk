@@ -1,3 +1,5 @@
+import wollok.game.*
+
 class Bomba {
 	const property position
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
@@ -20,6 +22,10 @@ class Fuego {
 	const property position
 	var property duration = 400 //EN MILISEGUNDOS, SERIAN 0.4s
 	var property image = "fire.png"
+	var property potencia
 	
+	method esColision(){
+		return (game.getObjectsIn(position).isEmpty())
+	}
 	
 }

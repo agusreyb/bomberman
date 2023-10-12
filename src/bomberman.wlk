@@ -9,6 +9,7 @@ object bomberman {
 	var property vida = 3
 	var property durationBomba = 2000
 	var property durationFuego = 400
+	var property bombapowup=2
 
 	method howAreYou() = "Lets start!"
 	method imageLeft() { 
@@ -22,12 +23,21 @@ object bomberman {
 	
 	method ponerBomba(){
 		const bomba = new Bomba(position = position)
-		const fuegoCentro = new Fuego(position = position)
-		const fuegoUp = new Fuego(position = position.up(1))
-		const fuegoDown = new Fuego(position = position.down(1))
-		const fuegoLeft = new Fuego(position = position.left(1))
-		const fuegoRight = new Fuego(position = position.right(1))
-		var property fuegos=[fuegoCentro, fuegoUp, fuegoDown, fuegoLeft, fuegoRight]
+		const fuegoCentro = new Fuego(position = position , potencia=1)
+		const fuegoUp = new Fuego(position = position.up(1) , potencia=1)
+		const fuegoDown = new Fuego(position = position.down(1) , potencia=1)
+		const fuegoLeft = new Fuego(position = position.left(1), potencia=1)
+		const fuegoRight = new Fuego(position = position.right(1), potencia=1)
+		const fuegoUp2 = new Fuego(position = position.up(2) , potencia=2)
+		const fuegoDown2 = new Fuego(position = position.down(2) , potencia=2)
+		const fuegoLeft2 = new Fuego(position = position.left(2), potencia=2)
+		const fuegoRight2 = new Fuego(position = position.right(2), potencia=2)
+		var property fuegosTotales=[fuegoUp, fuegoDown, fuegoLeft, fuegoRight, fuegoUp2, fuegoDown2, fuegoLeft2, fuegoRight2]
+		var property fuegos=[]
+		fuegos=fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
+		//fuegos=self.bloqueoFuegoPorPared(fuegos)
+		fuegos.add(fuegoCentro)
+		
 		game.addVisual(bomba)
 		sonido.reproducirMusica("mecha.wav", 0.25)
 		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuegos)}) 
@@ -40,9 +50,19 @@ object bomberman {
 		game.schedule(durationFuego, {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
 	}
 	
+	method filtrarFuego(cadafuego)=(cadafuego.potencia() <= bombapowup) and (cadafuego.esColision())
+
+    //Aca intente hacer que el fuego no traspase la pared si es que esta en powerup nivel dos (No anda?)
+	//method bloqueoFuegoPorPared(fuegos){
+		//if(not fuegos.contains("fuegoUp")){fuegos.remove("fuegoUp2")}
+		//return fuegos
+	//}
+	
 	method moverse(distancia){
 		position = distancia
 	}
+	
+	method queNivel(cadafuego)=cadafuego.potencia() < bombapowup
 	
 	
 	} //FIN BOMBER

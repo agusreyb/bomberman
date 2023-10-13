@@ -28,26 +28,29 @@ object main {
 		}  )
 	}
 	
-	method configuracionInicial() {			//metodo para setear la configuracion inicial de la pantalla
-		game.title("BomberMan 2023")
-		game.height(15)
-		game.width(23)
-		game.cellSize(50)
-		game.boardGround("ground.png")	
-	}	
-	method configurarTeclas(){				//seteo de teclas del juego aca
-		//CONFIGURACION KEYS//
-	 	keyboard.left().onPressDo({bomberman.imageLeft()})
-	    // keyboard.left().onPressDo({bomberman.moverse(bomberman.position().left(0.1) )})      
-	    keyboard.right().onPressDo({bomberman.imageRight()})
-	    keyboard.up().onPressDo({bomberman.imageUp()})
-	    keyboard.down().onPressDo({bomberman.imageDown()})
-	    keyboard.space().onPressDo({bomberman.ponerBomba()})
-	    keyboard.q().onPressDo({ pepe.abrirPuerta()})
-
-		keyboard.l().onPressDo({ bomberman.fueHit()})
-
+	method configuracionInicial() {  //metodo para setear la configuracion inicial de la pantalla
+			game.title("BomberMan 2023")
+			game.height(15)
+			game.width(23)
+			game.cellSize(50)
+			game.boardGround("ground.png")//aca un fondo inicial deberia ir 
+			
+			}	
+	method configurarTeclas(){
+			//CONFIGURACION KEYS//
+		    keyboard.left().onPressDo{(bomberman.imageLeft()) 
+		    	                       bomberman.direccion(izquierda)}
+	        keyboard.right().onPressDo{(bomberman.imageRight())
+	        	                        bomberman.direccion(derecha)}
+	        keyboard.up().onPressDo{(bomberman.imageUp())
+	                                 bomberman.direccion(arriba)}
+	        keyboard.down().onPressDo{(bomberman.imageDown())
+	        	                       bomberman.direccion(abajo)}
+	        keyboard.space().onPressDo({bomberman.ponerBomba()})
+	       	keyboard.q().onPressDo({ pepe.abrirPuerta()})
+			keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
+
 	
 	method cargarNiveles() {				//metodo para cargar los niveles
 		const nivelUno = new NivelUno()
@@ -94,4 +97,37 @@ object main {
 	
 
 }	
+
+object izquierda {
+	
+	method rebote() = derecha
+	method mover(position) = position.left(1)
+	
+}
+
+object derecha {
+	
+	method rebote() = izquierda
+	method mover(position) = position.right(1)
+}	
+
+object arriba {
+	
+	method rebote() = abajo
+	method mover(position) = position.up(1)
+}	
+
+object abajo {
+	
+	method rebote() = arriba
+	method mover(position) = position.down(1)
+}	
+	
+	
+	
+	
+	
+	
+	
+
 

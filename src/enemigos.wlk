@@ -6,7 +6,7 @@ class Enemigo {
 	var property direccion
 	
 	method esPeligroso() = true
-	method atravesable() = true
+	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
 }
 
 class EnemigosQueCorren inherits Enemigo {

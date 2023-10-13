@@ -1,10 +1,13 @@
+import bomberman.*
+
 class Pared {
 	var property position
 	var property image = "pared.png"
 	
 	method esPeligroso() = false
 	
-	method atravesable() = false
+	method colision(personaje){
+	    personaje.seChocaPared()}
 }
 
 class Ladrillo {
@@ -13,5 +16,6 @@ class Ladrillo {
 	
 	method esPeligroso() = false
 	
-	method atravesable() = false
+	method colision(personaje){
+	    personaje.seChocaPared()}
 }

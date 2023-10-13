@@ -118,6 +118,8 @@ class NivelUno inherits Nivel{
 	override method iniciarNivel(){		
 		self.iniciarPuerta(3, 10)
 		super() 
+		//COLISIONES//
+	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	
 
@@ -127,10 +129,9 @@ class NivelDos inherits Nivel{
 	
 	override method paredes(){
 		 return  [[1,2],[4,2],[7,2],[10,2],[13,2],[16,2],[19,2],[21,2],
-		 		[1,8],[4,8],[7,8],[10,8],[13,8],[16,8],[19,8],[21,8],
-		 		[1,11],[4,11],[7,11],[10,11],[13,11],[16,11],[19,11],[21,11]]
-    }
-	
+			      [1,8],[4,8],[7,8],[10,8],[13,8],[16,8],[19,8],[21,8],
+	              [1,11],[4,11],[7,11],[10,11],[13,11],[16,11],[19,11],[21,11]]}
+                	
 	
 	override method ladrillos(){//estos son ladrillos
 		return  [[0,0]]
@@ -155,9 +156,10 @@ class NivelDos inherits Nivel{
 	override method iniciarNivel(){		
 		self.iniciarPuerta(0, 10)
 		super() 
+		//COLISIONES//
+	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	
-
 }
 
 class NivelTres inherits Nivel{
@@ -190,6 +192,8 @@ class NivelTres inherits Nivel{
 	override method iniciarNivel(){		
 		self.iniciarPuerta(0, 10)
 		super() 
+		//COLISIONES//
+	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	
 
@@ -224,6 +228,8 @@ class NivelCuatro inherits Nivel{
 	override method iniciarNivel(){		
 		self.iniciarPuerta(0, 10)
 		super() 
+		//COLISIONES//
+	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	
 

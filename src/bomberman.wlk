@@ -13,8 +13,10 @@ object bomberman {
 	var property listaVidas = []
 	var property durationBomba = 2000
 	var property durationFuego = 400
-	var property bombapowup=2
-
+    var property bombapowup=2
+    var property direccion 
+	
+	
 	method howAreYou() = "Lets start!"
 	method imageLeft() { 
 		image = "bomberLeft.png" }
@@ -62,12 +64,10 @@ object bomberman {
 		//return fuegos
 	//}
 	
-	method moverse(distancia){
-		position = distancia
-	}
+
 	
 	method queNivel(cadafuego)=cadafuego.potencia() < bombapowup
-	
+
 	method fueHit() { // metodo para ver si el personaje fue atacado o no
 	game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))
 	game.schedule(100,{ game.removeVisual(menosVida) })
@@ -79,10 +79,8 @@ object bomberman {
 			main.terminarJuego(finDelJuego)
 		})
 	} else {
-		self.removerVida()
-}
+		self.removerVida()}
 	
-
 }
 
 	method removerVida(){								//metodo para remover la vida
@@ -96,10 +94,26 @@ object bomberman {
 		game.addVisual(newVida)
 	}	
 	
-	
+	method seChocaPared(){
+		movimientos.volver(self, direccion)
+	}
 	
 } //FIN BOMBER
+
+object movimientos{
 	
+	 method volver(personaje, sentido){
+		self.moverse(personaje, sentido.rebote())
+	}
+
+     method moverse(personaje, sentido){
+		personaje.position(sentido.mover(personaje.position()))
+	}
+
+}
+
+
+
 class Poder{
 	var image
 	const position
@@ -108,7 +122,7 @@ class Poder{
 	
 	method posicionAleatoria() = game.at(
 		0.randomUpTo(game.width()), 
-		0.randomUpTo(game.height()),
+		0.randomUpTo(game.height())
 	)
 	
 	method generarPoder(){

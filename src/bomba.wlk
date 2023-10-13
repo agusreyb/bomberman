@@ -4,6 +4,8 @@ class Bomba {
 	const property position
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
 	var property image = "bomb.png" //CAMBIAR IMAGEN
+	
+	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
 
 //method position()= game.at(bomberman.position().x(),bomberman.position().y())
 
@@ -27,5 +29,7 @@ class Fuego {
 	method esColision(){
 		return (game.getObjectsIn(position).isEmpty())
 	}
-	
-}
+
+	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
+
+	}

@@ -39,6 +39,26 @@ object sonido{
         musica = game.sound(sonido)
 		self.reproducir(volumen, musica)
     }
+    
+    method stopMusica(){
+    	musica.stop()
+    }
         
 }
+
+object menosVida {
+	var property image = "menosVida.png"
+
+}
+
+object finDelJuego {
+	const property position = game.at(0,0)
+	const property image = "finDelJuego.jpg" 
+	
+	method mostrarCartel(){
+		sonido.reproducirSonido("gameOver.mp3", 0.03)
+		game.addVisual(self)
+	}
+}
+
 

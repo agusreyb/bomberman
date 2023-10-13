@@ -1,12 +1,16 @@
 import wollok.game.*
 import objects.*
 import bomba.*
+import main.*
+import game.*
 
 object bomberman {
 	var property position = new Position(x = 3, y = 3)
 	var property image = "bomberDown.png"
 	var property puntos = 0
-	var property vida = 3
+	//var property vida = 3
+	var property vidas = 3
+	var property listaVidas = []
 	var property durationBomba = 2000
 	var property durationFuego = 400
 	var property bombapowup=2
@@ -64,8 +68,31 @@ object bomberman {
 	
 	method queNivel(cadafuego)=cadafuego.potencia() < bombapowup
 	
+	method fueHit() { // metodo para ver si el personaje fue atacado o no
+	game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))
+	game.schedule(100,{ game.removeVisual(menosVida) })
+	sonido.reproducirSonido("impacto.mp3", 0.1)
+	vidas = listaVidas.size() - 1
+	if(vidas == 0) {
+		game.schedule(100, {
+			game.removeVisual(self)
+			main.terminarJuego(finDelJuego)
+		})
+	} else {
+		self.removerVida()
+}
 	
-	} //FIN BOMBER
+
+}
+
+	method removerVida(){
+		game.removeVisual(listaVidas.get(vidas)) 
+		listaVidas.remove(listaVidas.get(vidas))
+	}	
+	
+	
+	
+} //FIN BOMBER
 	
 class Poder{
 	var image

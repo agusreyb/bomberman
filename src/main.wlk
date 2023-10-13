@@ -9,12 +9,12 @@ object main {
 	var property nivelActual = 0
 	var property niveles = []
 	
-	method iniciarPantallaCarga() {
+	method iniciarPantallaCarga() {			//metodo para iniciar la pantalla de carga
 		self.configuracionInicial()
 		game.addVisual(fondo)
 		self.jugarOSalir()
 	}	
-	method jugarOSalir() {
+	method jugarOSalir() {					//metodo jugar o salir
 		keyboard.enter().onPressDo( {
 		game.clear()
 		self.configuracionInicial()
@@ -28,14 +28,14 @@ object main {
 		}  )
 	}
 	
-	method configuracionInicial() {
+	method configuracionInicial() {			//metodo para setear la configuracion inicial de la pantalla
 		game.title("BomberMan 2023")
 		game.height(15)
 		game.width(23)
 		game.cellSize(50)
 		game.boardGround("ground.png")	
 	}	
-	method configurarTeclas(){
+	method configurarTeclas(){				//seteo de teclas del juego aca
 		//CONFIGURACION KEYS//
 	 	keyboard.left().onPressDo({bomberman.imageLeft()})
 	    // keyboard.left().onPressDo({bomberman.moverse(bomberman.position().left(0.1) )})      
@@ -49,7 +49,7 @@ object main {
 
 	}
 	
-	method cargarNiveles() {	
+	method cargarNiveles() {				//metodo para cargar los niveles
 		const nivelUno = new NivelUno()
 		const nivelDos = new NivelDos()
 		const nivelTres = new NivelTres()
@@ -57,23 +57,23 @@ object main {
 		return [nivelUno, nivelDos, nivelTres, nivelCuatro]
 	}		
 			
-	method nivel(){
+	method nivel(){							//metodo para devolver el nivel
 		return niveles.get(nivelActual)
 	}
 	
-	method validarNivel() {
+	method validarNivel() {					//metodo para validar el nivel
 		return nivelActual == niveles.size()
 	}	
 	
-	method pasoDeNivel() {
-		//sonido.stopMusica()
+	method pasoDeNivel() {					//metodo para el pasaje de nivel
+		sonido.stopMusica()
 		game.clear()
 		nivelActual++
 		self.iniciar()
 	}	
 	
-	method iniciar() {
-		sonido.reproducirMusica("musicaJuego.mp3", 0.03)// NO ANDA CON WAV nose porq
+	method iniciar() {						//metodo para iniciar el juego segun level
+		sonido.reproducirMusica("musicaJuego.mp3", 0.03)
 		self.configuracionInicial()
 		self.configurarTeclas();
 		game.addVisual(consola)
@@ -84,7 +84,7 @@ object main {
 		}
 	}
 	
-	method terminarJuego(estado){
+	method terminarJuego(estado){			//metodo para terminar el juego
 		sonido.stopMusica()
 		game.clear()
 		self.configuracionInicial()

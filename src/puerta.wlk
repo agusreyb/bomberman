@@ -9,11 +9,11 @@ class Puerta {
 	
 	method atravesable() = true
 	
-	method abrirPuerta() {
+	method abrirPuerta() { 						//metodo abrir puerta, sirve para el pasaje de nivel
 		self.image("puerta.png")
 		keyboard.enter().onPressDo({ main.pasoDeNivel()})
 	}	
 }
 
-const pepe = new Puerta (position = [1,2])//no preguntes
+const pepe = new Puerta (position = [1,2])//hardcode para testear el pasaje
 

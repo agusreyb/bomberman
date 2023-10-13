@@ -9,7 +9,6 @@ object bomberman {
 	var property position = new Position(x = 3, y = 3)
 	var property image = "bomberDown.png"
 	var property puntos = 0
-	//var property vida = 3
 	var property vidas
 	var property listaVidas = []
 	var property durationBomba = 2000
@@ -86,13 +85,13 @@ object bomberman {
 
 }
 
-	method removerVida(){
+	method removerVida(){								//metodo para remover la vida
 		game.removeVisual(listaVidas.get(vidas)) 
 		listaVidas.remove(listaVidas.get(vidas))
 	}	
 	
-	method agregarVida(){
-		const newVida = new Vida(position = game.at(listaVidas.size() + 2, 1))
+	method agregarVida(){								//metood para agregar la vida
+		const newVida = new Vida(position = game.at(listaVidas.size() + 2, 1)) 
 		listaVidas.add(newVida)
 		game.addVisual(newVida)
 	}	

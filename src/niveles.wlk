@@ -11,19 +11,19 @@ class Nivel {
 	var property cantidadEnemigos = 0
 
 	
-	method iniciarNivel() {
+	method iniciarNivel() {					//metodo para iniciar el nivel
 		self.cargarMapa()
 		self.iniciarPersonaje()
 	}
 	
-	method iniciarPersonaje() {
+	method iniciarPersonaje() {				//metodo para iniciar el personaje
 		game.addVisualCharacter(bomberman)
-		(0..2).forEach({elem => bomberman.agregarVida()})
+		(0..2).forEach({elem => bomberman.agregarVida()}) //setea la cantidad de vida, 0;2=3 vidas
 	} 
 	
 	
 	method cargarMapa(){
-		self.borde().forEach({par => self.iniciarPared(par)})
+		self.borde().forEach({par => self.iniciarPared(par)})		//setea el mapa segun el nivel
 		self.paredes().forEach({par => self.iniciarPared(par)})
 		self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
 		self.enemigo().forEach({ene => self.iniciarEnemigo(ene)})

@@ -13,7 +13,7 @@ class Pinches {
 	}
 }
 
-object fondo {
+object fondo {												//objeto para el fondo de carga
 	const property position = game.at(0,0)
 	const property image = "fondocarga.png" 
 }
@@ -26,7 +26,7 @@ object sonido{
 	var audio
     var musica
     
-    method reproducirSonido(sonido, volumen) {
+    method reproducirSonido(sonido, volumen) {				//funcion para reproducir un sonido por parametro
         audio = game.sound(sonido)
 		self.reproducir(volumen, audio)
     }	
@@ -35,27 +35,27 @@ object sonido{
         type.play()
     }   
      
-    method reproducirMusica(sonido, volumen) {
+    method reproducirMusica(sonido, volumen) {			//funcion para reproducir musica por parametro
         musica = game.sound(sonido)
 		self.reproducir(volumen, musica)
     }
     
-    method stopMusica(){
+    method stopMusica(){								//metodo para stopear la musica
     	musica.stop()
     }
         
 }
 
-object menosVida {
+object menosVida {									//objeto para mostrar la img de menos vida
 	var property image = "menosVida.png"
 
 }
 
-object finDelJuego {
+object finDelJuego {								//objeto para setear el endgame
 	const property position = game.at(0,0)
 	const property image = "finDelJuego.jpg" 
 	
-	method mostrarCartel(){
+	method mostrarCartel(){							//muestra el cartel de endgame
 		sonido.reproducirSonido("gameOver.mp3", 0.03)
 		game.addVisual(self)
 	}

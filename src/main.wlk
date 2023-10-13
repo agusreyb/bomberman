@@ -80,7 +80,7 @@ object main {
 		if(!self.validarNivel()) {
 			self.nivel().iniciarNivel()
 		} else {
-			self.terminarJuego()
+			self.terminarJuego(finDelJuegoGanador)
 		}
 	}
 	

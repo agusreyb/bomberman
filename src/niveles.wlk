@@ -126,10 +126,9 @@ class NivelDos inherits Nivel{
 	
 	override method paredes(){
 		 return  [[1,2],[4,2],[7,2],[10,2],[13,2],[16,2],[19,2],[21,2],
-			     ,
-	             [1,8],[4,8],[7,8],[10,8],[13,8],[16,8],[19,8],[21,8],
-	             [1,11],[4,11],[7,11],[10,11],[13,11],[16,11],[19,11],[21,11],
-                } 
+		 		[1,8],[4,8],[7,8],[10,8],[13,8],[16,8],[19,8],[21,8],
+		 		[1,11],[4,11],[7,11],[10,11],[13,11],[16,11],[19,11],[21,11]]
+    }
 	
 	
 	override method ladrillos(){//estos son ladrillos
@@ -137,7 +136,7 @@ class NivelDos inherits Nivel{
 	}
 	
 	override method enemigo(){
-		return [[7,7]]
+		return [[8,7]]
 	}
 	
 	//override method pinches(){//habria q ver si usamos pinches u algo asi
@@ -173,7 +172,7 @@ class NivelTres inherits Nivel{
 	}
 	
 	override method enemigo(){
-		return [[7,7]]
+		return [[7,6]]
 	}
 	//override method pinches(){//habria q ver si usamos pinches u algo asi
 	//	return [[5,2],[6,2],[7,2]]

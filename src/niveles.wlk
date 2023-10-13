@@ -18,6 +18,7 @@ class Nivel {
 	
 	method iniciarPersonaje() {
 		game.addVisualCharacter(bomberman)
+		(0..2).forEach({elem => bomberman.agregarVida()})
 	} 
 	
 	

@@ -3,6 +3,7 @@ import niveles.*
 import objects.*
 import bomberman.*
 import puerta.*
+import vida.*
 
 object main {
 	var property nivelActual = 0
@@ -43,6 +44,9 @@ object main {
 	    keyboard.down().onPressDo({bomberman.imageDown()})
 	    keyboard.space().onPressDo({bomberman.ponerBomba()})
 	    keyboard.q().onPressDo({ pepe.abrirPuerta()})
+
+		keyboard.l().onPressDo({ bomberman.fueHit()})
+
 	}
 	
 	method cargarNiveles() {	

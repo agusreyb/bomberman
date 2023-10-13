@@ -91,7 +91,7 @@ object bomberman {
 	}	
 	
 	method agregarVida(){								//metood para agregar la vida
-		const newVida = new Vida(position = game.at(listaVidas.size() + 2, 1)) 
+		const newVida = new Vida(position = game.at(listaVidas.size() + 2, 1)) //coordenadas para la vida
 		listaVidas.add(newVida)
 		game.addVisual(newVida)
 	}	

@@ -16,8 +16,8 @@ class Enemigo {
 		game.say(enemigo, "Cuidado!")
 		self.removerVida()
 	
+	}
 }
-
 class EnemigosQueCorren inherits Enemigo {
 }
 

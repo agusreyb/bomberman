@@ -15,5 +15,7 @@ class Puerta {
 	}	
 }
 
-const pepe = new Puerta (position = [1,2])//hardcode para testear el pasaje
+//const pepe = new Puerta (position = [1,2])//hardcode para testear el pasaje
+
+
 

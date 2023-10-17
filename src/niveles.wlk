@@ -80,6 +80,14 @@ class Nivel {
 //		game.addVisual(enemigoQueCamina)
 //		enemigoQueCamina.iniciar()
 //	}
+
+	method enemigoMuere() {
+		cantidadEnemigos--
+		self.puertaSpam()
+	}
+	
+	method puertaSpam(){
+	}
 		
 }
 
@@ -119,8 +127,15 @@ class NivelUno inherits Nivel{
 		self.iniciarPuerta(3, 10)
 		super() 
 		//COLISIONES//
-	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
+	   	game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
+	
+	override method puertaSpam(){
+		if(cantidadEnemigos == 0) {
+			const door = new Puerta (position = [1,2])
+			//puerta.image("puerta.png")
+		}
+	}	
 	
 
 }

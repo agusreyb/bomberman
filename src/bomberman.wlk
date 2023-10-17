@@ -14,7 +14,7 @@ object bomberman {
 	var property durationBomba = 2000
 	var property durationFuego = 400
     var property bombapowup=2
-    var property direccion 
+    var property direccion = 0
 	
 	
 	method howAreYou() = "Lets start!"

@@ -104,7 +104,7 @@ class NivelUno inherits Nivel{
 	
 	
 	override method ladrillos(){
-		return  [[5,5]]
+		return  [[6,5]]
 	}
 	
 	override method enemigo(){

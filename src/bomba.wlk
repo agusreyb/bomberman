@@ -30,6 +30,6 @@ class Fuego {
 		return (game.getObjectsIn(position).isEmpty())
 	}
 
-	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
+	method colision(personaje){} //QUEDA VACIO YA QUE PERSONAJE PUEDE PASAR POR ENCIMA
 
 	}

@@ -43,10 +43,12 @@ object bomberman {
 		fuegos=fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
 		//fuegos=self.bloqueoFuegoPorPared(fuegos)
 		fuegos.add(fuegoCentro)
-		
 		game.addVisual(bomba)
 		sonido.reproducirMusica("mecha.wav", 0.25)
 		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuegos)}) 
+	
+	    
+	
 	} // FUNCIONA !! :O //
 	
 	method cicloBomba(bomba,fuegos){
@@ -54,6 +56,7 @@ object bomberman {
 		fuegos.forEach{ fueguito => game.addVisual(fueguito) }
 		sonido.reproducirMusica("explosion.wav", 0.15)
 		game.schedule(durationFuego, {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
+	    game.whenCollideDo(fuegos,{objeto => objeto.hitFuego(fuegos.position())})
 	}
 	
 	method filtrarFuego(cadafuego)=(cadafuego.potencia() <= bombapowup) and (cadafuego.esColision())

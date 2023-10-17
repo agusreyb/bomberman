@@ -96,8 +96,12 @@ class NivelUno inherits Nivel{
 	
 	
 	override method ladrillos(){
-		return  [[5,5]]
+		return  [[5,5],[8,9],[6,7]]
 	}
+	
+	//method removeLadrillo(){
+		//game.removeVisual(Ladrillo)
+	//}
 	
 	override method enemigo(){
 		return [[7,7]]
@@ -120,6 +124,7 @@ class NivelUno inherits Nivel{
 		super() 
 		//COLISIONES//
 	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
+	    
 	}
 	
 

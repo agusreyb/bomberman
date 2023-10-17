@@ -56,7 +56,7 @@ object bomberman {
 		fuegos.forEach{ fueguito => game.addVisual(fueguito) }
 		sonido.reproducirMusica("explosion.wav", 0.15)
 		game.schedule(durationFuego, {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
-	    game.whenCollideDo(fuegos,{objeto => objeto.hitFuego(fuegos.position())})
+	    //game.whenCollideDo(Fuego,{objeto => objeto.hitFuego(Fuego})
 	}
 	
 	method filtrarFuego(cadafuego)=(cadafuego.potencia() <= bombapowup) and (cadafuego.esColision())

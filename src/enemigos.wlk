@@ -7,6 +7,15 @@ class Enemigo {
 	
 	method esPeligroso() = true
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
+	
+	method moverse(personaje, sentido){
+		personaje.position(sentido.mover(personaje.position()))
+	}
+	
+	method encontrarEnemigo() {
+		game.say(enemigo, "Cuidado!")
+		self.removerVida()
+	
 }
 
 class EnemigosQueCorren inherits Enemigo {

@@ -8,7 +8,7 @@ import bomba.*
 import enemigos.*
 
 class Nivel {
-	var property cantidadEnemigos = 0
+	var property cantidadEnemigos = 1
 
 	
 	method iniciarNivel() {					//metodo para iniciar el nivel
@@ -50,8 +50,7 @@ class Nivel {
 	//method enemigosQueCaminan()	
 	
 	method iniciarPuerta(x, y) {
-		const puertita = new Puerta(image= "puerta.PNG",position = game.at(x, y))
-		game.addVisual(puertita)
+		game.addVisual(new Puerta(image= "puerta.PNG",position = game.at(x, y)))
 	}
 	method iniciarPared(par) {
 		game.addVisual(new Pared(position = game.at(par.get(0), par.get(1))))
@@ -87,11 +86,13 @@ class Nivel {
 	}
 	
 	method puertaSpam(){
+		
 	}
 		
 }
 
 class NivelUno inherits Nivel{
+	
 	
 	override method paredes(){
 		 return  [[2,2],[4,2],[6,2],[8,2],[10,2],[12,2],[14,2],[16,2],[18,2],[20,2],
@@ -132,7 +133,8 @@ class NivelUno inherits Nivel{
 	
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {
-			const door = new Puerta (position = [1,2])
+			const door = new Puerta (position = [1,1])
+			keyboard.q().onPressDo({ door.abrirPuerta()})
 			//puerta.image("puerta.png")
 		}
 	}	

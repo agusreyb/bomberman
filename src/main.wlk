@@ -4,6 +4,7 @@ import objects.*
 import bomberman.*
 import puerta.*
 import vida.*
+import puerta.*
 
 object alternarPantallaDeInicio{
 	var property imagenAlternada= true 
@@ -72,7 +73,7 @@ object main {
 	        keyboard.down().onPressDo{(bomberman.imageDown())
 	        	                       bomberman.direccion(abajo)}
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	       	keyboard.q().onPressDo({ pepe.abrirPuerta()})
+	       	keyboard.q().onPressDo({ puertita.abrirPuerta()})
 			keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 

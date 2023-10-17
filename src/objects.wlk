@@ -73,5 +73,5 @@ object finDelJuegoGanador {
 		sonido.reproducirSonido("ganaste.mp3", 0.03)
 		game.addVisual(self)
 	}
-
+}
 

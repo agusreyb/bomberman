@@ -50,8 +50,8 @@ class Nivel {
 	//method enemigosQueCaminan()	
 	
 	method iniciarPuerta(x, y) {
-		const puerta = new Puerta(image= "puerta.PNG",position = game.at(x, y))
-		game.addVisual(puerta)
+		const puertita = new Puerta(image= "puerta.PNG",position = game.at(x, y))
+		game.addVisual(puertita)
 	}
 	method iniciarPared(par) {
 		game.addVisual(new Pared(position = game.at(par.get(0), par.get(1))))
@@ -104,7 +104,7 @@ class NivelUno inherits Nivel{
 	
 	
 	override method ladrillos(){
-		return  [[5,5]]
+		return  [[6,5]]
 	}
 	
 	override method enemigo(){

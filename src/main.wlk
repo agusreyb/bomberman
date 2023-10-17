@@ -6,17 +6,42 @@ import puerta.*
 import vida.*
 import puerta.*
 
+object alternarPantallaDeInicio{
+	var property imagenAlternada= true 
+	method iniciarAnimacion(){
+		game.onTick(250,"animacionMenu",{self.cambiar()})
+		
+	}
+	method cambiar(){
+		if(imagenAlternada){
+			self.fondofalse()
+			fondo.image("fondocarga.png")
+			
+		}else{
+			self.fondotrue()
+			fondo.image("fondocarga2.png")
+		}
+	}
+	method fondotrue(){ imagenAlternada=true}
+	method fondofalse(){imagenAlternada=false}
+	method terminarAnimacion(){
+		game.removeTickEvent("animacionMenu")
+	}
+}
+
 object main {
 	var property nivelActual = 0
 	var property niveles = []
-	
+
 	method iniciarPantallaCarga() {			//metodo para iniciar la pantalla de carga
 		self.configuracionInicial()
 		game.addVisual(fondo)
+		alternarPantallaDeInicio.iniciarAnimacion()
 		self.jugarOSalir()
 	}	
 	method jugarOSalir() {					//metodo jugar o salir
 		keyboard.enter().onPressDo( {
+		alternarPantallaDeInicio.terminarAnimacion()
 		game.clear()
 		self.configuracionInicial()
 		nivelActual = 0

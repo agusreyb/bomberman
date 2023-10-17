@@ -1,6 +1,7 @@
 import wollok.game.*
 import niveles.*
 import bomberman.*
+import main.*
 
 class Pinches {
 	var property position
@@ -15,7 +16,8 @@ class Pinches {
 
 object fondo {												//objeto para el fondo de carga
 	const property position = game.at(0,0)
-	const property image = "fondocarga.png" 
+	var property image = "fondocarga.png" 
+	
 }
 
 object consola {
@@ -71,5 +73,5 @@ object finDelJuegoGanador {
 		sonido.reproducirSonido("ganaste.mp3", 0.03)
 		game.addVisual(self)
 	}
-
+}
 

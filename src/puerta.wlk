@@ -3,7 +3,7 @@ import main.*
 
 class Puerta { 
 	//var property position
-	var property position = new Position(x = 1, y = 3)
+	var property position = new Position(x = 1, y = 1)
 	var property image = "puerta.png"
 	
 	method esPeligroso() = false
@@ -21,7 +21,7 @@ class Puerta {
 }
 
 object door inherits Puerta {
-		method ponerPuerta(){
+		method ponerPuerta(position){
 		const puerta = new Puerta(position = position)
 		game.addVisual(puerta) 
 	}

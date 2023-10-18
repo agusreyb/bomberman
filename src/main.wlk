@@ -32,6 +32,7 @@ object alternarPantallaDeInicio{
 object main {
 	var property nivelActual = 0
 	var property niveles = []
+	var property position = new Position(x = 1, y = 3) //HARDCORE PARA TESTEAR LA PUERTA
 
 	method iniciarPantallaCarga() {			//metodo para iniciar la pantalla de carga
 		self.configuracionInicial()
@@ -73,8 +74,8 @@ object main {
 	        keyboard.down().onPressDo{(bomberman.imageDown())
 	        	                       bomberman.direccion(abajo)}
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	       			keyboard.v().onPressDo({ door.ponerPuerta()}) //hardcore para test
-					keyboard.q().onPressDo({ door.abrirPuerta()}) //hardcore para test
+	       			keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
+					keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
 			keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 

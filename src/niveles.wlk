@@ -92,7 +92,7 @@ class Nivel {
 }
 
 class NivelUno inherits Nivel{
-	
+	var property position = new Position(x = 1, y = 3)
 	
 	override method paredes(){
 		 return  [[2,2],[4,2],[6,2],[8,2],[10,2],[12,2],[14,2],[16,2],[18,2],[20,2],
@@ -133,7 +133,7 @@ class NivelUno inherits Nivel{
 	
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {
-			keyboard.v().onPressDo({ door.ponerPuerta()})
+			keyboard.v().onPressDo({ door.ponerPuerta(position)})
 			keyboard.q().onPressDo({ door.abrirPuerta()})
 		}
 	}	

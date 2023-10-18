@@ -6,7 +6,7 @@ import vida.*
 
 
 object bomberman {
-	var property position = new Position(x = 3, y = 3)
+	var property position = new Position(x = 1, y = 1)
 	var property image = "bomberDown.png"
 	var property puntos = 0
 	var property vidas

@@ -85,9 +85,7 @@ class Nivel {
 		self.puertaSpam()
 	}
 	
-	method puertaSpam(){
-		
-	}
+	method puertaSpam(){}
 		
 }
 
@@ -105,11 +103,12 @@ class NivelUno inherits Nivel{
 	
 	
 	override method ladrillos(){
-		return  [[6,5]]
+		return  [[1,5],[1,10],[3,7],[4,3],[5,5],[5,11],[7,8],[9,3],[11,7],[13,11],[15,3],
+				[17,7],[18,5],[18,9],[19,4],[19,11]]
 	}
 	
 	override method enemigo(){
-		return [[7,7]]
+		return [[3,10],[9,11],[15,5],[19,9]]
 	}
 	
 	//override method pinches(){
@@ -133,26 +132,34 @@ class NivelUno inherits Nivel{
 	
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {
-			keyboard.v().onPressDo({ door.ponerPuerta(position)})
-			keyboard.q().onPressDo({ door.abrirPuerta()})
+			keyboard.v().onPressDo({door.ponerPuerta(position)})
+			keyboard.q().onPressDo({door.abrirPuerta()})
 		}
 	}	
 }
 
 class NivelDos inherits Nivel{
+	var property position = new Position(x = 19, y = 12)
 	
 	override method paredes(){
-		 return  [[1,2],[4,2],[7,2],[10,2],[13,2],[16,2],[19,2],[21,2],
-			      [1,8],[4,8],[7,8],[10,8],[13,8],[16,8],[19,8],[21,8],
-	              [1,11],[4,11],[7,11],[10,11],[13,11],[16,11],[19,11],[21,11]]}
+		 return  [[10,1],[16,1],[1,2],[2,2],[3,2],[6,2],[7,2],[9,2],[14,2],[19,2],
+		 		 [4,3],[5,3],[6,3],[11,3],[13,3],[16,3],[17,3],[21,3],[7,4],[9,4],[19,4],
+		 		 [6,5],[8,5],[10,5],[12,5],[14,5],[16,5],[17,5],[19,5],[21,5],
+		 		 [1,6],[2,6],[4,6],[19,6],[5,7],[6,7],[8,7],[10,7],[12,7],[14,7],[16,7],
+		 		 [2,8],[18,8],[20,8],[4,9],[6,9],[8,9],[10,9],[12,9],[14,9],[16,9],
+		 		 [2,10],[18,10],[20,10],[2,11],[3,11],[4,11],[5,11],[6,11],[8,11],[10,11],[12,11],[14,11],[16,11],
+		 		 [18,12],[20,12],[1,13],[2,13],[6,13],[8,13],[10,13],[12,13],[14,13],[16,13],[19,13]]
+	}
                 	
 	
-	override method ladrillos(){//estos son ladrillos
-		return  [[0,0]]
+	override method ladrillos(){
+		return  [[1,11],[2,9],[3,6],[6,1],[6,6],[6,12],[8,3],[9,10],[11,6],[11,8],
+				[12,3],[13,12],[16,2],[16,4],[16,6],[16,8],[16,10],[16,12],[18,5],
+				[19,7],[19,11],[20,5]]
 	}
 	
 	override method enemigo(){
-		return [[8,7]]
+		return [[2,1],[3,8],[4,13],[12,1],[13,6],[19,3]]
 	}
 	
 	//override method pinches(){//habria q ver si usamos pinches u algo asi
@@ -168,28 +175,44 @@ class NivelDos inherits Nivel{
 	//}
 
 	override method iniciarNivel(){		
-		self.iniciarPuerta(0, 10)
+		self.iniciarPuerta(19, 12)
 		super() 
 		//COLISIONES//
 	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
+	
+	override method puertaSpam(){
+		if(cantidadEnemigos == 0) {
+			keyboard.v().onPressDo({door.ponerPuerta(position)})
+			keyboard.q().onPressDo({door.abrirPuerta()})
+		}
+	}	
 	
 }
 
 class NivelTres inherits Nivel{
+	var property position = new Position(x = 2, y = 5)
 	
 	override method paredes(){
-		 return  [[1,2],[4,2],[7,2],[10,2],[13,2],[16,2],[19,2],[21,2],
-	             [1,11],[4,11],[7,11],[10,11],[13,11],[16,11],[19,11],[21,11],
-                 [21,0],[21,1],[21,9],[21,3],[21,4],[21,10],[21,6],[21,7]]} 
+		 return  [[1,9],[2,9],[3,1],[3,3],[3,5],[3,9],[3,13],[4,7],[4,9],[4,11],
+		 		 [5,4],[5,6],[5,7],[6,3],[6,7],[6,11],[7,11],[8,3],[9,3],[9,7],[9,9],[9,11],
+		 		 [13,10],[14,1],[14,3],[14,5],[14,7],[14,9],[14,11],[14,13],[15,10],
+		 		 [16,2],[16,3],[17,1],[17,4],[17,6],[17,10],[18,7],[19,4],[19,6],[19,10],
+		 		 [21,4],[21,10]]
+	} 
 	
 	
-	override method ladrillos(){//estos son ladrillos
-		return  [[0,0]]
+	override method ladrillos(){
+		return  [[1,8],[2,8],[3,2],[3,4],[3,8],[3,12],[4,6],[4,8],[4,10],[5,3],[5,5],[5,8],[5,11],
+				[6,6],[7,3],[7,8],[8,8],[8,11],[9,8],[9,10],[10,1],[10,2],[10,3],[10,4],[10,5],[10,6],
+				[10,7],[10,8],[10,9],[10,10],[10,11],[10,12],[10,13],[11,1],[11,2],[11,3],[11,4],[11,5],
+				[11,6],[11,7],[11,8],[11,9],[11,10],[11,11],[11,12],[11,13],[12,8],[13,8],[14,2],[14,4],
+				[14,6],[14,8],[14,10],[14,12],[15,6],[15,8],[16,6],[16,8],[16,10],[17,2],[17,3],[17,8],
+				[17,12],[18,4],[18,8],[18,10],[18,11],[18,13],[19,8],[20,4],[20,8],[20,10],[21,8]]
 	}
 	
 	override method enemigo(){
-		return [[7,6]]
+		return [[2,3],[2,12],[6,5],[6,9],[18,3],[18,9]]
 	}
 	//override method pinches(){//habria q ver si usamos pinches u algo asi
 	//	return [[5,2],[6,2],[7,2]]
@@ -204,47 +227,16 @@ class NivelTres inherits Nivel{
 	//}
 
 	override method iniciarNivel(){		
-		self.iniciarPuerta(0, 10)
+		self.iniciarPuerta(2, 5)
 		super() 
 		//COLISIONES//
 	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
-	
-
-}
-
-class NivelCuatro inherits Nivel{
-	
-	override method paredes(){
-		 return  [[1,2],[4,2],[7,2],[10,2],[13,2],[16,2],[19,2],[21,2],
-                 [21,0],[21,1],[21,9],[21,3],[21,4],[21,10],[21,6],[21,7]]} 
-	
-	
-	override method ladrillos(){//estos son ladrillos
-		return  [[0,0]]
-	}
-	
-	override method enemigo(){
-		return [[7,7]]
-	}
-	//override method pinches(){//habria q ver si usamos pinches u algo asi
-	//	return [[5,2],[6,2],[7,2]]
-	//}
-	
-	//override method enemigosQueCorren() {
-		//return [[21,4,left],[3,9,right]]
-	//}
-	
-	//override method enemigosQueCaminan() {
-	//	return [[20,2,left,"enemigoCaminaLeft.png"]]
-	//}
-
-	override method iniciarNivel(){		
-		self.iniciarPuerta(0, 10)
-		super() 
-		//COLISIONES//
-	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
-	}
-	
+	override method puertaSpam(){
+		if(cantidadEnemigos == 0) {
+			keyboard.v().onPressDo({door.ponerPuerta(position)})
+			keyboard.q().onPressDo({door.abrirPuerta()})
+		}
+	}	
 
 }

@@ -84,8 +84,7 @@ object main {
 		const nivelUno = new NivelUno()
 		const nivelDos = new NivelDos()
 		const nivelTres = new NivelTres()
-		const nivelCuatro = new NivelCuatro()
-		return [nivelUno, nivelDos, nivelTres, nivelCuatro]
+		return [nivelUno, nivelDos, nivelTres]
 	}		
 			
 	method nivel(){							//metodo para devolver el nivel

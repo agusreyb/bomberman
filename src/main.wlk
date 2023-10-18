@@ -73,7 +73,8 @@ object main {
 	        keyboard.down().onPressDo{(bomberman.imageDown())
 	        	                       bomberman.direccion(abajo)}
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	       //	keyboard.q().onPressDo({ door.abrirPuerta()})
+	       			keyboard.v().onPressDo({ door.ponerPuerta()}) //hardcore para test
+					keyboard.q().onPressDo({ door.abrirPuerta()}) //hardcore para test
 			keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 

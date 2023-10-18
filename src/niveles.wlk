@@ -125,7 +125,7 @@ class NivelUno inherits Nivel{
 	//}
 
 	override method iniciarNivel(){		
-		self.iniciarPuerta(3, 10)
+		//self.iniciarPuerta(3, 10)
 		super() 
 		//COLISIONES//
 	   	game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
@@ -133,13 +133,10 @@ class NivelUno inherits Nivel{
 	
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {
-			const door = new Puerta (position = [1,1])
+			keyboard.v().onPressDo({ door.ponerPuerta()})
 			keyboard.q().onPressDo({ door.abrirPuerta()})
-			//puerta.image("puerta.png")
 		}
 	}	
-	
-
 }
 
 class NivelDos inherits Nivel{

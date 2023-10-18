@@ -13,7 +13,7 @@ object bomberman {
 	var property listaVidas = []  
 	var property durationBomba = 2000
 	var property durationFuego = 400
-    var property bombapowup=2
+    var property bombapowup=1
     var property direccion = 0
 	
 	

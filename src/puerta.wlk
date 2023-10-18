@@ -2,7 +2,8 @@ import wollok.game.*
 import main.*
 
 class Puerta { 
-	var property position
+	//var property position
+	var property position = new Position(x = 1, y = 3)
 	var property image = "puerta.png"
 	
 	method esPeligroso() = false
@@ -19,7 +20,16 @@ class Puerta {
 
 }
 
-const pepe = new Puerta (position = [1,2])//hardcode para testear el pasaje
+object door inherits Puerta {
+		method ponerPuerta(){
+		const puerta = new Puerta(position = position)
+		game.addVisual(puerta) 
+	}
+	
+	
+}
+
+//const pepe = new Puerta (position = [1,2])//hardcode para testear el pasaje
 
 
 

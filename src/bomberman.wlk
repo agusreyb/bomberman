@@ -14,7 +14,7 @@ object bomberman {
 	var property durationBomba = 2000
 	var property durationFuego = 400
     var property bombapowup=1
-    var property direccion = 0
+    var property direccion
 	
 	
 	method howAreYou() = "Lets start!"
@@ -89,7 +89,7 @@ object bomberman {
 	}	
 	
 	method agregarVida(){								//metodo para agregar la vida
-		const newVida = new Vida(position = game.at(listaVidas.size() + 2, 1)) //coordenadas para la vida
+		const newVida = new Vida(position = game.at(listaVidas.size() + 2, 0)) //coordenadas para la vida
 		listaVidas.add(newVida)
 		game.addVisual(newVida)
 	}	

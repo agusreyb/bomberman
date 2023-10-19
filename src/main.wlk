@@ -5,18 +5,45 @@ import bomberman.*
 import puerta.*
 import vida.*
 import puerta.*
+import bomba.*
+
+object alternarPantallaDeInicio{
+	var property imagenAlternada= true 
+	method iniciarAnimacion(){
+		game.onTick(250,"animacionMenu",{self.cambiar()})
+		
+	}
+	method cambiar(){
+		if(imagenAlternada){
+			self.fondofalse()
+			fondo.image("fondocarga.png")
+			
+		}else{
+			self.fondotrue()
+			fondo.image("fondocarga2.png")
+		}
+	}
+	method fondotrue(){ imagenAlternada=true}
+	method fondofalse(){imagenAlternada=false}
+	method terminarAnimacion(){
+		game.removeTickEvent("animacionMenu")
+	}
+}
 
 object main {
 	var property nivelActual = 0
 	var property niveles = []
-	
+	var property position = new Position(x = 1, y = 3) //HARDCORE PARA TESTEAR LA PUERTA
+
 	method iniciarPantallaCarga() {			//metodo para iniciar la pantalla de carga
 		self.configuracionInicial()
 		game.addVisual(fondo)
+		alternarPantallaDeInicio.iniciarAnimacion()
 		self.jugarOSalir()
 	}	
 	method jugarOSalir() {					//metodo jugar o salir
 		keyboard.enter().onPressDo( {
+		alternarPantallaDeInicio.terminarAnimacion()
 		game.clear()
 		self.configuracionInicial()
 		nivelActual = 0
@@ -47,8 +74,9 @@ object main {
 	                                 bomberman.direccion(arriba)}
 	        keyboard.down().onPressDo{(bomberman.imageDown())
 	        	                       bomberman.direccion(abajo)}
-	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	       	keyboard.q().onPressDo({ Puerta.abrirPuerta()})
+	        keyboard.space().onPressDo({bomba.ponerBomba()})
+	       	keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
+			keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
 			keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 
@@ -57,8 +85,7 @@ object main {
 		const nivelUno = new NivelUno()
 		const nivelDos = new NivelDos()
 		const nivelTres = new NivelTres()
-		const nivelCuatro = new NivelCuatro()
-		return [nivelUno, nivelDos, nivelTres, nivelCuatro]
+		return [nivelUno, nivelDos, nivelTres]
 	}		
 			
 	method nivel(){							//metodo para devolver el nivel

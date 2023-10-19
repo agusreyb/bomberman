@@ -2,7 +2,8 @@ import wollok.game.*
 import main.*
 
 class Puerta { 
-	var property position
+	//var property position
+	var property position = new Position(x = 1, y = 1)
 	var property image = "puerta.png"
 	
 	method esPeligroso() = false
@@ -13,6 +14,19 @@ class Puerta {
 		self.image("puerta.png")
 		keyboard.enter().onPressDo({ main.pasoDeNivel()})
 	}	
+    
+    method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
+
+
+}
+
+object door inherits Puerta {
+		method ponerPuerta(position){
+		const puerta = new Puerta(position = position)
+		game.addVisual(puerta) 
+	}
+	
+	
 }
 
 //const pepe = new Puerta (position = [1,2])//hardcode para testear el pasaje

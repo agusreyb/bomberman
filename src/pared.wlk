@@ -1,6 +1,7 @@
 import bomberman.*
 import wollok.game.*
 import niveles.*
+import bomba.*
 
 
 class Pared {
@@ -25,7 +26,7 @@ class Ladrillo {
 	method colision(personaje){
 	    personaje.seChocaPared()}
 	    
-	method hitFuego(posicion){
+	method hitFuego(){
 	 game.removeVisual(self)
 		
 	}    

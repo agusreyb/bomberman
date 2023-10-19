@@ -1,6 +1,7 @@
 import wollok.game.*
 import niveles.*
 import bomberman.*
+import main.*
 
 class Pinches {
 	var property position
@@ -15,7 +16,8 @@ class Pinches {
 
 object fondo {												//objeto para el fondo de carga
 	const property position = game.at(0,0)
-	const property image = "fondocarga.png" 
+	var property image = "fondocarga.png" 
+	
 }
 
 object consola {
@@ -53,7 +55,7 @@ object menosVida {									//objeto para mostrar la img de menos vida
 
 object finDelJuego {								//objeto para setear el endgame
 	const property position = game.at(0,0)
-	const property image = "finDelJuego.jpg" 
+	const property image = "gameOver.png" 
 	
 	method mostrarCartel(){							//muestra el cartel de endgame
 		sonido.reproducirSonido("gameOver.mp3", 0.03)
@@ -65,7 +67,7 @@ object finDelJuego {								//objeto para setear el endgame
 
 object finDelJuegoGanador {
 	const property position = game.at(0,0)
-	const property image = "ganador.jpg" 
+	const property image = "win.png" 
 	
 	method mostrarCartel(){
 		sonido.reproducirSonido("ganaste.mp3", 0.03)

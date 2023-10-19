@@ -50,8 +50,8 @@ class Nivel {
 	//method enemigosQueCaminan()	
 	
 	method iniciarPuerta(x, y) {
-		const puerta = new Puerta(image= "puerta.PNG",position = game.at(x, y))
-		game.addVisual(puerta)
+		const puertita = new Puerta(image= "puerta.PNG",position = game.at(x, y))
+		game.addVisual(puertita)
 	}
 	method iniciarPared(par) {
 		game.addVisual(new Pared(position = game.at(par.get(0), par.get(1))))
@@ -80,6 +80,14 @@ class Nivel {
 //		game.addVisual(enemigoQueCamina)
 //		enemigoQueCamina.iniciar()
 //	}
+
+	method enemigoMuere() {
+		cantidadEnemigos--
+		self.puertaSpam()
+	}
+	
+	method puertaSpam(){
+	}
 		
 }
 
@@ -96,8 +104,8 @@ class NivelUno inherits Nivel{
 	
 	
 	override method ladrillos(){
-		return  [[5,5],[8,9],[6,7]]
-	}
+    return  [[5,5],[8,9],[6,7]]
+    }
 	
 	//method removeLadrillo(){
 		//game.removeVisual(Ladrillo)
@@ -120,12 +128,18 @@ class NivelUno inherits Nivel{
 	//}
 
 	override method iniciarNivel(){		
-		self.iniciarPuerta(3, 10)
+		//self.iniciarPuerta(3, 10)
 		super() 
 		//COLISIONES//
-	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
-	    
-	}
+        game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
+	    }
+	
+	override method puertaSpam(){
+		if(cantidadEnemigos == 0) {
+			game.addVisual ( new Puerta (position = [3,10]))
+			//puerta.image("puerta.png")
+		}
+	}	
 	
 
 }

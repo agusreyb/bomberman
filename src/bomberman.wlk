@@ -3,6 +3,7 @@ import objects.*
 import bomba.*
 import main.*
 import vida.*
+import bomba.Fuego.*
 
 
 object bomberman {
@@ -14,7 +15,7 @@ object bomberman {
 	var property durationBomba = 2000
 	var property durationFuego = 400
     var property bombapowup=2
-    var property direccion 
+    var property direccion = 0
 	
 	
 	method howAreYou() = "Lets start!"
@@ -45,21 +46,23 @@ object bomberman {
 		fuegos.add(fuegoCentro)
 		game.addVisual(bomba)
 		sonido.reproducirMusica("mecha.wav", 0.25)
-		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuegos)}) 
-	
+	    game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuegos)}) 
 	    
-	
-	} // FUNCIONA !! :O //
+   } // FUNCIONA !! :O //
 	
 	method cicloBomba(bomba,fuegos){
 		game.removeVisual(bomba)
-		fuegos.forEach{ fueguito => game.addVisual(fueguito) }
+		fuegos.forEach{ fueguito => game.addVisual(fueguito)}
 		sonido.reproducirMusica("explosion.wav", 0.15)
 		game.schedule(durationFuego, {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
-	    //game.whenCollideDo(Fuego,{objeto => objeto.hitFuego(Fuego})
+	   
 	}
 	
-	method filtrarFuego(cadafuego)=(cadafuego.potencia() <= bombapowup) and (cadafuego.esColision())
+	method filtrarFuego(cadafuego){
+	  
+		return (cadafuego.potencia() <= bombapowup) and (cadafuego.esColision())
+	 
+	}
 
     //Aca intente hacer que el fuego no traspase la pared si es que esta en powerup nivel dos (No anda?)
 	//method bloqueoFuegoPorPared(fuegos){

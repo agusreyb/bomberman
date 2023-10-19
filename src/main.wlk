@@ -4,6 +4,7 @@ import objects.*
 import bomberman.*
 import puerta.*
 import vida.*
+import puerta.*
 
 object main {
 	var property nivelActual = 0
@@ -47,7 +48,7 @@ object main {
 	        keyboard.down().onPressDo{(bomberman.imageDown())
 	        	                       bomberman.direccion(abajo)}
 	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	       	keyboard.q().onPressDo({ pepe.abrirPuerta()})
+	       	keyboard.q().onPressDo({ Puerta.abrirPuerta()})
 			keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 

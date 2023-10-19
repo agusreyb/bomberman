@@ -25,8 +25,8 @@ class Ladrillo {
 	method colision(personaje){
 	    personaje.seChocaPared()}
 	    
-	//method hitFuego(posicion){
-	  //game.removeVisual(posicion)
+	method hitFuego(posicion){
+	 game.removeVisual(self)
 		
-	//}    
+	}    
 }

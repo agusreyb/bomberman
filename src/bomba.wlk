@@ -8,7 +8,6 @@ class Bomba {
 	var property position = 0
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
 	var property image = "bomb.png" //CAMBIAR IMAGEN
-	var property destruible=false
 	
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
 

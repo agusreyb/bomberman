@@ -103,9 +103,9 @@ class NivelUno inherits Nivel{
 	
 	
 	override method ladrillos(){
+
 		return  [[1,5],[1,10],[3,7],[4,3],[5,5],[5,11],[7,8],[9,3],[11,7],[13,11],[15,3],
-				[17,7],[18,5],[18,9],[19,4],[19,11]]
-	}
+				[17,7],[18,5],[18,9],[19,4],[19,11]]}
 	
 	override method enemigo(){
 		return [[3,10],[9,11],[15,5],[19,9]]
@@ -127,8 +127,8 @@ class NivelUno inherits Nivel{
 		//self.iniciarPuerta(3, 10)
 		super() 
 		//COLISIONES//
-	   	game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
-	}
+        game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
+	    }
 	
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {

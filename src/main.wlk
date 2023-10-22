@@ -5,7 +5,11 @@ import bomberman.*
 import puerta.*
 import vida.*
 import puerta.*
+<<<<<<< HEAD
 import movimientos.*
+=======
+import bomba.*
+>>>>>>> 7cfa689a9bb93d064c3fa3aa4b82c0223f3443cd
 
 object alternarPantallaDeInicio{
 	var property imagenAlternada= true 
@@ -74,9 +78,9 @@ object main {
 	                                 bomberman.direccion(arriba)}
 	        keyboard.down().onPressDo{(bomberman.imageDown())
 	        	                       bomberman.direccion(abajo)}
-	        keyboard.space().onPressDo({bomberman.ponerBomba()})
-	       			keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
-					keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
+	        keyboard.space().onPressDo({bomba.ponerBomba()})
+	       	keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
+			keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
 			keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 

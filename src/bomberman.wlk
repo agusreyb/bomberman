@@ -12,9 +12,6 @@ object bomberman {
 	var property puntos = 0
 	var property vidas
 	var property listaVidas = []  
-	var property durationBomba = 2000
-	var property durationFuego = 400
-    var property bombapowup=1
     var property direccion
 	
 	
@@ -28,36 +25,7 @@ object bomberman {
 	method imageDown() {
 		image = "bomberDown.png" }
 	
-	method ponerBomba(){
-		const bomba = new Bomba(position = position)
-		const fuegoCentro = new Fuego(position = position , potencia=1)
-		const fuegoUp = new Fuego(position = position.up(1) , potencia=1)
-		const fuegoDown = new Fuego(position = position.down(1) , potencia=1)
-		const fuegoLeft = new Fuego(position = position.left(1), potencia=1)
-		const fuegoRight = new Fuego(position = position.right(1), potencia=1)
-		const fuegoUp2 = new Fuego(position = position.up(2) , potencia=2)
-		const fuegoDown2 = new Fuego(position = position.down(2) , potencia=2)
-		const fuegoLeft2 = new Fuego(position = position.left(2), potencia=2)
-		const fuegoRight2 = new Fuego(position = position.right(2), potencia=2)
-		var property fuegosTotales=[fuegoUp, fuegoDown, fuegoLeft, fuegoRight, fuegoUp2, fuegoDown2, fuegoLeft2, fuegoRight2]
-		var property fuegos=[]
-		fuegos=fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
-		//fuegos=self.bloqueoFuegoPorPared(fuegos)
-		fuegos.add(fuegoCentro)
-		
-		game.addVisual(bomba)
-		sonido.reproducirMusica("mecha.wav", 0.25)
-		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuegos)}) 
-	} // FUNCIONA !! :O //
-	
-	method cicloBomba(bomba,fuegos){
-		game.removeVisual(bomba)
-		fuegos.forEach{ fueguito => game.addVisual(fueguito) }
-		sonido.reproducirMusica("explosion.wav", 0.15)
-		game.schedule(durationFuego, {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
-	}
-	
-	method filtrarFuego(cadafuego)=(cadafuego.potencia() <= bombapowup) and (cadafuego.esColision())
+
 
     //Aca intente hacer que el fuego no traspase la pared si es que esta en powerup nivel dos (No anda?)
 	//method bloqueoFuegoPorPared(fuegos){
@@ -65,9 +33,6 @@ object bomberman {
 		//return fuegos
 	//}
 	
-
-	
-	method queNivel(cadafuego)=cadafuego.potencia() < bombapowup
 
 	method fueHit() { // metodo para ver si el personaje fue atacado o no
 	game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))

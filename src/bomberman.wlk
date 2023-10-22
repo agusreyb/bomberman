@@ -3,6 +3,7 @@ import objects.*
 import bomba.*
 import main.*
 import vida.*
+import movimientos.*
 
 
 object bomberman {
@@ -100,17 +101,7 @@ object bomberman {
 	
 } //FIN BOMBER
 
-object movimientos{
-	
-	 method volver(personaje, sentido){
-		self.moverse(personaje, sentido.rebote())
-	}
 
-     method moverse(personaje, sentido){
-		personaje.position(sentido.mover(personaje.position()))
-	}
-
-}
 
 
 

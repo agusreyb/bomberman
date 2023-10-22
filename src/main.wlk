@@ -79,7 +79,7 @@ object main {
 	        keyboard.space().onPressDo({bomba.ponerBomba()})
 	       	keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
 			keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
-			keyboard.l().onPressDo({ bomberman.fueHit()})
+		//	keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 
 	

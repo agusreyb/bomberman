@@ -120,15 +120,15 @@ class NivelUno inherits Nivel{
 
 	
 	override method enemigosQueCorren() {
-		return [[3,10],[9,11],[15,5],[19,9]]
+		return [[3,10],[15,5]]
 	}
 
 	override method enemigosQueCaminan() {
-		return [[6,9],[18,9]]
+		return [[9,11]]
 	}
 	
 	override method enemigosVerdes(){
-			return [[2,3],[6,5]]
+			return [[19,9]]
 	}
 
 
@@ -158,20 +158,20 @@ class NivelDos inherits Nivel{
 	override method ladrillos(){
 		return  [[1,11],[2,9],[3,6],[6,1],[6,6],[6,12],[8,3],[9,10],[11,6],[11,8],
 				[12,3],[13,12],[16,2],[16,4],[16,6],[16,8],[16,10],[16,12],[18,5],
-				[19,7],[19,11],[20,5]]
+				[19,7],[19,11],[20,5],[10,3],[7,11]]
 	}
 	
 
 	override method enemigosQueCorren() {
-		return [[3,10],[9,11],[15,5],[19,9]]
+		return [[19,3],[11,12]]
 	}
 
 	override method enemigosQueCaminan() {
-		return [[6,9],[18,9]]
+		return [[3,7],[4,12],[12,1]]
 	}
 	
 	override method enemigosVerdes(){
-			return [[2,3],[6,5]]
+			return [[2,1],[8,1]]
 	}
 
 	override method iniciarNivel(){		
@@ -212,15 +212,15 @@ class NivelTres inherits Nivel{
 
 	
 	override method enemigosQueCorren() {
-		return [[3,10],[9,11],[15,5],[19,9]]
+		return [[3,10],[7,12],[15,2],[19,9]]
 	}
 
 	override method enemigosQueCaminan() {
-		return [[6,9],[18,9]]
+		return [[6,9],[12,4],[12,12]]
 	}
 	
 	override method enemigosVerdes(){
-			return [[2,3],[6,5]]
+			return [[2,3],[7,5],[20,3]]
 	}
 
 	override method iniciarNivel(){		

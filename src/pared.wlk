@@ -7,9 +7,7 @@ import bomba.*
 class Pared {
 	var property position
 	var property image = "pared.png"
-	var property esRompible=false
-	
-	method esPeligroso() = false
+	var property destruible = false
 	
 	method colision(personaje){
 	    personaje.seChocaPared()}
@@ -19,10 +17,7 @@ class Pared {
 class Ladrillo {
 	var property position 
 	var property image = "ladrillo.png"
-	var property esRompible=true
-	//var property vida = 1
-	
-	//method esPeligroso() = false
+	var property destruible = true
 	
 	method colision(personaje){
 	    personaje.seChocaPared()}
@@ -33,23 +28,6 @@ class Ladrillo {
     
 
 }
-
-//object ladrilloRompible inherits Ladrillo {
-	
-	// var property nivel = 0
-	// var property positions = nivelUno.ladrillos()
-	
-	 
-//	method ladrilloAeliminar(posicionFuego){
-//		
-//		if (positions.contains(posicionFuego)){
-			//Ladrillo.position() = posicionFuego
-			
-	//	}
-		
-		
-		
-//	}
 	
 	
 	

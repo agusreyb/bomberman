@@ -57,10 +57,10 @@ class Nivel {
 	}
 	
 	method iniciarEnemigo(list){
-		const enemigo1 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
+		const enemigo22 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)))
 		cantidadEnemigos++
-		game.addVisual(enemigo1)
-		enemigo1.iniciar()
+		game.addVisual(enemigo22)
+		enemigo22.iniciar()
 		}
 	
 	method iniciarCaminante(list){
@@ -69,7 +69,7 @@ class Nivel {
 		game.addVisual(enemigo2)
 		enemigo2.iniciar()
 	}
-	
+
 	method iniciarVerdes(list){
 		const enemigo3 = new EnemigosVerdes(position=game.at(list.get(0), list.get(1)), image = "enemigo3.png")
 		cantidadEnemigos++
@@ -77,6 +77,7 @@ class Nivel {
 		enemigo3.iniciar()
 	}
 	
+
 	method enemigoMuere() {
 		cantidadEnemigos--
 		self.puertaSpam()
@@ -203,7 +204,7 @@ class NivelTres inherits Nivel{
 	override method enemigosQueCorren() {
 		return [[2,12],[18,3]]
 	}
-	
+
 	override method enemigosQueCaminan() {
 		return [[6,9],[18,9]]
 	}

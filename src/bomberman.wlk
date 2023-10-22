@@ -35,8 +35,8 @@ object bomberman {
 	
 
 	method fueHit() { // metodo para ver si el personaje fue atacado o no
-	game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))
-	game.schedule(100,{ game.removeVisual(menosVida) })
+	game.addVisualIn( new MenosVida, game.at(position.x(), position.y() + 1))
+	game.schedule(500,{ game.removeVisual(MenosVida) })
 	sonido.reproducirSonido("impacto.mp3", 0.1)
 	vidas = listaVidas.size() - 1
 	if(vidas == 0) {
@@ -66,10 +66,14 @@ object bomberman {
 	
 
     method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
-	 //self.removerVida()
 	 game.say(self," -1 vida rey tene cuidado" )
-  }
+	 self.fueHit()
+   }
 
+   method posicionInicial(){
+   	//game.removeVisual(self)
+    
+   }
 
 } //FIN BOMBER
 

@@ -17,13 +17,18 @@ class Bomba {
 }
 
 class Fuego {
-	var property position = 0
+	var property position=0
 	var property duration = 400 //EN MILISEGUNDOS, SERIAN 0.4s
 	var property image = "fire.png"
 	var property potencia = 0
 	
+		
 	method esColision(){
-		return (game.getObjectsIn(position).isEmpty())
+		if(game.getObjectsIn(position).isEmpty()){
+			return true		
+		}else{
+			return game.getObjectsIn(position).get(0).destruible()	
+		}
 	}
 
 	method colision(personaje){} //QUEDA VACIO YA QUE PERSONAJE PUEDE PASAR POR ENCIMA
@@ -62,7 +67,8 @@ object fuego inherits Fuego {
  	var property fuegosTotales = []
 	var property fuegos =[]
     var property durationFuego = 400
-  //  var property objetos = []
+
+
 
 	method ponerFuego(){
 		
@@ -75,19 +81,15 @@ object fuego inherits Fuego {
 		const fuegoDown2 = new Fuego(position = bomberman.position().down(2) , potencia=2)
 		const fuegoLeft2 = new Fuego(position = bomberman.position().left(2), potencia=2)
 		const fuegoRight2 = new Fuego(position = bomberman.position().right(2), potencia=2)
-		
 		fuegosTotales = [fuegoUp, fuegoDown, fuegoLeft, fuegoRight, fuegoUp2, fuegoDown2, fuegoLeft2, fuegoRight2]
 		fuegos = fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
 		fuegos.add(fuegoCentro)	
-       
-        
+ 
     }
 	
-	method filtrarFuego(cadafuego){
-	  
-	  return (cadafuego.potencia() <= bomba.bombapowup()) and (cadafuego.esColision())}
-	
+	method filtrarFuego(cadafuego) = (cadafuego.potencia() <= bomba.bombapowup()) and (cadafuego.esColision())
 	method colisionFuego(){
+
 	  fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}} //EL QUE FUNCIONA
 	 
 	 //  fuegos.forEach{fuego => game.whenCollideDo(fuego,{ladrilloRompible.elementos().forEach{elemento => elemento.hitFuegoLadri()}})}
@@ -96,15 +98,6 @@ object fuego inherits Fuego {
      // objetos.forEach{objeto => objeto.hitFuego()}}
      
       // fuegos.forEach{fuego => game.getObjectsIn(fuego,{objeto => objeto.hitFuego()})}	
-	 
-	  
-	  
-	  
-	 
 	
-	    //COLISION//
-   
-	
-	
-	
+
 }

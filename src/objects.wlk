@@ -39,6 +39,7 @@ object sonido{
 
 object menosVida {									//objeto para mostrar la img de menos vida
 	var property image = "menosVida.png"
+	method hitFuego(){}                              //no hace nada, salva error
 
 }
 

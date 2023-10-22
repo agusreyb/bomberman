@@ -5,6 +5,7 @@ class Enemigo {
 	var property position
 	var property image 
 	var property direccion = izquierda
+	var property destruible=true
 	
 	method iniciar(){
 //		movimientos.moverse(direccion,self)
@@ -22,9 +23,9 @@ class Enemigo {
 //		self.removerVida()
 //	}
 
-   method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
-	game.say(self, " El fuego me pega " )
-  }
+	method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
+		game.removeVisual(self)
+	}
   
 }
 

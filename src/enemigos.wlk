@@ -3,7 +3,7 @@ import movimientos.*
 
 class Enemigo {
 	var property position
-	var property image = "enemigo1.png"
+	var property image 
 	var property direccion = izquierda
 	
 	method iniciar(){
@@ -29,15 +29,15 @@ class Enemigo {
 }
 
 class EnemigosQueCorren inherits Enemigo {/*naranja */
-//	override method image()= "enemigo1.png"
+	override method image()= "enemigo1.png"
 }
 	
 class EnemigosQueCaminan inherits Enemigo {/*azul */
-//	override method image()= "enemigo2.png"
+	override method image()= "enemigo2.png"
 }
 
-class EnemigosVerde inherits Enemigo {
-//	override method image()= "enemigo3.png"
+class EnemigosVerdes inherits Enemigo {
+	override method image()= "enemigo3.png"
 }
 
 

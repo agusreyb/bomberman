@@ -15,8 +15,11 @@ class Enemigo {
 	method encontrarEnemigo() {
 		game.say(enemigo, "Cuidado!")
 		self.removerVida()
-	
 	}
+
+   method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
+	game.say(self, " El fuego me pega " )
+  }
 }
 class EnemigosQueCorren inherits Enemigo {
 }

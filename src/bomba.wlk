@@ -11,8 +11,8 @@ class Bomba {
 	
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
 
-	//method explotar(){}
-
+    method hitFuego(){} //NO HACE NADA
+   
 }
 
 class Fuego {
@@ -48,10 +48,9 @@ object bomba inherits Bomba {
 		game.removeVisual(bomba)
 		fuegos.forEach{ fueguito => game.addVisual(fueguito)}
 		sonido.reproducirMusica("explosion.wav", 0.15)
+		fuego.colisionFuego() //COLISION CON OBJETOS
 		game.schedule(fuego.durationFuego(), {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
-	        //COLISION//
-         
-       // fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}
+	   
 	   }
 	
 	 method queNivel(cadafuego)=cadafuego.potencia() < bombapowup
@@ -78,7 +77,7 @@ object fuego inherits Fuego {
 		fuegosTotales = [fuegoUp, fuegoDown, fuegoLeft, fuegoRight, fuegoUp2, fuegoDown2, fuegoLeft2, fuegoRight2]
 		fuegos = fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
 		fuegos.add(fuegoCentro)	
-   
+       
         
     }
 	
@@ -86,8 +85,20 @@ object fuego inherits Fuego {
 	  
 	  return (cadafuego.potencia() <= bomba.bombapowup()) and (cadafuego.esColision())}
 	
+	method colisionFuego(){
+	 
+       fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}
 	
+	 	
+	 	
+	 }
+	  
+	  
+	  
+	 
 	
+	    //COLISION//
+   
 	
 	
 	

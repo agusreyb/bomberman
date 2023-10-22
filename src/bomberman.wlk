@@ -3,6 +3,7 @@ import objects.*
 import bomba.*
 import main.*
 import vida.*
+import movimientos.*
 
 
 object bomberman {
@@ -63,19 +64,16 @@ object bomberman {
 		movimientos.volver(self, direccion)
 	}
 	
+
+    method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
+	 //self.removerVida()
+	 game.say(self," -1 vida rey tene cuidado" )
+  }
+
+
 } //FIN BOMBER
 
-object movimientos{
-	
-	 method volver(personaje, sentido){
-		self.moverse(personaje, sentido.rebote())
-	}
 
-     method moverse(personaje, sentido){
-		personaje.position(sentido.mover(personaje.position()))
-	}
-
-}
 
 
 

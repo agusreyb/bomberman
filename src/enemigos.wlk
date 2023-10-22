@@ -1,30 +1,43 @@
 import wollok.game.*
+import movimientos.*
 
 class Enemigo {
 	var property position
-	var property image = "enemigo2.png"
-	var property direccion = 0
+	var property image 
+	var property direccion = izquierda
+	
+	method iniciar(){
+//		movimientos.moverse(direccion,self)
+	}
 	
 	method esPeligroso() = true
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
 	
-	method moverse(personaje, sentido){
-		personaje.position(sentido.mover(personaje.position()))
+	method encontrarBomber(){
+		//sacar vida al bomber y que vuelva a iniciar desde position original
 	}
 	
-	method encontrarEnemigo() {
-		game.say(enemigo, "Cuidado!")
-		self.removerVida()
-	}
+//	method encontrarEnemigo() {
+//		game.say(enemigo, "Cuidado!")
+//		self.removerVida()
+//	}
 
    method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
 	game.say(self, " El fuego me pega " )
   }
-}
-class EnemigosQueCorren inherits Enemigo {
+  
 }
 
-class EnemigosQueCaminan inherits Enemigo {
+class EnemigosQueCorren inherits Enemigo {/*naranja */
+	override method image()= "enemigo1.png"
+}
+	
+class EnemigosQueCaminan inherits Enemigo {/*azul */
+	override method image()= "enemigo2.png"
+}
+
+class EnemigosVerdes inherits Enemigo {
+	override method image()= "enemigo3.png"
 }
 
 

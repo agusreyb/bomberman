@@ -66,7 +66,6 @@ object fuego inherits Fuego {
  	var property fuegosTotales = []
 	var property fuegos =[]
     var property durationFuego = 400
-
 	method ponerFuego(){
 		
 		const fuegoCentro = new Fuego(position = bomberman.position() , potencia=1)
@@ -78,33 +77,14 @@ object fuego inherits Fuego {
 		const fuegoDown2 = new Fuego(position = bomberman.position().down(2) , potencia=2)
 		const fuegoLeft2 = new Fuego(position = bomberman.position().left(2), potencia=2)
 		const fuegoRight2 = new Fuego(position = bomberman.position().right(2), potencia=2)
-		
 		fuegosTotales = [fuegoUp, fuegoDown, fuegoLeft, fuegoRight, fuegoUp2, fuegoDown2, fuegoLeft2, fuegoRight2]
 		fuegos = fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
 		fuegos.add(fuegoCentro)	
-       
-        
+ 
     }
 	
-	method filtrarFuego(cadafuego){
-	  
-	  return (cadafuego.potencia() <= bomba.bombapowup()) and (cadafuego.esColision())}
-	
+	method filtrarFuego(cadafuego) = (cadafuego.potencia() <= bomba.bombapowup()) and (cadafuego.esColision())
 	method colisionFuego(){
-	 
        fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}
-	
-	 	
-	 	
-	 }
-	  
-	  
-	  
-	 
-	
-	    //COLISION//
-   
-	
-	
-	
+	 }	
 }

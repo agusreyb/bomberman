@@ -18,7 +18,7 @@ class Enemigo {
 
 	}
 	
-	method seChocaPared(cualEnemigo){
+	method seChocaPared(){
 		movimientos.volver(self, direccion)
 	}	
 	

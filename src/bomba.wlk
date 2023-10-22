@@ -11,8 +11,8 @@ class Bomba {
 	
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
 
-	//method explotar(){}
-
+    method hitFuego(){} //NO HACE NADA
+   
 }
 
 class Fuego {

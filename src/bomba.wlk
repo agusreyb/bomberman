@@ -26,7 +26,7 @@ class Fuego {
 		if(game.getObjectsIn(position).isEmpty()){
 			return true		
 		}else{
-			return game.getObjectsIn(position).get(0).destruible()	
+			return game.getObjectsIn(position).get(0).esRompible()	
 		}
 	}
 

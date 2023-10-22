@@ -67,7 +67,7 @@ object bomberman {
 
     method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
 	 //self.removerVida()
-	 //game.say(self," -1 vida rey tene cuidado" )
+	 game.say(self," -1 vida rey tene cuidado" )
 	 self.fueHit()
   }
 

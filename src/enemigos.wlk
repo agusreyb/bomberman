@@ -1,17 +1,16 @@
 import wollok.game.*
 import movimientos.*
-import niveles.*
 
 class Enemigo {
 	var property position
 	var property image 
 	var property direccion = izquierda
-	var property destruible = true
 	
 	method iniciar(){
 //		movimientos.moverse(direccion,self)
 	}
-
+	
+	method esPeligroso() = true
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
 	
 	method encontrarBomber(){
@@ -23,15 +22,14 @@ class Enemigo {
 //		self.removerVida()
 //	}
 
-	method hitFuego(){ //TIENE QUE RESTAR ENEMIGO, CODEAR:
-		game.removeVisual(self)
-	}
-
+   method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
+	game.say(self, " El fuego me pega " )
+  }
   
 }
 
 class EnemigosQueCorren inherits Enemigo {/*naranja */
-
+	override method image()= "enemigo1.png"
 }
 	
 class EnemigosQueCaminan inherits Enemigo {/*azul */

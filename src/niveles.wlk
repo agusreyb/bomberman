@@ -65,25 +65,24 @@ class Nivel {
 		const enemigo1 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo1)
+		game.whenCollideDo(enemigo1,{objeto => objeto.colisionEnemigo(enemigo1)})
 		enemigo1.iniciar()
-		game.whenCollideDo(enemigo1,{objeto => objeto.colision(enemigo1)})
-		
 		}
 	
 	method iniciarCaminante(list){
 		const enemigo2 = new EnemigosQueCaminan(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo2)
+		game.whenCollideDo(enemigo2,{objeto => objeto.colisionEnemigo(enemigo2)})
 		enemigo2.iniciar()
-		game.whenCollideDo(enemigo2,{objeto => objeto.colision(enemigo2)})
 	}
 	
 	method iniciarVerdes(list){
 		const enemigo3 = new EnemigosVerdes(position=game.at(list.get(0), list.get(1)), image = "enemigo3.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo3)
+		game.whenCollideDo(enemigo3,{objeto => objeto.colisionEnemigo(enemigo3)})
 		enemigo3.iniciar()
-		game.whenCollideDo(enemigo3,{objeto => objeto.colision(enemigo3)})
 	}
 		
 	

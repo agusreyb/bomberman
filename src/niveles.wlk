@@ -72,10 +72,10 @@ class Nivel {
 
 	
 	method iniciarEnemigo(list){
-		const enemigo1 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
+		const enemigo22 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)))
 		cantidadEnemigos++
-		game.addVisual(enemigo1)
-		enemigo1.iniciar()
+		game.addVisual(enemigo22)
+		enemigo22.iniciar()
 		}
 	
 //	method iniciarCaminante(list){
@@ -85,7 +85,6 @@ class Nivel {
 //		enemigoQueCamina.iniciar()
 //	}
 
-	
 	
 	method enemigoMuere() {
 		cantidadEnemigos--
@@ -123,7 +122,6 @@ class NivelUno inherits Nivel{
 		return [[3,10],[9,11],[15,5],[19,9]]
 	}
 
-		
 	//override method enemigosQueCorren() {
 		//return [[21,4,left],[3,9,right]]
 	//}
@@ -168,9 +166,9 @@ class NivelDos inherits Nivel{
 	}
 	
 
-	override method enemigosQueCorren() {
-		return [[2,3],[3,8],[4,13],[12,1],[13,6],[19,3]]
-	}
+	//override method enemigosQueCorren() {
+		//return [[21,4,left],[3,9,right]]
+	//}
 	
 	//override method enemigosQueCaminan() {
 	//	return [[20,2,left,"enemigoCaminaLeft.png"]]
@@ -215,9 +213,9 @@ class NivelTres inherits Nivel{
 	
 
 	
-	override method enemigosQueCorren() {
-		return [[2,3],[2,12],[6,5],[6,9],[18,3],[18,9]]
-	}
+	//override method enemigosQueCorren() {
+		//return [[21,4,left],[3,9,right]]
+	//}
 	
 	//override method enemigosQueCaminan() {
 	//	return [[20,2,left,"enemigoCaminaLeft.png"]]

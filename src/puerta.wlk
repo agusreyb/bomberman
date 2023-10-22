@@ -5,9 +5,8 @@ class Puerta {
 	//var property position
 	var property position = new Position(x = 1, y = 1)
 	var property image = "puerta.png"
-	
-	method esPeligroso() = false
-	
+	var property destruible = false
+		
 	method atravesable() = true
 	
 	method abrirPuerta() { 						//metodo abrir puerta, sirve para el pasaje de nivel

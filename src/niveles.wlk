@@ -6,6 +6,7 @@ import pared.*
 import puerta.*
 import bomba.*
 import enemigos.*
+import movimientos.*
 
 class Nivel {
 	var property cantidadEnemigos = 1
@@ -26,11 +27,10 @@ class Nivel {
 		self.borde().forEach({par => self.iniciarPared(par)})		//setea el mapa segun el nivel
 		self.paredes().forEach({par => self.iniciarPared(par)})
 		self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
-		self.enemigo().forEach({ene => self.iniciarEnemigo(ene)})
 		
 		//self.pinches().forEach({par => self.iniciarPinches(par)})
 		
-		//self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
+		self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
 		
 		//self.enemigosQueCaminan().forEach({par => self.iniciarCaminante(par)})
 	}
@@ -38,7 +38,7 @@ class Nivel {
 	method paredes()
 	method ladrillos()
 
-	method enemigo()
+
 	method borde(){
 		return [[0,0],[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],[20,0],[21,0],
                  [22,0],[22,1],[22,2],[22,3],[22,4],[22,5],[22,6],[22,7],[22,8],[22,9],[22,10],[22,11],[22,12],[22,13],[22,14],
@@ -46,7 +46,7 @@ class Nivel {
                  [1,14],[2,14],[3,14],[4,14],[5,14],[6,14],[7,14],[8,14],[9,14],[10,14],[11,14],[12,14],[13,14],[14,14],[15,14],[16,14],[17,14],[18,14],[19,14],[20,14],[21,14]]
 	}
 	//method pinches()
-	//method enemigosQueCorren()
+	method enemigosQueCorren()
 	//method enemigosQueCaminan()	
 	
 	method iniciarPuerta(x, y) {
@@ -59,19 +59,24 @@ class Nivel {
 	    game.addVisual(new Ladrillo(position = game.at(lad.get(0), lad.get(1))))
 	}
 	
-	method iniciarEnemigo(ene) {
-		game.addVisual(new Enemigo(position = game.at(ene.get(0), ene.get(1))))
-	}
+	//method iniciarEnemigo(ene) {
+//		game.addVisual(new Enemigo(position = game.at(ene.get(0), ene.get(1))))
+	//	game.addVisual(new Enemigo(position=game.at(ene.get(0), ene.get(1)), direccion = ene.get(2)))
+		//const enemigo = new EnemigosQueCorren(position=game.at(ene.get(0), ene.get(1)), direccion = ene.get(2))
+		//cantidadEnemigos++
+		//game.addVisual(enemigo)
+//		enemigo.iniciar()	
+//	}
 	//method iniciarPinches(par) {
 	//	game.addVisual(new Pinches(position = game.at(par.get(0), par.get(1))))
 	//}
 	
-//	method iniciarEnemigo(list){
-	//	const enemigo = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
-	//	cantidadEnemigos++
-	//	game.addVisual(enemigo)
-	//	enemigo.iniciar()
-	//	}
+	method iniciarEnemigo(list){
+		const enemigo22 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)))
+		cantidadEnemigos++
+		game.addVisual(enemigo22)
+		enemigo22.iniciar()
+		}
 	
 //	method iniciarCaminante(list){
 //		const enemigoQueCamina = new EnemigosQueCaminan(image=list.get(3) ,position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
@@ -109,17 +114,14 @@ class NivelUno inherits Nivel{
 		return  [[1,5],[1,10],[3,7],[4,3],[5,5],[5,11],[7,8],[9,3],[11,7],[13,11],[15,3],
 				[17,7],[18,5],[18,9],[19,4],[19,11]]}
 	
-	override method enemigo(){
-		return [[3,10],[9,11],[15,5],[19,9]]
-	}
 	
 	//override method pinches(){
 	//	return [[5,2],[6,2],[7,2]]
 	//}
 	
-	//override method enemigosQueCorren() {
-		//return [[21,4,left],[3,9,right]]
-	//}
+	override method enemigosQueCorren() {
+		return [[3,10],[9,11],[15,5],[19,9]]
+	}
 	
 	//override method enemigosQueCaminan() {
 	//	return [[20,2,left,"enemigoCaminaLeft.png"]]

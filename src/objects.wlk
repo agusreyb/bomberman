@@ -3,17 +3,6 @@ import niveles.*
 import bomberman.*
 import main.*
 
-class Pinches {
-	var property position
-	var property image = "pinche.png"
-	
-	method esPeligroso() = true
-	method atravesable() = true
-	method fueGolpeado() {
-		game.removeVisual(self)
-	}
-}
-
 object fondo {												//objeto para el fondo de carga
 	const property position = game.at(0,0)
 	var property image = "fondocarga.png" 

@@ -9,7 +9,7 @@ import enemigos.*
 import movimientos.*
 
 class Nivel {
-	var property cantidadEnemigos = 1
+	var property cantidadEnemigos = 0
 
 	
 	method iniciarNivel() {					//metodo para iniciar el nivel
@@ -22,21 +22,18 @@ class Nivel {
 		(0..2).forEach({elem => bomberman.agregarVida()}) //setea la cantidad de vida, 0;2=3 vidas
 	} 
 	
-	
 	method cargarMapa(){
 		self.borde().forEach({par => self.iniciarPared(par)})		//setea el mapa segun el nivel
 		self.paredes().forEach({par => self.iniciarPared(par)})
 		self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
 		
-		
-		self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
-		
-		//self.enemigosQueCaminan().forEach({par => self.iniciarCaminante(par)})
+		self.enemigosQueCorren().forEach({list => self.iniciarEnemigo(list)})
+		self.enemigosQueCaminan().forEach({list => self.iniciarCaminante(list)})
+		self.enemigosVerdes().forEach({list => self.iniciarVerdes(list)})
 	}
 	
 	method paredes()
 	method ladrillos()
-
 
 	method borde(){
 		return [[0,0],[1,0],[2,0],[3,0],[4,0],[5,0],[6,0],[7,0],[8,0],[9,0],[10,0],[11,0],[12,0],[13,0],[14,0],[15,0],[16,0],[17,0],[18,0],[19,0],[20,0],[21,0],
@@ -46,9 +43,8 @@ class Nivel {
 	}
 
 	method enemigosQueCorren()
-
-
-	//method enemigosQueCaminan()	
+	method enemigosQueCaminan()	
+	method enemigosVerdes()
 	
 	method iniciarPuerta(x, y) {
 		game.addVisual(new Puerta(image= "puerta.PNG",position = game.at(x, y)))
@@ -60,17 +56,6 @@ class Nivel {
 	    game.addVisual(new Ladrillo(position = game.at(lad.get(0), lad.get(1))))
 	}
 	
-
-	//method iniciarEnemigo(ene) {
-//		game.addVisual(new Enemigo(position = game.at(ene.get(0), ene.get(1))))
-	//	game.addVisual(new Enemigo(position=game.at(ene.get(0), ene.get(1)), direccion = ene.get(2)))
-		//const enemigo = new EnemigosQueCorren(position=game.at(ene.get(0), ene.get(1)), direccion = ene.get(2))
-		//cantidadEnemigos++
-		//game.addVisual(enemigo)
-//		enemigo.iniciar()	
-
-
-	
 	method iniciarEnemigo(list){
 		const enemigo1 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
 		cantidadEnemigos++
@@ -78,14 +63,19 @@ class Nivel {
 		enemigo1.iniciar()
 		}
 	
-//	method iniciarCaminante(list){
-//		const enemigoQueCamina = new EnemigosQueCaminan(image=list.get(3) ,position=game.at(list.get(0), list.get(1)), direccion = list.get(2))
-//		cantidadEnemigos++
-//		game.addVisual(enemigoQueCamina)
-//		enemigoQueCamina.iniciar()
-//	}
-
+	method iniciarCaminante(list){
+		const enemigo2 = new EnemigosQueCaminan(position=game.at(list.get(0), list.get(1)), image = "enemigo2.png")
+		cantidadEnemigos++
+		game.addVisual(enemigo2)
+		enemigo2.iniciar()
+	}
 	
+	method iniciarVerdes(list){
+		const enemigo3 = new EnemigosVerdes(position=game.at(list.get(0), list.get(1)), image = "enemigo3.png")
+		cantidadEnemigos++
+		game.addVisual(enemigo3)
+		enemigo3.iniciar()
+	}
 	
 	method enemigoMuere() {
 		cantidadEnemigos--
@@ -93,11 +83,11 @@ class Nivel {
 	}
 	
 	method puertaSpam(){}
-		
 }
 
 class NivelUno inherits Nivel{
 	var property position = new Position(x = 1, y = 3)
+	
 	
 	override method paredes(){
 		 return  [[2,2],[4,2],[6,2],[8,2],[10,2],[12,2],[14,2],[16,2],[18,2],[20,2],
@@ -108,7 +98,6 @@ class NivelUno inherits Nivel{
 	             [2,12],[4,12],[6,12],[8,12],[10,12],[12,12],[14,12],[16,12],[18,12],[20,12]]
     } 
 	
-	
 	override method ladrillos(){
 
 		return  [[1,5],[1,7],[1,9],[1,11],[1,13],[3,3],[3,5],[3,7],[3,13],[5,1],[5,3],[5,5],[5,7],[5,9],
@@ -117,21 +106,18 @@ class NivelUno inherits Nivel{
 				[13,13],[15,1],[15,3],[15,7],[15,9],[15,11],[15,13],[17,1],[17,3],[17,5],[17,7],[17,9],
 				[17,11],[17,13],[19,1],[19,3],[19,5],[19,7],[21,1],[21,3],[21,5],[21,7],[21,9],[21,11],[21,13]]}
 	
-
-	
 	override method enemigosQueCorren() {
 		return [[3,10],[9,11],[15,5],[19,9]]
 	}
-
-		
-	//override method enemigosQueCorren() {
-		//return [[21,4,left],[3,9,right]]
-	//}
 	
-	//override method enemigosQueCaminan() {
-	//	return [[20,2,left,"enemigoCaminaLeft.png"]]
-	//}
-
+	override method enemigosQueCaminan() {
+		return [[6,9],[18,9]]
+	}
+	
+	override method enemigosVerdes(){
+			return [[2,3],[6,5]]
+	}
+	
 	override method iniciarNivel(){		
 		//self.iniciarPuerta(3, 10)
 		super() 
@@ -144,7 +130,6 @@ class NivelUno inherits Nivel{
 			keyboard.v().onPressDo({door.ponerPuerta(position)})
 			keyboard.q().onPressDo({door.abrirPuerta()})}
 	}	
-
 }
 
 class NivelDos inherits Nivel{
@@ -159,22 +144,24 @@ class NivelDos inherits Nivel{
 		 		 [2,10],[18,10],[20,10],[2,11],[3,11],[4,11],[5,11],[6,11],[8,11],[10,11],[12,11],[14,11],[16,11],
 		 		 [18,12],[20,12],[1,13],[2,13],[6,13],[8,13],[10,13],[12,13],[14,13],[16,13],[19,13]]
 	}
-                	
-	
+   
 	override method ladrillos(){
 		return  [[1,11],[2,9],[3,6],[6,1],[6,6],[6,12],[8,3],[9,10],[11,6],[11,8],
 				[12,3],[13,12],[16,2],[16,4],[16,6],[16,8],[16,10],[16,12],[18,5],
 				[19,7],[19,11],[20,5]]
 	}
-	
 
 	override method enemigosQueCorren() {
-		return [[2,3],[3,8],[4,13],[12,1],[13,6],[19,3]]
+		return [[2,3],[4,13],[13,6]]
 	}
 	
-	//override method enemigosQueCaminan() {
-	//	return [[20,2,left,"enemigoCaminaLeft.png"]]
-	//}
+	override method enemigosQueCaminan() {
+		return [[3,8],[12,1],[19,3]]
+	}
+	
+	override method enemigosVerdes(){
+			return [[2,3],[6,5]]
+	}
 
 	override method iniciarNivel(){		
 		self.iniciarPuerta(19, 12)
@@ -213,15 +200,17 @@ class NivelTres inherits Nivel{
 				[17,12],[18,4],[18,8],[18,10],[18,11],[18,13],[19,8],[20,4],[20,8],[20,10],[21,8]]
 	}
 	
-
-	
 	override method enemigosQueCorren() {
-		return [[2,3],[2,12],[6,5],[6,9],[18,3],[18,9]]
+		return [[2,12],[18,3]]
 	}
 	
-	//override method enemigosQueCaminan() {
-	//	return [[20,2,left,"enemigoCaminaLeft.png"]]
-	//}
+	override method enemigosQueCaminan() {
+		return [[6,9],[18,9]]
+	}
+	
+	override method enemigosVerdes(){
+		return [[2,3],[6,5]]
+	}
 
 	override method iniciarNivel(){		
 		self.iniciarPuerta(2, 5)
@@ -229,6 +218,7 @@ class NivelTres inherits Nivel{
 		//COLISIONES//
 	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
+	
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {
 			keyboard.v().onPressDo({door.ponerPuerta(position)})

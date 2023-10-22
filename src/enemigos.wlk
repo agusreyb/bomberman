@@ -29,7 +29,7 @@ class Enemigo {
 }
 
 class EnemigosQueCorren inherits Enemigo {/*naranja */
-	override method image()= "enemigo1.png"
+
 }
 	
 class EnemigosQueCaminan inherits Enemigo {/*azul */

@@ -5,11 +5,9 @@ import bomberman.*
 import puerta.*
 import vida.*
 import puerta.*
-<<<<<<< HEAD
 import movimientos.*
-=======
 import bomba.*
->>>>>>> 7cfa689a9bb93d064c3fa3aa4b82c0223f3443cd
+
 
 object alternarPantallaDeInicio{
 	var property imagenAlternada= true 

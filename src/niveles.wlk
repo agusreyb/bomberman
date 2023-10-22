@@ -56,7 +56,7 @@ class Nivel {
 		game.addVisual(new Pared(position = game.at(par.get(0), par.get(1))))
 	}
 	method iniciarLadrillo(lad) {
-		game.addVisual(new Ladrillo(position = game.at(lad.get(0), lad.get(1))))
+	    game.addVisual(new Ladrillo(position = game.at(lad.get(0), lad.get(1))))
 	}
 	
 	method iniciarEnemigo(ene) {
@@ -80,6 +80,8 @@ class Nivel {
 //		enemigoQueCamina.iniciar()
 //	}
 
+	
+	
 	method enemigoMuere() {
 		cantidadEnemigos--
 		self.puertaSpam()
@@ -133,9 +135,9 @@ class NivelUno inherits Nivel{
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {
 			keyboard.v().onPressDo({door.ponerPuerta(position)})
-			keyboard.q().onPressDo({door.abrirPuerta()})
-		}
+			keyboard.q().onPressDo({door.abrirPuerta()})}
 	}	
+
 }
 
 class NivelDos inherits Nivel{

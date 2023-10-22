@@ -63,6 +63,13 @@ object bomberman {
 		movimientos.volver(self, direccion)
 	}
 	
+
+    method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
+	 //self.removerVida()
+	 game.say(self," -1 vida rey tene cuidado" )
+  }
+
+
 } //FIN BOMBER
 
 object movimientos{

@@ -9,7 +9,7 @@ import enemigos.*
 
 class Nivel {
 	var property cantidadEnemigos = 1
-
+    var property elementos = []
 	
 	method iniciarNivel() {					//metodo para iniciar el nivel
 		self.cargarMapa()
@@ -25,9 +25,13 @@ class Nivel {
 	method cargarMapa(){
 		self.borde().forEach({par => self.iniciarPared(par)})		//setea el mapa segun el nivel
 		self.paredes().forEach({par => self.iniciarPared(par)})
-		self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
+		
+		self.ladrillos().forEach({lad => ladrilloRompible.construir(lad)})
+		
+		//self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
 		self.enemigo().forEach({ene => self.iniciarEnemigo(ene)})
 		
+		ladrilloRompible.crearele()
 		//self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
 		
 		//self.enemigosQueCaminan().forEach({par => self.iniciarCaminante(par)})
@@ -123,6 +127,7 @@ class NivelUno inherits Nivel{
 		super() 
 		//COLISIONES//
         game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
+	   // fuego.fuegos().forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}
 	    }
 	
 	override method puertaSpam(){

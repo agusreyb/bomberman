@@ -13,6 +13,7 @@ class Bomba {
 
     method hitFuego(){} //NO HACE NADA
    
+
 }
 
 class Fuego {
@@ -61,6 +62,7 @@ object fuego inherits Fuego {
  	var property fuegosTotales = []
 	var property fuegos =[]
     var property durationFuego = 400
+  //  var property objetos = []
 
 	method ponerFuego(){
 		
@@ -86,12 +88,15 @@ object fuego inherits Fuego {
 	  return (cadafuego.potencia() <= bomba.bombapowup()) and (cadafuego.esColision())}
 	
 	method colisionFuego(){
+	  fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}} //EL QUE FUNCIONA
 	 
-       fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}
-	
+	 //  fuegos.forEach{fuego => game.whenCollideDo(fuego,{ladrilloRompible.elementos().forEach{elemento => elemento.hitFuegoLadri()}})}
 	 	
-	 	
-	 }
+	 // objetos = game.getObjectsIn(fuegos)  //.forEach({fuego=> fuego.hitFuego()})
+     // objetos.forEach{objeto => objeto.hitFuego()}}
+     
+      // fuegos.forEach{fuego => game.getObjectsIn(fuego,{objeto => objeto.hitFuego()})}	
+	 
 	  
 	  
 	  

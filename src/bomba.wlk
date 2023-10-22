@@ -16,13 +16,18 @@ class Bomba {
 }
 
 class Fuego {
-	var property position = 0
+	var property position=0
 	var property duration = 400 //EN MILISEGUNDOS, SERIAN 0.4s
 	var property image = "fire.png"
 	var property potencia = 0
 	
+		
 	method esColision(){
-		return (game.getObjectsIn(position).isEmpty())
+		if(game.getObjectsIn(position).isEmpty()){
+			return true		
+		}else{
+			return game.getObjectsIn(position).get(0).esRompible()	
+		}
 	}
 
 	method colision(personaje){} //QUEDA VACIO YA QUE PERSONAJE PUEDE PASAR POR ENCIMA

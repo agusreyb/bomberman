@@ -80,6 +80,7 @@ class Nivel {
 		const enemigo3 = new EnemigosVerdes(position=game.at(list.get(0), list.get(1)), image = "enemigo3.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo3)
+		game.whenCollideDo(enemigo3,{objeto => objeto.colisionEnemigo(enemigo3)})
 		enemigo3.iniciar()
 	}
 		
@@ -117,7 +118,7 @@ class NivelUno inherits Nivel{
 
 	
 	override method enemigosQueCorren() {
-		return [[3,10],[15,5]]
+		return [[3,9],[15,5]]
 	}
 
 	override method enemigosQueCaminan() {

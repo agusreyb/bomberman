@@ -10,19 +10,19 @@ class Enemigo {
 	var property image 
 	var property destruible=true
 	var property atravesable = false
-	method direccion() = izquierda
+	var property direccion
 	method iniciar(){
 		game.onTick(velocidad,"moverEnemigo",{self.siguientePosicion()})}
 	method siguientePosicion(){
-		self.mover(self.direccion().mover(position))
+		self.mover(direccion.mover(position))
 	}
 	method mover(_position) {
 		const proximaPosition= _position
 		if(self.validarPosition(proximaPosition)) {
 			position = proximaPosition
-			self.direccion().mover(position)
+			direccion.mover(position)
 		} else {
-			movimientos.volver(self, self.direccion())
+			movimientos.volver(self, direccion)
 		}
 	}
 	//Valida posicion 
@@ -37,7 +37,7 @@ class Enemigo {
 				all({visual => visual.atravesable()} )	
 	}
 	method seChocaPared(){
-		movimientos.volver(self, self.direccion())
+		movimientos.volver(self, direccion)
 	}
 	method esPeligroso() = true
 	method colision(entidad){
@@ -54,12 +54,13 @@ class Enemigo {
 }
 
 class EnemigosQueCorren inherits Enemigo {/*naranja */
-	override method image()= "enemigo1.png"}
+	override method image()= "enemigo1.png"
+	}
 	
 class EnemigosQueCaminan inherits Enemigo {/*azul */
 	override method image()= "enemigo2.png"
-	override method direccion()=arriba}
+	}
 	
 class EnemigosVerdes inherits Enemigo {
-	override method direccion()=derecha
-	override method image()= "enemigo3.png"}
+	override method image()= "enemigo3.png"
+	}

@@ -13,6 +13,8 @@ class Pared {
 	
 	method colision(personaje){
 	    personaje.seChocaPared()}
+	method colisionEnemigo(enemigo){
+	    enemigo.seChocaPared()}
     method hitFuego(){} //NO HACE NADA 
 }
 

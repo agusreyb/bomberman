@@ -64,6 +64,7 @@ class Nivel {
 		const enemigo1 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo1)
+		game.whenCollideDo(enemigo1,{objeto => objeto.colisionEnemigo(enemigo1)})
 		enemigo1.iniciar()
 		}
 	
@@ -71,6 +72,7 @@ class Nivel {
 		const enemigo2 = new EnemigosQueCaminan(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo2)
+		game.whenCollideDo(enemigo2,{objeto => objeto.colisionEnemigo(enemigo2)})
 		enemigo2.iniciar()
 	}
 	

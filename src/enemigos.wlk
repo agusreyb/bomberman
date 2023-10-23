@@ -10,17 +10,16 @@ class Enemigo {
 	var property destruible=true
 	
 	method iniciar(){
-		game.onTick(velocidad,"moverEnemigo",{self.mover()})
-//		movimientos.moverse(direccion,self)
-	}
+		game.onTick(velocidad,"moverEnemigo",{self.mover()})}
 	method mover(){
 		position = position.left(1)
-
 	}
-	
+
 	method seChocaPared(){
-		movimientos.volver(self, self.direccion())
+
+	movimientos.volver(self, self.direccion())
 	}	
+
 	
 	method esPeligroso() = true
 	
@@ -51,11 +50,10 @@ class EnemigosQueCorren inherits Enemigo {/*naranja */
 }
 	
 class EnemigosQueCaminan inherits Enemigo {/*azul */
-	override method direccion() = arriba
 	override method image()= "enemigo2.png"
+	override method direccion() = arriba
 	override method mover(){
 		position = position.up(1)}
-	
 }
 
 class EnemigosVerdes inherits Enemigo {

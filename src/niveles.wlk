@@ -15,7 +15,6 @@ class Nivel {
 	method iniciarNivel() {					//metodo para iniciar el nivel
 		self.cargarMapa()
 		self.iniciarPersonaje()
-		 game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	
 	method iniciarPersonaje() {				//metodo para iniciar el personaje
@@ -125,7 +124,7 @@ class NivelUno inherits Nivel{
 
 	
 	override method enemigosQueCorren() {
-		return [[3,10],[15,5]]
+		return [[3,9],[15,5]]
 	}
 
 	override method enemigosQueCaminan() {
@@ -143,6 +142,7 @@ class NivelUno inherits Nivel{
 		//COLISIONES//
         game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	    }
+
 
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {
@@ -188,6 +188,8 @@ class NivelDos inherits Nivel{
 	override method iniciarNivel(){		
 		self.iniciarPuerta(19, 12)
 		super() 
+		//COLISIONES//
+	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	
 	override method puertaSpam(){
@@ -237,7 +239,8 @@ class NivelTres inherits Nivel{
 	override method iniciarNivel(){		
 		self.iniciarPuerta(2, 5)
 		super() 
-
+		//COLISIONES//
+	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	override method puertaSpam(){
 		if(cantidadEnemigos == 0) {

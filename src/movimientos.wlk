@@ -25,13 +25,14 @@ object abajo {
 
 object movimientos{
 	
+
 	 method volver(pj, sentido){
 		self.moverse(pj, sentido.rebote())
-	}
+     }
 
      method moverse(pj, sentido){
 		pj.position(sentido.mover(pj.position()))
-	}
+     }
 
 }
 	

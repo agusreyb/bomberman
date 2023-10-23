@@ -103,15 +103,15 @@ class NivelUno inherits Nivel{
 			return [[19,9]]
 	}
 	override method iniciarNivel(){		
-		//self.iniciarPuerta(3, 10)
 		super() 
 		//COLISIONES//
         game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	    }
 	override method puertaSpawn(){
 		if(cantidadEnemigos == 0) {
-			keyboard.v().onPressDo({door.ponerPuerta(position)})
-			keyboard.q().onPressDo({door.abrirPuerta()})}
+			door.ponerPuerta(position)
+			door.abrirPuerta()
+		}
 	}	
 }
 
@@ -141,15 +141,14 @@ class NivelDos inherits Nivel{
 			return [[2,1],[8,1]]
 	}
 	override method iniciarNivel(){		
-		self.iniciarPuerta(19, 12)
 		super() 
 		//COLISIONES//
 	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	override method puertaSpawn(){
 		if(cantidadEnemigos == 0) {
-			keyboard.v().onPressDo({door.ponerPuerta(position)})
-			keyboard.q().onPressDo({door.abrirPuerta()})
+			door.ponerPuerta(position)
+			door.abrirPuerta()
 		}
 	}	
 }
@@ -182,15 +181,14 @@ class NivelTres inherits Nivel{
 			return [[2,3],[7,5],[20,3]]
 	}
 	override method iniciarNivel(){		
-		self.iniciarPuerta(2, 5)
 		super() 
 		//COLISIONES//
 	    game.whenCollideDo(bomberman,{objeto => objeto.colision(bomberman)})
 	}
 	override method puertaSpawn(){
 		if(cantidadEnemigos == 0) {
-			keyboard.v().onPressDo({door.ponerPuerta(position)})
-			keyboard.q().onPressDo({door.abrirPuerta()})
+			door.ponerPuerta(position)
+			door.abrirPuerta()
 		}
-	}	
+	}
 }

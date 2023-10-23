@@ -7,9 +7,9 @@ object fondo {												//objeto para el fondo de carga
 	const property position = game.at(0,0)
 	var property image = "fondocarga.png"}
 
-object mundo {
+object bordes {
 	method validarPosition(position) {
-		return position.x().between(0, game.width() - 1) && position.y().between(1, game.height() - 1)}}
+		return position.x().between(0, game.width() - 1) and position.y().between(1, game.height() - 1)}}
 
 object consola {
 	const property position = game.at(15,-1)}

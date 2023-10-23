@@ -12,7 +12,7 @@ class Pared inherits Cemento {		//estas son paredes que no se pueden destruir
 	var property image = "pared.png"
 	var property destruible = false
     method hitFuego(){} //NO HACE NADA 
-    method atravesable () = true
+    method atravesable () = false
 }
       
 class Ladrillo inherits Cemento  {	//estos son ladrillos que se pueden destruir
@@ -22,5 +22,5 @@ class Ladrillo inherits Cemento  {	//estos son ladrillos que se pueden destruir
     method hitFuego(){
     	game.removeVisual(self)
     }  
-    method atravesable () = true
+    method atravesable () = false
 }

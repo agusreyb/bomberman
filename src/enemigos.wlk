@@ -3,17 +3,18 @@ import movimientos.*
 import bomberman.*
 import objects.*
 import niveles.*
+import main.*
 
 class Enemigo {
-	const velocidad = 400
 	var property position
 	var property image 
 	var property destruible=true
 	var property atravesable = false
 	var property direccion
 	
+	method velocidad ()= 400
 	method iniciar(){
-		game.onTick(velocidad,"moverEnemigo",{self.siguientePosicion()})}
+		game.onTick(self.velocidad(),"moverEnemigo",{self.siguientePosicion()})}
 	
 	method siguientePosicion(){
 		self.mover(direccion.mover(position))
@@ -24,12 +25,12 @@ class Enemigo {
 			position = proximaPosition
 			direccion.mover(position)
 		} else {
-			movimientos.volver(self, direccion)
+			self.cambiarDireccion()
 		}
 	}
 	//Valida posicion 
 	method validarPosition(_position) {
-		return self.validarPaso(_position) && mundo.validarPosition(_position)
+		return self.validarPaso(_position) and bordes.validarPosition(_position)
 	}
 	method validarPaso(_position) {
 		return self.puedePasar(_position)
@@ -41,6 +42,13 @@ class Enemigo {
 	method seChocaPared(){
 		movimientos.volver(self, direccion)
 	}
+	method cambiarDireccion(){
+		if(direccion.equals(izquierda)){
+			direccion = derecha
+		} else {
+			direccion = izquierda
+		}
+	}
 	method colision(entidad){
 		game.say(entidad, "Cuidado!")
 	    entidad.fueHit()
@@ -51,24 +59,27 @@ class Enemigo {
 	}
   	method hitFuego(){ 
 		game.removeVisual(self)
-		//cantidadEnemigos--
+		main.nivel().enemigoMuere()
   	}
 }
 
 class EnemigoNaranja inherits Enemigo {
 	override method image()= "enemigo1.png"
 }
-	
+
 class EnemigoAzul inherits Enemigo {
 	override method image()= "enemigo2.png"
-	//override method direccion()=arriba
+
+		override method cambiarDireccion(){
+		if(direccion.equals(arriba)){
+			direccion = abajo
+		} else {
+			direccion = arriba
+		}
+	}
 }
-	
-//class EnemigoVerde inherits Enemigo {
-//	override method direccion()=derecha
-//	override method image()= "enemigo3.png"
-//}
 	
 class EnemigoVerde inherits Enemigo {
 	override method image()= "enemigo3.png"
+	override method velocidad ()= 100
 	}

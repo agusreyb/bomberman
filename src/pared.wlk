@@ -17,25 +17,13 @@ class Pared inherits Cemento {
 	method esPeligroso() = false
     method hitFuego(){} //NO HACE NADA 
 }
-
-
-	       
+      
 class Ladrillo inherits Cemento  {
 	var property position 
 	var property image = "ladrillo.png"
 	var property destruible=true
 	var property atravesable= true
-	//var property vida = 1
-	//method esPeligroso() = false
-
     method hitFuego(){
     	game.removeVisual(self)
-    }
-    
+    }  
 }
-
-
-	
-	
-	
-	

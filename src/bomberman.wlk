@@ -12,6 +12,7 @@ object bomberman {
 	var property vidas
 	var property listaVidas = []  
     var property direccion
+    var property atravesable = false
 
 	method howAreYou() = "Lets start!"
 	method imageLeft() { 

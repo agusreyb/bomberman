@@ -47,12 +47,9 @@ object main {
 		nivelActual = 0
 		niveles = self.cargarNiveles()
 		self.iniciar()
-		}  )
-		keyboard.p().onPressDo( {
-			game.clear()
-			game.stop()
-		}  )
-	}
+		} )
+		keyboard.p().onPressDo( {game.clear()game.stop()})
+}
 	method configuracionInicial() {  //metodo para setear la configuracion inicial de la pantalla
 			game.title("BomberMan 2023")
 			game.height(15)

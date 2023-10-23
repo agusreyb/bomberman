@@ -27,7 +27,7 @@ class Ladrillo inherits Cemento  {
 	//method esPeligroso() = false
 
     method hitFuego(){
-    	game.removeVisual(self)
+    game.removeVisual(self)
     }
     
 }

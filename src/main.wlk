@@ -69,13 +69,13 @@ object main {
 	method configurarTeclas(){
 			//CONFIGURACION KEYS//
 		    keyboard.left().onPressDo{(bomberman.imageLeft()) 
-		    	                       bomberman.direccion(izquierda)}
+		    	                       bomberman.direccion(left)}
 	        keyboard.right().onPressDo{(bomberman.imageRight())
-	        	                        bomberman.direccion(derecha)}
+	        	                        bomberman.direccion(right)}
 	        keyboard.up().onPressDo{(bomberman.imageUp())
-	                                 bomberman.direccion(arriba)}
+	                                 bomberman.direccion(up)}
 	        keyboard.down().onPressDo{(bomberman.imageDown())
-	        	                       bomberman.direccion(abajo)}
+	        	                       bomberman.direccion(down)}
 	        keyboard.space().onPressDo({bomba.ponerBomba()})
 	       	keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
 			keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA

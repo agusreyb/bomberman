@@ -6,20 +6,23 @@ class Enemigo {
 	const velocidad = 400
 	var property position
 	var property image 
-	var property direccion = izquierda
+	var property direccion = left
 	var property destruible=true
+	var property nuevoSentido = left
 	
 	method iniciar(){
 		game.onTick(velocidad,"moverEnemigo",{self.mover()})}
 	method mover(){
-		position = position.left(1)
+		position = position.direccion(1)
 	}
 
 	method seChocaPared(){
-
-	movimientos.volver(self, self.direccion())
+    movimientos.volverEne(self, direccion)
 	}	
 
+	method cambiarSentido(cambioDeDireccion){
+		direccion = cambioDeDireccion
+	}
 	
 	method esPeligroso() = true
 	
@@ -51,16 +54,16 @@ class EnemigosQueCorren inherits Enemigo {/*naranja */
 	
 class EnemigosQueCaminan inherits Enemigo {/*azul */
 	override method image()= "enemigo2.png"
-	override method direccion() = arriba
+	//var property direccion =  up
 	override method mover(){
-		position = position.up(1)}
+		position = position.direccion(1)}
 }
 
 class EnemigosVerdes inherits Enemigo {
-	override method direccion() = derecha
+	//override method direccion() =  right
 	override method image()= "enemigo3.png"
 	override method mover(){
-		position = position.right(1)
+		position = position.direccion(1)
 	}
 }
 

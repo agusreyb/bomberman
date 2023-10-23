@@ -7,7 +7,6 @@ class Vida {								//clase para la vida del personaje
 	var property destruible=false
 	
 	method colision(personaje){}
-	method esPeligroso() = false
 	method atravesable() = true
 	method fueHit(){	
 		bomberman.agregarVida()

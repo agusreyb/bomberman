@@ -6,11 +6,14 @@ import main.*
 object fondo {												//objeto para el fondo de carga
 	const property position = game.at(0,0)
 	var property image = "fondocarga.png"}
+
 object mundo {
 	method validarPosition(position) {
 		return position.x().between(0, game.width() - 1) && position.y().between(1, game.height() - 1)}}
+
 object consola {
 	const property position = game.at(15,-1)}
+
 object sonido{
 	var audio
     var musica
@@ -26,10 +29,12 @@ object sonido{
     method stopMusica(){								//metodo para stopear la musica
     	musica.stop()}  
 }
+
 object menosVida {									//objeto para mostrar la img de menos vida
 	var property image = "menosVida.png"
 	method hitFuego(){}                              //no hace nada, salva error
 }
+
 object finDelJuego {								//objeto para setear el endgame
 	const property position = game.at(0,0)
 	const property image = "gameOver.png" 
@@ -38,6 +43,7 @@ object finDelJuego {								//objeto para setear el endgame
 		game.addVisual(self)
 	}	
 }
+
 object finDelJuegoGanador {
 	const property position = game.at(0,0)
 	const property image = "win.png" 

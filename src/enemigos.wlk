@@ -19,7 +19,7 @@ class Enemigo {
 	}
 	
 	method seChocaPared(){
-		movimientos.volver(self, direccion)
+		movimientos.volver(self, self.direccion())
 	}	
 	
 	method esPeligroso() = true

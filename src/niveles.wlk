@@ -27,16 +27,13 @@ class Nivel {
 	method cargarMapa(){
 		self.borde().forEach({par => self.iniciarPared(par)})		//setea el mapa segun el nivel
 		self.paredes().forEach({par => self.iniciarPared(par)})
-
-		self.ladrillos().forEach({lad => ladrilloRompible.construir(lad)})
-		
-		//self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
+		self.ladrillos().forEach({lad => self.iniciarLadrillo(lad)})
 		
 		self.enemigosQueCorren().forEach({list => self.iniciarEnemigo(list)})
 		self.enemigosQueCaminan().forEach({list => self.iniciarCaminante(list)})
 		self.enemigosVerdes().forEach({list => self.iniciarVerdes(list)})
 
-		ladrilloRompible.crearele()
+		
 		//self.enemigosQueCorren().forEach({par => self.iniciarEnemigo(par)})
 		
 		//self.enemigosQueCaminan().forEach({par => self.iniciarCaminante(par)})

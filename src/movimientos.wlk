@@ -1,7 +1,7 @@
 object izquierda {
 	
 	method rebote() = derecha
-	method mover(position) = position.left()
+	method mover(position) = position.left(1)
 	
 }
 
@@ -25,12 +25,12 @@ object abajo {
 
 object movimientos{
 	
-	 method volver(enemigo, sentido){
-		self.moverse(enemigo, sentido.rebote())
+	 method volver(pj, sentido){
+		self.moverse(pj, sentido.rebote())
 	}
 
-     method moverse(enemigo, sentido){
-		enemigo.position(sentido.mover(enemigo.position()))
+     method moverse(pj, sentido){
+		pj.position(sentido.mover(pj.position()))
 	}
 
 }

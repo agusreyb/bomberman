@@ -9,7 +9,7 @@ import enemigos.*
 import movimientos.*
 
 class Nivel {
-	var property cantidadEnemigos = 1
+	var property cantidadEnemigos = 0
     var property elementos = []
 	method iniciarNivel() {					//metodo para iniciar el nivel
 		self.cargarMapa()
@@ -51,7 +51,7 @@ class Nivel {
 		const enemigo1 = new EnemigosQueCorren(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo1)
-		//game.whenCollideDo(enemigo1,{objeto => objeto.colisionEnemigo(enemigo1)})
+		game.whenCollideDo(enemigo1,{objeto => objeto.colision(enemigo1)})
 		enemigo1.iniciar()
 
 		}
@@ -59,14 +59,14 @@ class Nivel {
 		const enemigo2 = new EnemigosQueCaminan(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo2)
-		//game.whenCollideDo(enemigo2,{objeto => objeto.colisionEnemigo(enemigo2)})
+		game.whenCollideDo(enemigo2,{objeto => objeto.colision(enemigo2)})
 		enemigo2.iniciar()
 	}
 	method iniciarVerdes(list){
 		const enemigo3 = new EnemigosVerdes(position=game.at(list.get(0), list.get(1)), image = "enemigo3.png")
 		cantidadEnemigos++
 		game.addVisual(enemigo3)
-		//game.whenCollideDo(enemigo3,{objeto => objeto.colisionEnemigo(enemigo3)})
+		game.whenCollideDo(enemigo3,{objeto => objeto.colision(enemigo3)})
 		enemigo3.iniciar()
 	}
 	method enemigoMuere() {

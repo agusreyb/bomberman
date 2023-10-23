@@ -2,6 +2,7 @@ import wollok.game.*
 import movimientos.*
 import bomberman.*
 import objects.*
+import niveles.*
 
 class Enemigo {
 	const velocidad = 400
@@ -39,15 +40,16 @@ class Enemigo {
 		movimientos.volver(self, self.direccion())
 	}
 	method esPeligroso() = true
-	method colision(personaje){
-		game.say(personaje, "Cuidado!")
-	    personaje.fueHit()
+	method colision(entidad){
+		game.say(entidad, "Cuidado!")
+	    entidad.fueHit()
 	    bomberman.posicionInicial()}
 	method encontrarBomber(){
-		//sacar vida al bomber y que vuelva a iniciar desde position original
+		//sacar vida al bomber
 	}
-   method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
+   method hitFuego(){ 
 	game.removeVisual(self)
+	//cantidadEnemigos--
   }
 }
 

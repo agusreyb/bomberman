@@ -41,21 +41,21 @@ object main {
 	}	
 	method jugarOSalir() {					//metodo jugar o salir
 		keyboard.enter().onPressDo( {
-		alternarPantallaDeInicio.terminarAnimacion()
-		game.clear()
-		self.configuracionInicial()
-		nivelActual = 0
-		niveles = self.cargarNiveles()
-		self.iniciar()
+			alternarPantallaDeInicio.terminarAnimacion()
+			game.clear()
+			self.configuracionInicial()
+			nivelActual = 0
+			niveles = self.cargarNiveles()
+			self.iniciar()
 		} )
 		keyboard.p().onPressDo( {game.clear()game.stop()})
-}
+	}
 	method configuracionInicial() {  //metodo para setear la configuracion inicial de la pantalla
 			game.title("BomberMan 2023")
 			game.height(15)
 			game.width(23)
 			game.cellSize(50)
-			game.boardGround("ground.png")//aca un fondo inicial deberia ir 
+			game.boardGround("ground.png") 
 			}	
 	method configurarTeclas(){
 			//CONFIGURACION KEYS//

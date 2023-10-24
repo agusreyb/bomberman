@@ -8,6 +8,8 @@ class Bomba {
 	var property position = 0
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
 	var property image = "bomb.png" //CAMBIAR IMAGEN
+	var property atravesable=false
+	
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
     method hitFuego(){} //NO HACE NADA
 
@@ -18,6 +20,7 @@ class Fuego {
 	var property duration = 400 //EN MILISEGUNDOS, SERIAN 0.4s
 	var property image = "fire.png"
 	var property potencia = 0
+	var property atravesable =true
 	method esColision(){
 		if(game.getObjectsIn(position).isEmpty()){
 			return true		

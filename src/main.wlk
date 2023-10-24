@@ -8,18 +8,15 @@ import puerta.*
 import movimientos.*
 import bomba.*
 
-
 object alternarPantallaDeInicio{
 	var property imagenAlternada= true 
 	method iniciarAnimacion(){
 		game.onTick(250,"animacionMenu",{self.cambiar()})
-		
 	}
 	method cambiar(){
 		if(imagenAlternada){
 			self.fondofalse()
 			fondo.image("fondocarga.png")
-			
 		}else{
 			self.fondotrue()
 			fondo.image("fondocarga2.png")
@@ -36,7 +33,6 @@ object main {
 	var property nivelActual = 0
 	var property niveles = []
 	var property position = new Position(x = 1, y = 3) //HARDCORE PARA TESTEAR LA PUERTA
-
 	method iniciarPantallaCarga() {			//metodo para iniciar la pantalla de carga
 		self.configuracionInicial()
 		game.addVisual(fondo)
@@ -51,60 +47,50 @@ object main {
 		nivelActual = 0
 		niveles = self.cargarNiveles()
 		self.iniciar()
-		}  )
-		keyboard.p().onPressDo( {
-			game.clear()
-			game.stop()
-		}  )
-	}
-	
+		} )
+		keyboard.p().onPressDo( {game.clear()game.stop()})
+}
 	method configuracionInicial() {  //metodo para setear la configuracion inicial de la pantalla
 			game.title("BomberMan 2023")
 			game.height(15)
 			game.width(23)
 			game.cellSize(50)
 			game.boardGround("ground.png")//aca un fondo inicial deberia ir 
-			
 			}	
 	method configurarTeclas(){
 			//CONFIGURACION KEYS//
 		    keyboard.left().onPressDo{(bomberman.imageLeft()) 
-		    	                       bomberman.direccion(left)}
+		    	                       bomberman.direccion(izquierda)}
 	        keyboard.right().onPressDo{(bomberman.imageRight())
-	        	                        bomberman.direccion(right)}
+	        	                        bomberman.direccion(derecha)}
 	        keyboard.up().onPressDo{(bomberman.imageUp())
-	                                 bomberman.direccion(up)}
+	                                 bomberman.direccion(arriba)}
 	        keyboard.down().onPressDo{(bomberman.imageDown())
-	        	                       bomberman.direccion(down)}
+	        	                       bomberman.direccion(abajo)}
 	        keyboard.space().onPressDo({bomba.ponerBomba()})
-	       	keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
-			keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
+	       //	keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
+			//keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
 		//	keyboard.l().onPressDo({ bomberman.fueHit()})
 	}
 
-	
 	method cargarNiveles() {				//metodo para cargar los niveles
 		const nivelUno = new NivelUno()
 		const nivelDos = new NivelDos()
 		const nivelTres = new NivelTres()
 		return [nivelUno, nivelDos, nivelTres]
 	}		
-			
 	method nivel(){							//metodo para devolver el nivel
 		return niveles.get(nivelActual)
 	}
-	
 	method validarNivel() {					//metodo para validar el nivel
 		return nivelActual == niveles.size()
 	}	
-	
 	method pasoDeNivel() {					//metodo para el pasaje de nivel
 		sonido.stopMusica()
 		game.clear()
 		nivelActual++
 		self.iniciar()
 	}	
-	
 	method iniciar() {						//metodo para iniciar el juego segun level
 		sonido.reproducirMusica("musicaJuego.mp3", 0.03)
 		self.configuracionInicial()
@@ -116,7 +102,6 @@ object main {
 			self.terminarJuego(finDelJuegoGanador)
 		}
 	}
-	
 	method terminarJuego(estado){			//metodo para terminar el juego
 		sonido.stopMusica()
 		game.clear()
@@ -124,14 +109,4 @@ object main {
 		estado.mostrarCartel()
 		self.jugarOSalir()
 	}	
-	
-
 }	
-
-	
-	
-	
-	
-	
-
-

@@ -1,70 +1,89 @@
 import wollok.game.*
 import movimientos.*
 import bomberman.*
+import objects.*
+import niveles.*
+import main.*
 
 class Enemigo {
-	const velocidad = 400
 	var property position
 	var property image 
-	var property direccion = left
 	var property destruible=true
-	var property nuevoSentido = left
-	
+	var property atravesable = false
+	var property direccion
+
+	method velocidad ()= 400
 	method iniciar(){
-		game.onTick(velocidad,"moverEnemigo",{self.mover()})}
-	method mover(){
-		position = position.direccion(1)
+    game.onTick(self.velocidad(),"moverEnemigo",{self.siguientePosicion()})}
+	
+	method siguientePosicion(){
+		self.mover(direccion.mover(position))}
+	
+	method mover(_position) {
+		const proximaPosition= _position
+		if(self.validarPosition(proximaPosition)) {
+			position = proximaPosition
+			direccion.mover(position)
+		} else {
+			self.cambiarDireccion()
+		}
 	}
-
-	method seChocaPared(){
-    movimientos.volverEne(self, direccion)
-	}	
-
-	method cambiarSentido(cambioDeDireccion){
-		direccion = cambioDeDireccion
+	//Valida posicion 
+	method validarPosition(_position) {
+		return self.validarPaso(_position) and bordes.validarPosition(_position)
+	}
+	method validarPaso(_position) {
+		return self.puedePasar(_position)
+	}
+	method puedePasar(_position) {
+		return 	game.getObjectsIn(_position).
+				all({visual => visual.atravesable()} )	
 	}
 	
-	method esPeligroso() = true
-	
-	method colision(personaje){
-		game.say(personaje, "Cuidado!")
-	    personaje.fueHit()
-	    bomberman.posicionInicial()}
-	
+
 	method encontrarBomber(){
-		//sacar vida al bomber y que vuelva a iniciar desde position original
+	movimientos.volver(self, direccion)
 	}
 	
-    //method encontrarEnemigo() {
-	//	game.say(enemigo, "Cuidado!")
-	//	
-	//}
-
-   method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
-	game.removeVisual(self)
-  }
-
-
+	method cambiarDireccion(){
+		if(direccion.equals(izquierda)){
+			direccion = derecha
+		} else {
+			direccion = izquierda
+		}
+	}
+	
+	method colision(entidad){
+		game.say(entidad, "Cuidado!")
+	    entidad.fueHit()
+	    bomberman.posicionInicial()
+	}	
+	
+  	method hitFuego(){ 
+		game.removeVisual(self)
+		main.nivel().enemigoMuere()
+  	}
 }
 
-
-class EnemigosQueCorren inherits Enemigo {/*naranja */
+class EnemigoNaranja inherits Enemigo {
 	override method image()= "enemigo1.png"
 }
-	
-class EnemigosQueCaminan inherits Enemigo {/*azul */
-	override method image()= "enemigo2.png"
-	//var property direccion =  up
-	override method mover(){
-		position = position.direccion(1)}
-}
 
-class EnemigosVerdes inherits Enemigo {
-	//override method direccion() =  right
-	override method image()= "enemigo3.png"
-	override method mover(){
-		position = position.direccion(1)
+	
+
+class EnemigoAzul inherits Enemigo {
+	override method image()= "enemigo2.png"
+
+		override method cambiarDireccion(){
+		if(direccion.equals(arriba)){
+			direccion = abajo
+		} else {
+			direccion = arriba}
+
 	}
 }
-
-
+	
+class EnemigoVerde inherits Enemigo {
+	override method image()= "enemigo3.png"
+	override method velocidad ()= 100
+	}

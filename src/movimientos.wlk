@@ -1,46 +1,42 @@
-object left {
-	
-	method rebote() = right
-	method mover(position) = position.left(1)
-	
+import wollok.game.*
+
+object izquierda {
+	method rebote() = derecha
+	method mover(position) {
+	return game.at(position.x() - 1, position.y())}
+
 }
 
-object right {
-	
-	method rebote() = left
-	method mover(position) = position.right(1)
+
+object derecha {
+	method rebote() = izquierda
+	method mover(position) {
+	return game.at(position.x() + 1, position.y())}
+
 }	
 
-object up {
-	
-	method rebote() = down
-	method mover(position) = position.up(1)
+object arriba {
+	method rebote() = abajo
+	method mover(position) {
+	return game.at(position.x() , position.y()+1)}
+
 }	
 
-object down {
-	
-	method rebote() = up
-	method mover(position) = position.down(1)
+object abajo {
+	method rebote() = arriba
+	method mover(position) {
+	return game.at(position.x(), position.y()-1)}
+
 }	
 
 object movimientos{
-	
-
 	 method volver(pj, sentido){
 		self.moverse(pj, sentido.rebote())
      }
 
-     method volverEne(enemigo, sentido){
-		enemigo.cambiarSentido(sentido.rebote())
-        
-     }
-     
      method moverse(pj, sentido){
 		pj.position(sentido.mover(pj.position()))
      }
-
-     
-
 
 }
 	

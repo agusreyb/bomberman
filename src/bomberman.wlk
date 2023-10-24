@@ -29,6 +29,7 @@ object bomberman {
 		//return fuegos
 	//}
 	method fueHit() { // metodo para ver si el personaje fue atacado o no
+		new menosVida = MenosVida
 		game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))
 		game.schedule(500,{ game.removeVisual(menosVida) })
 		sonido.reproducirSonido("impacto.mp3", 0.1)

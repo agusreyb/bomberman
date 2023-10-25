@@ -47,27 +47,24 @@ class Nivel {
 	method iniciarLadrillo(lad) {
 	    game.addVisual(new Ladrillo(position = game.at(lad.get(0), lad.get(1))))
 	}
+	method iniciarEnemigo(enemigo){
+		cantidadEnemigos++
+		game.addVisual(enemigo)
+		game.whenCollideDo(enemigo,{objeto => objeto.colision(enemigo)})
+		enemigo.iniciar()
+	}
 	method iniciarNaranjas(list){
 		const enemigo1 = new EnemigoNaranja(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png", direccion = izquierda)
-		cantidadEnemigos++
-		game.addVisual(enemigo1)
-		game.whenCollideDo(enemigo1,{objeto => objeto.colision(enemigo1)})
-		enemigo1.iniciar()
+		self.iniciarEnemigo(enemigo1)
 
 		}
 	method iniciarAzules(list){
 		const enemigo2 = new EnemigoAzul(position=game.at(list.get(0), list.get(1)), image = "enemigo1.png", direccion = arriba)
-		cantidadEnemigos++
-		game.addVisual(enemigo2)
-		game.whenCollideDo(enemigo2,{objeto => objeto.colision(enemigo2)})
-		enemigo2.iniciar()
+		self.iniciarEnemigo(enemigo2)
 	}
 	method iniciarVerdes(list){
 		const enemigo3 = new EnemigoVerde(position=game.at(list.get(0), list.get(1)), image = "enemigo3.png", direccion = derecha)
-		cantidadEnemigos++
-		game.addVisual(enemigo3)
-		game.whenCollideDo(enemigo3,{objeto => objeto.colision(enemigo3)})
-		enemigo3.iniciar()
+		self.iniciarEnemigo(enemigo3)
 	}
 	method enemigoMuere() {
 		cantidadEnemigos--

@@ -13,7 +13,6 @@ object bomberman {
 	var property listaVidas = []  
     var property direccion
     var property atravesable = true
-
 	method howAreYou() = "Lets start!"
 	method imageLeft() { 
 		image = "bomberLeft.png" }
@@ -23,11 +22,7 @@ object bomberman {
 		image = "bomberUp.png" }
 	method imageDown() {
 		image = "bomberDown.png" }
-    //Aca intente hacer que el fuego no traspase la pared si es que esta en powerup nivel dos (No anda?)
-	//method bloqueoFuegoPorPared(fuegos){
-		//if(not fuegos.contains("fuegoUp")){fuegos.remove("fuegoUp2")}
-		//return fuegos
-	//}
+
 	method fueHit() { // metodo para ver si el personaje fue atacado o no
 		game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))
 		game.schedule(500,{ game.removeVisual(menosVida) })
@@ -41,8 +36,6 @@ object bomberman {
 		} else {
 			self.removerVida()}
 	}
-	
-	
 	method removerVida(){								//metodo para remover la vida
 		game.removeVisual(listaVidas.get(vidas)) 
 		listaVidas.remove(listaVidas.get(vidas))

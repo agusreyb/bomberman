@@ -70,7 +70,6 @@ object main {
 	        keyboard.space().onPressDo({bomba.ponerBomba()})
 	      
 	}
-
 	method cargarNiveles() {				//metodo para cargar los niveles
 		const nivelUno = new NivelUno()
 		const nivelDos = new NivelDos()

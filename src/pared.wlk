@@ -7,8 +7,7 @@ class Cemento {
 	method hitFuego(){}
     method atravesable () = false
 	method colision(entidad){
-	   	
-	   	entidad.seChocaPared()}
+		entidad.seChocaPared()}
 }
 
 class Pared inherits Cemento {		//estas son paredes que no se pueden destruir
@@ -23,4 +22,3 @@ class Ladrillo inherits Cemento  {	//estos son ladrillos que se pueden destruir
           game.removeVisual(self)
     }
 }
-

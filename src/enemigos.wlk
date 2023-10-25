@@ -11,14 +11,13 @@ class Enemigo {
 	var property destruible=true
 	var property atravesable = true
 	var property direccion
-
 	method velocidad ()= 400
 	method iniciar(){
-    game.onTick(self.velocidad(),"moverEnemigo",{self.siguientePosicion()})}
-	
+    game.onTick(self.velocidad(),"moverEnemigo",{self.siguientePosicion()})
+    }
 	method siguientePosicion(){
-		self.mover(direccion.mover(position))}
-	
+		self.mover(direccion.mover(position))
+		}
 	method mover(_position) {
 		const proximaPosition= _position
 		if(self.validarPosition(proximaPosition)) {
@@ -39,12 +38,9 @@ class Enemigo {
 		return 	game.getObjectsIn(_position).
 				all({visual => visual.atravesable()} )	
 	}
-	
-
 	method encontrarBomber(){
 	movimientos.volver(self, direccion)
 	}
-	
 	method cambiarDireccion(){
 		if(direccion.equals(izquierda)){
 			direccion = derecha
@@ -52,13 +48,11 @@ class Enemigo {
 			direccion = izquierda
 		}
 	}
-	
 	method colision(entidad){
 		game.say(entidad, "Cuidado!")
 	    entidad.fueHit()
 	    bomberman.posicionInicial()
 	}	
-	
   	method hitFuego(){ 
 		game.removeVisual(self)
 		main.nivel().enemigoMuere()
@@ -69,8 +63,6 @@ class EnemigoNaranja inherits Enemigo {
 	override method image()= "enemigo1.png"
 }
 
-	
-
 class EnemigoAzul inherits Enemigo {
 	override method image()= "enemigo2.png"
 
@@ -79,7 +71,6 @@ class EnemigoAzul inherits Enemigo {
 			direccion = abajo
 		} else {
 			direccion = arriba}
-
 	}
 }
 	

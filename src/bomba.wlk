@@ -9,10 +9,8 @@ class Bomba {
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
 	var property image = "bomb.png" //CAMBIAR IMAGEN
 	var property atravesable=false
-	
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
     method hitFuego(){} //NO HACE NADA
-
 }
 
 class Fuego {
@@ -21,7 +19,6 @@ class Fuego {
 	var property image = "fire.png"
 	var property potencia = 0
 	var property atravesable = true
-	
 	method esColision(){
 		if(game.getObjectsIn(position).isEmpty()){
 			return true		
@@ -41,8 +38,7 @@ object bomba inherits Bomba {
 		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuego.fuegos())})
 		game.addVisual(bomba)
 		sonido.reproducirMusica("mecha.wav", 0.25)
-	    
-   } // FUNCIONA !! :O //
+   }
 	method cicloBomba(bomba,fuegos){
 		game.removeVisual(bomba)
 		fuegos.forEach{ fueguito => game.addVisual(fueguito)}

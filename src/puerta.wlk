@@ -2,7 +2,6 @@ import wollok.game.*
 import main.*
 
 class Puerta { 
-	//var property position
 	var property position = new Position(x = 1, y = 1)
 	var property image = "puerta.png"
 	var property destruible=false

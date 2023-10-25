@@ -20,7 +20,8 @@ class Fuego {
 	var property duration = 400 //EN MILISEGUNDOS, SERIAN 0.4s
 	var property image = "fire.png"
 	var property potencia = 0
-	var property atravesable =true
+	var property atravesable = true
+	
 	method esColision(){
 		if(game.getObjectsIn(position).isEmpty()){
 			return true		

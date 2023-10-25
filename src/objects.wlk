@@ -30,8 +30,10 @@ object sonido{
     	musica.stop()}  
 }
 
-class MenosVida {									//objeto para mostrar la img de menos vida
+object menosVida {									//objeto para mostrar la img de menos vida
 	var property image = "menosVida.png"
+	var property destruible= false
+	var property atravesable= true
 	method hitFuego(){}                              //no hace nada, salva error
 }
 

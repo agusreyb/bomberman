@@ -1,3 +1,14 @@
+import wollok.game.*
+import niveles.*
+import objects.*
+import bomberman.*
+import puerta.*
+import vida.*
+import puerta.*
+import movimientos.*
+import bomba.*
+import main.*
+
 
 test "testX" {
 

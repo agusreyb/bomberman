@@ -68,16 +68,14 @@ object main {
 	        keyboard.down().onPressDo{(bomberman.imageDown())
 	        	                       bomberman.direccion(abajo)}
 	        keyboard.space().onPressDo({bomba.ponerBomba()})
-	       //	keyboard.v().onPressDo({ door.ponerPuerta(position)})  //HARDCORE PARA TESTEAR LA PUERTA
-			//keyboard.q().onPressDo({ door.abrirPuerta()})  //HARDCORE PARA TESTEAR LA PUERTA
-		//	keyboard.l().onPressDo({ bomberman.fueHit()})
+	      
 	}
 
 	method cargarNiveles() {				//metodo para cargar los niveles
 		const nivelUno = new NivelUno()
 		const nivelDos = new NivelDos()
 		const nivelTres = new NivelTres()
-		return [nivelUno, nivelDos, nivelTres]
+		return [nivelUno, nivelDos, nivelTres]  
 	}		
 	method nivel(){							//metodo para devolver el nivel
 		return niveles.get(nivelActual)
@@ -99,7 +97,8 @@ object main {
 		if(!self.validarNivel()) {
 			self.nivel().iniciarNivel()
 		} else {
-			self.terminarJuego(finDelJuegoGanador)
+			
+		self.terminarJuego(finDelJuegoGanador)
 		}
 	}
 	method terminarJuego(estado){			//metodo para terminar el juego

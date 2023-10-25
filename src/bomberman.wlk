@@ -12,7 +12,7 @@ object bomberman {
 	var property vidas
 	var property listaVidas = []  
     var property direccion
-    var property atravesable = false
+    var property atravesable = true
 
 	method howAreYou() = "Lets start!"
 	method imageLeft() { 
@@ -29,7 +29,6 @@ object bomberman {
 		//return fuegos
 	//}
 	method fueHit() { // metodo para ver si el personaje fue atacado o no
-		new menosVida = MenosVida
 		game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))
 		game.schedule(500,{ game.removeVisual(menosVida) })
 		sonido.reproducirSonido("impacto.mp3", 0.1)
@@ -42,6 +41,8 @@ object bomberman {
 		} else {
 			self.removerVida()}
 	}
+	
+	
 	method removerVida(){								//metodo para remover la vida
 		game.removeVisual(listaVidas.get(vidas)) 
 		listaVidas.remove(listaVidas.get(vidas))

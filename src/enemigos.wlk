@@ -9,7 +9,7 @@ class Enemigo {
 	var property position
 	var property image 
 	var property destruible=true
-	var property atravesable = false
+	var property atravesable = true
 	var property direccion
 
 	method velocidad ()= 400

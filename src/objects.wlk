@@ -48,8 +48,8 @@ object finDelJuego {								//objeto para setear el endgame
 
 object finDelJuegoGanador {
 	const property position = game.at(0,0)
-	const property image = "win.png" 
+	const property image = "gameWin.png" 
 	method mostrarCartel(){
-		sonido.reproducirSonido("ganaste.mp3", 0.03)
+		sonido.reproducirSonido("stageclear.wav", 0.03)
 		game.addVisual(self)}
 }

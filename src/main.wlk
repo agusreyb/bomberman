@@ -85,9 +85,12 @@ object main {
 	method pasoDeNivel() {					//metodo para el pasaje de nivel
 		sonido.stopMusica()
 		game.clear()
-		nivelActual++
+		self.sumarNivel()
 		self.iniciar()
 	}	
+	method sumarNivel(){
+		nivelActual++
+	}
 	method iniciar() {						//metodo para iniciar el juego segun level
 		sonido.reproducirMusica("musicaJuego.mp3", 0.03)
 		self.configuracionInicial()

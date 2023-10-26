@@ -17,7 +17,8 @@ describe "aaaaaaaa" {
 	const enemigo3 = new EnemigoAzul(position=[4, 3], image = "enemigo1.png", direccion = arriba)
 	const enemigo4 = new EnemigoVerde(position=[5, 3], image = "enemigo3.png", direccion = derecha)
 	const nivelUno = new NivelUno()
-	const positionpepe = new Position (x = 1, y = 3)
+	var vidas
+	
 	
 test "Iniciar enemigos" { //creamos el nivel uno con cuatro enemigos
 	assert.equals(0, nivelUno.cantidadEnemigos())
@@ -49,11 +50,19 @@ test "Pasaje de nivel" { //
 }
 
 test "Sacar vida" {
-
-	assert.that(true)
-
+	nivelUno.iniciarNivel()
+	assert.equals(3, bomberman.listaVidas().size())
+	vidas = bomberman.listaVidas().size() - 1
+	assert.equals(2, vidas)
 }	
 
+test "Game Over"{
+	nivelUno.iniciarNivel()
+	assert.equals(3, bomberman.listaVidas().size())
+	vidas = bomberman.listaVidas().size() - 3
+	assert.equals(0, vidas)
+	
+}
 
 }
 

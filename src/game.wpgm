@@ -12,4 +12,4 @@ program bomberman {
 	main.iniciarPantallaCarga() 	
  	//  COMIENZA
 	game.start()
-}
+}   

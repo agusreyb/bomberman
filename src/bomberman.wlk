@@ -51,15 +51,18 @@ method fueHit() {
 		const newVida = new Vida(position = game.at(listaVidas.size() + 20, 14)) //coordenadas para la vida
 		listaVidas.add(newVida)
 		game.addVisual(newVida)
+	}
+
+	method resetPersonaje(){
+		listaVidas.removeAll(listaVidas)
 	}	
 	method seChocaPared(){
 		movimientos.volver(self, direccion)
 	}
-    method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
+    method hitFuego(){
 	 self.fueHit()
    }
    method posicionInicial(){
-   	//game.removeVisual(self)
    }
 
 } //FIN BOMBER

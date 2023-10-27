@@ -19,6 +19,7 @@ class Nivel {
 		game.addVisualCharacter(bomberman)
 		(0..2).forEach({elem => bomberman.agregarVida()}) //setea la cantidad de vida, 0;2=3 vidas
 	} 
+
 	method cargarMapa(){
 		self.borde().forEach({par => self.iniciarPared(par)})		//setea el mapa segun el nivel
 		self.paredes().forEach({par => self.iniciarPared(par)})

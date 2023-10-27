@@ -86,6 +86,7 @@ object main {
 		sonido.stopMusica()
 		game.clear()
 		self.sumarNivel()
+		bomberman.resetPersonaje()
 		self.iniciar()
 	}	
 	method sumarNivel(){

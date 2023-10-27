@@ -44,7 +44,7 @@ object finDelJuego {								//objeto para setear el endgame
 	method mostrarCartel(){							//muestra el cartel de endgame
 		sonido.reproducirSonido("gameOver.mp3", 0.03)
 		game.addVisual(self)
-		game.schedule(3000,  {return game.stop()})
+		game.schedule(7000,  {return game.stop()})
 	}	
 }
 
@@ -54,7 +54,7 @@ object finDelJuegoGanador {
     method mostrarCartel() {
         sonido.reproducirSonido("stageclear.wav", 0.03)
         game.addVisual(self)
-        game.schedule(3000, {return game.stop()})
+        game.schedule(7000, {return game.stop()})
     }
 		
 }

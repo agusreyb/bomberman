@@ -12,8 +12,6 @@ object bomberman {
 	var property listaVidas = []  
     var property direccion
     var property atravesable = true
-    var property semaforoVida = true
-	method howAreYou() = "Lets start!"
 	method imageLeft() { 
 		image = "bomberLeft.png" }
 	method imageRight() {
@@ -24,30 +22,25 @@ object bomberman {
 		image = "bomberDown.png" }
 	method colision(entidad){}
 
-	method fueHit() { // metodo para ver si el personaje fue atacado o no
-		if(semaforoVida){
-			semaforoVida=false
-			self.semaforoHit()
-		}
-	}
-	
-	method semaforoHit(){
-		game.addVisualIn(menosVida, position.up(1))
-		game.schedule(1000,{ self.removerMenosVida() })
-		sonido.reproducirSonido("impacto.mp3", 0.1)
-		vidas = listaVidas.size() - 1
-		if(vidas == 0) {
-			game.schedule(100, {
-				game.removeVisual(self)
-				main.terminarJuego(finDelJuego)
-			})
-		} else {
-			self.removerVida()}
-	}
+method fueHit() {
+    if (!game.hasVisual(menosVida)) {
+        game.addVisualIn(menosVida, game.at(position.x(), position.y() + 1))
+        game.schedule(1000, { game.removeVisual(menosVida) })
+        sonido.reproducirSonido("impacto.mp3", 0.1)
+        vidas = listaVidas.size() - 1
+        if (vidas == 0) {
+            game.schedule(100, {
+                game.removeVisual(self)
+                main.terminarJuego(finDelJuego)
+            })
+        } else {
+            self.removerVida()
+        }
+    }
+}
 	
 	method removerMenosVida(){
 		game.removeVisual(menosVida)
-		semaforoVida=true
 	}
 	
 	method removerVida(){								//metodo para remover la vida

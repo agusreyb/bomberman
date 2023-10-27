@@ -41,11 +41,11 @@ object bomba inherits Bomba {
 	method ponerBomba(){
 		if(cantBombas>0){
 			cantBombas--
-			self.semaforoBombas()
+			self.crearBombas()
 		}
    }
    
-   	method semaforoBombas(){
+   	method crearBombas(){
    		const bomba = new Bomba(position = bomberman.position())
 		fuego.ponerFuego()
 		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuego.fuegos())})

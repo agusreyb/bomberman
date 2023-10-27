@@ -109,6 +109,5 @@ object main {
 		game.clear()
 		self.configuracionInicial()
 		estado.mostrarCartel()
-		self.jugarOSalir()
 	}	
 }	

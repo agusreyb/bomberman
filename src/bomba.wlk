@@ -71,11 +71,7 @@ object fuego inherits Fuego {
 		const fuegoDown = new Fuego(position = bomberman.position().down(1) , potencia=1)
 		const fuegoLeft = new Fuego(position = bomberman.position().left(1), potencia=1)
 		const fuegoRight = new Fuego(position = bomberman.position().right(1), potencia=1)
-		const fuegoUp2 = new Fuego(position = bomberman.position().up(2) , potencia=2)
-		const fuegoDown2 = new Fuego(position = bomberman.position().down(2) , potencia=2)
-		const fuegoLeft2 = new Fuego(position = bomberman.position().left(2), potencia=2)
-		const fuegoRight2 = new Fuego(position = bomberman.position().right(2), potencia=2)
-		fuegosTotales = [fuegoUp, fuegoDown, fuegoLeft, fuegoRight, fuegoUp2, fuegoDown2, fuegoLeft2, fuegoRight2]
+		fuegosTotales = [fuegoUp, fuegoDown, fuegoLeft, fuegoRight]
 		fuegos = fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
 		fuegos.add(fuegoCentro)	
     }

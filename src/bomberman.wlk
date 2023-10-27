@@ -63,7 +63,6 @@ object bomberman {
 		movimientos.volver(self, direccion)
 	}
     method hitFuego(){ //TIENE QUE RESTAR VIDA, CODEAR:
-	 game.say(self," -1 vida rey tene cuidado" )
 	 self.fueHit()
    }
    method posicionInicial(){

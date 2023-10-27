@@ -20,6 +20,8 @@ class Fuego {
 	var property image = "fire.png"
 	var property potencia = 0
 	var property atravesable = true
+	var property destruible = false
+	
 	method esColision(){
 		if(game.getObjectsIn(position).isEmpty()){
 			return true		

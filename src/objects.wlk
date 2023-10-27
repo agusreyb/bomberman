@@ -34,7 +34,8 @@ object menosVida {									//objeto para mostrar la img de menos vida
 	var property image = "menosVida.png"
 	var property destruible= false
 	var property atravesable= true
-	method hitFuego(){}                              //no hace nada, salva error
+	method colision(entidad){}
+	method hitFuego(){}                              
 }
 
 object finDelJuego {								//objeto para setear el endgame

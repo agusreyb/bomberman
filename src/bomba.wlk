@@ -9,6 +9,7 @@ class Bomba {
 	var property duration = 2000 //EN MILISEGUNDOS, SERIAN 2s
 	var property image = "bomb.png" //CAMBIAR IMAGEN
 	var property atravesable=false
+	var property destruible=false
 	method colision(personaje){} //QUEDA VACIO YA QUE PUEDE PASAR POR ENCIMA
     method hitFuego(){} //NO HACE NADA
 }
@@ -19,6 +20,8 @@ class Fuego {
 	var property image = "fire.png"
 	var property potencia = 0
 	var property atravesable = true
+	var property destruible = false
+	
 	method esColision(){
 		if(game.getObjectsIn(position).isEmpty()){
 			return true		
@@ -32,18 +35,29 @@ class Fuego {
 object bomba inherits Bomba {
 	var property durationBomba = 2000
 	var property bombapowup = 1
+	var property cantBombas=1
+	
+	
 	method ponerBomba(){
-		const bomba = new Bomba(position = bomberman.position())
+		if(cantBombas>0){
+			cantBombas--
+			self.crearBombas()
+		}
+   }
+   
+   	method crearBombas(){
+   		const bomba = new Bomba(position = bomberman.position())
 		fuego.ponerFuego()
 		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuego.fuegos())})
 		game.addVisual(bomba)
 		sonido.reproducirMusica("mecha.wav", 0.25)
-   }
+   	}
 	method cicloBomba(bomba,fuegos){
 		game.removeVisual(bomba)
 		fuegos.forEach{ fueguito => game.addVisual(fueguito)}
 		sonido.reproducirMusica("explosion.wav", 0.15)
 		fuego.colisionFuego() //COLISION CON OBJETOS
+		cantBombas++
 		game.schedule(fuego.durationFuego(), {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
 	   }
 	 method queNivel(cadafuego)=cadafuego.potencia() < bombapowup
@@ -59,11 +73,7 @@ object fuego inherits Fuego {
 		const fuegoDown = new Fuego(position = bomberman.position().down(1) , potencia=1)
 		const fuegoLeft = new Fuego(position = bomberman.position().left(1), potencia=1)
 		const fuegoRight = new Fuego(position = bomberman.position().right(1), potencia=1)
-		const fuegoUp2 = new Fuego(position = bomberman.position().up(2) , potencia=2)
-		const fuegoDown2 = new Fuego(position = bomberman.position().down(2) , potencia=2)
-		const fuegoLeft2 = new Fuego(position = bomberman.position().left(2), potencia=2)
-		const fuegoRight2 = new Fuego(position = bomberman.position().right(2), potencia=2)
-		fuegosTotales = [fuegoUp, fuegoDown, fuegoLeft, fuegoRight, fuegoUp2, fuegoDown2, fuegoLeft2, fuegoRight2]
+		fuegosTotales = [fuegoUp, fuegoDown, fuegoLeft, fuegoRight]
 		fuegos = fuegosTotales.filter({cadafuego => self.filtrarFuego(cadafuego)})
 		fuegos.add(fuegoCentro)	
     }

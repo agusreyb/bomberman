@@ -49,7 +49,6 @@ class Enemigo {
 		}
 	}
 	method colision(entidad){
-		game.say(entidad, "Cuidado!")
 	    entidad.fueHit()
 	    bomberman.posicionInicial()
 	}	
@@ -77,4 +76,4 @@ class EnemigoAzul inherits Enemigo {
 class EnemigoVerde inherits Enemigo {
 	override method image()= "enemigo3.png"
 	override method velocidad ()= 100
-	}
+}

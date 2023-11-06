@@ -59,8 +59,8 @@ object bomba inherits Bomba {
 		fuego.colisionFuego() //COLISION CON OBJETOS
 		cantBombas++
 		game.schedule(fuego.durationFuego(), {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 
-	   }
-	 method queNivel(cadafuego)=cadafuego.potencia() < bombapowup
+	}
+	method queNivel(cadafuego) = cadafuego.potencia() < bombapowup
 }
 
 object fuego inherits Fuego {
@@ -79,5 +79,5 @@ object fuego inherits Fuego {
     }
 	method filtrarFuego(cadafuego) = (cadafuego.potencia() <= bomba.bombapowup()) and (cadafuego.esColision())
 	method colisionFuego(){
-	  fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}} //EL QUE FUNCIONA
+	  fuegos.forEach{fuego => game.whenCollideDo(fuego,{objeto => objeto.hitFuego()})}}
 }

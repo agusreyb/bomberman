@@ -11,59 +11,53 @@ import enemigos.*
 import main.*
 import pared.*
 
-describe "aaaaaaaa" {
-	const enemigo1 = new EnemigoNaranja(position= [1, 3], image = "enemigo1.png", direccion = izquierda)
-	const enemigo2 = new EnemigoNaranja(position= [2, 3], image = "enemigo1.png", direccion = izquierda)
-	const enemigo3 = new EnemigoAzul(position=[4, 3], image = "enemigo1.png", direccion = arriba)
-	const enemigo4 = new EnemigoVerde(position=[5, 3], image = "enemigo3.png", direccion = derecha)
+describe "Tests Bomberman" {
 	const nivelUno = new NivelUno()
 	var vidas
 	
 	
-test "Iniciar enemigos" { //creamos el nivel uno con cuatro enemigos
-	assert.equals(0, nivelUno.cantidadEnemigos())
-	nivelUno.iniciarNivel()
-	assert.equals(4, nivelUno.cantidadEnemigos())
-}
-
-test "Matar enemigos" {  //creamos el nivel uno con cuatro enemigos y los matamos
-	assert.equals(0, nivelUno.cantidadEnemigos())
-	nivelUno.iniciarNivel()
-	assert.equals(4, nivelUno.cantidadEnemigos())
-	nivelUno.enemigoMuere()
-	nivelUno.enemigoMuere()
-	nivelUno.enemigoMuere()
-	nivelUno.enemigoMuere()
-	assert.equals(0, nivelUno.cantidadEnemigos())
-}
-
-test "Pasaje de nivel" { //
-	nivelUno.iniciarNivel()
-	assert.equals(0, main.nivelActual()) //seria nivel uno
-	nivelUno.enemigoMuere()
-	nivelUno.enemigoMuere()
-	nivelUno.enemigoMuere()
-	nivelUno.enemigoMuere()
-	assert.equals(0, nivelUno.cantidadEnemigos())
-	main.sumarNivel()
-	assert.equals(1, main.nivelActual()) // seria nivel dos
-}
-
-test "Sacar vida" {
-	nivelUno.iniciarNivel()
-	assert.equals(3, bomberman.listaVidas().size())
-	vidas = bomberman.listaVidas().size() - 1
-	assert.equals(2, vidas)
-}	
-
-test "Game Over"{
-	nivelUno.iniciarNivel()
-	assert.equals(3, bomberman.listaVidas().size())
-	vidas = bomberman.listaVidas().size() - 3
-	assert.equals(0, vidas)
+	test "Iniciar enemigos" { //creamos el nivel uno con cuatro enemigos
+		assert.equals(0, nivelUno.cantidadEnemigos())
+		nivelUno.iniciarNivel()
+		assert.equals(4, nivelUno.cantidadEnemigos())
+	}
 	
-}
-
+	test "Matar enemigos" {  //creamos el nivel uno con cuatro enemigos y los matamos
+		assert.equals(0, nivelUno.cantidadEnemigos())
+		nivelUno.iniciarNivel()
+		assert.equals(4, nivelUno.cantidadEnemigos())
+		nivelUno.enemigoMuere()
+		nivelUno.enemigoMuere()
+		nivelUno.enemigoMuere()
+		nivelUno.enemigoMuere()
+		assert.equals(0, nivelUno.cantidadEnemigos())
+	}
+	
+	test "Pasaje de nivel" { //
+		nivelUno.iniciarNivel()
+		assert.equals(0, main.nivelActual()) //seria nivel uno
+		nivelUno.enemigoMuere()
+		nivelUno.enemigoMuere()
+		nivelUno.enemigoMuere()
+		nivelUno.enemigoMuere()
+		assert.equals(0, nivelUno.cantidadEnemigos())
+		main.sumarNivel()
+		assert.equals(1, main.nivelActual()) // seria nivel dos
+	}
+	
+	test "Sacar vida" {
+		nivelUno.iniciarNivel()
+		assert.equals(3, bomberman.listaVidas().size())
+		vidas = bomberman.listaVidas().size() - 1
+		assert.equals(2, vidas)
+	}	
+	
+	test "Game Over"{
+		nivelUno.iniciarNivel()
+		assert.equals(3, bomberman.listaVidas().size())
+		vidas = bomberman.listaVidas().size() - 3
+		assert.equals(0, vidas)
+	}
 }
 
 

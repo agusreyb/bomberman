@@ -170,7 +170,7 @@ class NivelTres inherits Nivel{
 				[17,12],[18,4],[18,8],[18,10],[18,11],[18,13],[19,8],[20,4],[20,8],[20,10],[21,8]]
 	}
 	override method enemigosNaranjas() {
-		return [[3,10],[7,12],[15,2],[19,9]]
+		return [[3,10],[5,1],[7,12],[19,9]]
 	}
 	override method enemigosAzules() {
 		return [[6,9],[12,4],[12,12]]

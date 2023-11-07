@@ -22,6 +22,8 @@ class Fuego {
 	var property atravesable = true
 	var property destruible = false
 	
+	//Chequea si el fuego puede aparecer en un lugar. Las condiciones para aparecer es que no haya nada o que si hay algo, si es destruible
+	//method esColision()=(game.getObjectsIn(position).isEmpty()) or (game.getObjectsIn(position).get(0).destruible())	
 	method esColision(){
 		if(game.getObjectsIn(position).isEmpty()){
 			return true		
@@ -29,6 +31,7 @@ class Fuego {
 			return game.getObjectsIn(position).get(0).destruible()	
 		}
 	}
+	
 	method colision(personaje){} //QUEDA VACIO YA QUE PERSONAJE PUEDE PASAR POR ENCIMA
 }
 
@@ -50,12 +53,12 @@ object bomba inherits Bomba {
 		fuego.ponerFuego()
 		game.schedule(durationBomba, {=> self.cicloBomba(bomba,fuego.fuegos())})
 		game.addVisual(bomba)
-		sonido.reproducirMusica("mecha.wav", 0.25)
+		sonido.reproducirSonido("mecha.wav", 0.25)
    	}
 	method cicloBomba(bomba,fuegos){
 		game.removeVisual(bomba)
 		fuegos.forEach{ fueguito => game.addVisual(fueguito)}
-		sonido.reproducirMusica("explosion.wav", 0.15)
+		sonido.reproducirSonido("explosion.wav", 0.15)
 		fuego.colisionFuego() //COLISION CON OBJETOS
 		cantBombas++
 		game.schedule(fuego.durationFuego(), {=> fuegos.forEach{ fueguito => game.removeVisual(fueguito)}}) 

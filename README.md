@@ -55,4 +55,4 @@ El jugador pierde el juego si pierde todas sus vidas en cualquier nivel.
 
 - Algoritmos I - UNSAM
 - 3.0.0
-- Una vez terminado, queremos manternerlo privado
+
